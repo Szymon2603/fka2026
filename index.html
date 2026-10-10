@@ -492,6 +492,49 @@
       text-decoration: none;
     }
     .modal-link:hover { text-decoration: underline; }
+
+    /* Share bar (under plan toolbar) */
+    .share-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .75rem;
+      padding: .75rem 1rem;
+      margin: .5rem 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .share-buttons { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .share-bar label.btn { cursor: pointer; }
+    .share-hint {
+      flex: 1 1 100%;
+      font-size: .78rem;
+      color: var(--text-3);
+      min-height: 1.2em;
+    }
+    .share-hint.success { color: var(--accent); }
+    .share-hint.error { color: var(--warn, #d33); }
+
+    /* Import banner (top of page when ?import= present) */
+    .import-banner {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .75rem;
+      padding: .75rem 1rem;
+      background: var(--accent);
+      color: #fff;
+    }
+    .import-banner.hidden { display: none; }
+    .import-banner-text { flex: 1 1 auto; min-width: 0; }
+    .import-banner-text small { display: block; opacity: .85; font-weight: 400; font-size: .8rem; margin-top: .15rem; }
+    .import-banner-actions { display: flex; gap: .5rem; }
+    .import-banner-actions .btn { background: #00000026; color: #fff; border-color: #ffffff40; }
+    .import-banner-actions .btn.primary { background: #fff; color: var(--accent); border-color: #fff; }
     .no-poster {
       aspect-ratio: 16 / 9;
       background: linear-gradient(135deg, var(--surface-2), var(--surface));
@@ -512,6 +555,17 @@
     <nav class="tabs" id="dayTabs"></nav>
   </header>
 
+  <div id="importBanner" class="import-banner hidden" role="alert">
+    <div class="import-banner-text">
+      <strong>Zaimportowano plan z linku</strong>
+      <span id="importBannerMeta"></span>
+    </div>
+    <div class="import-banner-actions">
+      <button class="btn primary" id="importAcceptBtn" type="button">Akceptuj</button>
+      <button class="btn" id="importRejectBtn" type="button">Odrzuć</button>
+    </div>
+  </div>
+
   <main>
     <section id="day-view">
       <div class="toolbar">
@@ -525,6 +579,17 @@
       <div class="toolbar">
         <div class="summary" id="planSummary"></div>
         <button class="btn" id="clearAllBtn" type="button">Wyczyść wszystko</button>
+      </div>
+      <div class="share-bar">
+        <div class="share-buttons">
+          <button class="btn" id="exportLinkBtn" type="button" title="Skopiuj link z Twoim planem">📋 Kopiuj link</button>
+          <button class="btn" id="exportJsonBtn" type="button" title="Pobierz plik z planem">⬇ Pobierz JSON</button>
+          <label class="btn" id="importJsonLabel" title="Wczytaj plan z pliku JSON">
+            ⬆ Importuj JSON
+            <input type="file" id="importJsonInput" accept="application/json,.json" style="display:none" />
+          </label>
+        </div>
+        <div class="share-hint" id="shareHint"></div>
       </div>
       <ul class="selected-list" id="planList"></ul>
       <div class="legend">
@@ -607,6 +672,50 @@
     const DEFAULT_TRANSITION_MIN = 15; // default walking time between different venueGroups
     const DEFAULT_PRE_SHOW_MIN = 10; // minutes of pre-show (ads/trailers) before each film
 
+    // ============ Share (base64url) ============
+    // Minimal base64url (RFC 4648 §5) for inlining small JSON payloads in URLs.
+    const B64U = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+    function b64uEncode(bytes) {
+      let out = '';
+      for (let i = 0; i < bytes.length; i += 3) {
+        const b1 = bytes[i], b2 = bytes[i+1] ?? 0, b3 = bytes[i+2] ?? 0;
+        out += B64U[b1 >> 2];
+        out += B64U[((b1 & 3) << 4) | (b2 >> 4)];
+        if (i + 1 < bytes.length) out += B64U[((b2 & 15) << 2) | (b3 >> 6)];
+        if (i + 2 < bytes.length) out += B64U[b3 & 63];
+      }
+      return out;
+    }
+    function b64uDecode(str) {
+      const map = new Map();
+      for (let i = 0; i < B64U.length; i++) map.set(B64U[i], i);
+      const bytes = [];
+      for (let i = 0; i < str.length; i += 4) {
+        const c1 = map.get(str[i]), c2 = map.get(str[i+1]), c3 = map.get(str[i+2]), c4 = map.get(str[i+3]);
+        bytes.push((c1 << 2) | (c2 >> 4));
+        if (c3 !== undefined) bytes.push(((c2 & 15) << 4) | (c3 >> 2));
+        if (c4 !== undefined) bytes.push(((c3 & 3) << 6) | c4);
+      }
+      return new Uint8Array(bytes);
+    }
+    function strToBytes(str) {
+      return new TextEncoder().encode(str);
+    }
+    function bytesToStr(bytes) {
+      return new TextDecoder().decode(bytes);
+    }
+    function encodeShare(obj) {
+      // Compact JSON (no spaces) + b64url, so ?import=... stays short.
+      return b64uEncode(strToBytes(JSON.stringify(obj)));
+    }
+    function decodeShare(str) {
+      try {
+        return JSON.parse(bytesToStr(b64uDecode(str)));
+      } catch (e) {
+        return null;
+      }
+    }
+
     /** @type {Map<string, number>} override: "from\to" -> minutes */
     let transitions = new Map();
 
@@ -675,10 +784,143 @@
       saveTransitions();
     }
 
+    /** Build the shareable snapshot — only what makes the plan mine. */
+    function buildSnapshot() {
+      return {
+        v: 1, // schema version
+        app: 'fka2026',
+        selected: [...selected],
+        transitions: [...transitions.entries()],
+        settings: { ...settings },
+      };
+    }
+
+    /** Apply a snapshot. Returns false if invalid/wrong app/version. */
+    function applySnapshot(snap) {
+      if (!snap || snap.app !== 'fka2026') return false;
+      if (snap.v !== 1) return false;
+      if (Array.isArray(snap.selected)) {
+        selected = new Set(snap.selected.filter(id =>
+          data && data.screenings.some(s => s.id === id)
+        ));
+        saveSelected();
+      }
+      if (Array.isArray(snap.transitions)) {
+        transitions = new Map(
+          snap.transitions.filter(([k, v]) =>
+            typeof k === 'string' && typeof v === 'number' && v >= 0 && v <= 240
+          )
+        );
+        saveTransitions();
+      }
+      if (snap.settings && typeof snap.settings === 'object') {
+        settings = {
+          preShowEnabled: typeof snap.settings.preShowEnabled === 'boolean'
+            ? snap.settings.preShowEnabled : settings.preShowEnabled,
+          preShowMinutes: Number.isFinite(Number(snap.settings.preShowMinutes))
+            ? Math.max(0, Math.min(60, Math.round(Number(snap.settings.preShowMinutes))))
+            : settings.preShowMinutes,
+        };
+        saveSettings();
+      }
+      return true;
+    }
+
+    /** Brief 2-line hint under the share buttons. */
+    function flashHint(msg, kind) {
+      const el = document.getElementById('shareHint');
+      if (!el) return;
+      el.textContent = msg;
+      el.className = 'share-hint' + (kind ? ' ' + kind : '');
+      if (kind === 'success') {
+        clearTimeout(flashHint._t);
+        flashHint._t = setTimeout(() => {
+          if (el.textContent === msg) el.textContent = '';
+        }, 4000);
+      }
+    }
+
+    /** Copy text to clipboard with fallback for non-secure contexts. */
+    async function copyToClipboard(text, okMsg) {
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+          flashHint(okMsg + ' (' + text.length + ' zn.)', 'success');
+          return;
+        }
+        throw new Error('no clipboard');
+      } catch {
+        // Fallback: temporary textarea + execCommand
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          flashHint(okMsg + ' (' + text.length + ' zn.)', 'success');
+        } catch {
+          prompt('Skopiuj ręcznie:', text);
+        }
+        ta.remove();
+      }
+    }
+
+    /** Show the top banner with what's in the imported snapshot. */
+    function showImportBanner(snap) {
+      const banner = document.getElementById('importBanner');
+      const meta = document.getElementById('importBannerMeta');
+      if (!banner || !meta) return;
+
+      const nSelected = Array.isArray(snap.selected) ? snap.selected.length : 0;
+      const nTransitions = Array.isArray(snap.transitions) ? snap.transitions.length : 0;
+      const preShowMin = snap.settings?.preShowMinutes;
+      const preShowEn = snap.settings?.preShowEnabled;
+
+      const parts = [];
+      parts.push(`${nSelected} seansów`);
+      parts.push(`${nTransitions} własnych przejść`);
+      if (preShowMin !== undefined) {
+        parts.push(`reklamy: ${preShowEn === false ? 'wyłączone' : preShowMin + ' min'}`);
+      }
+
+      banner.classList.remove('hidden');
+      meta.textContent = parts.join(' · ');
+      // Banner persists across renders — wire once.
+      if (!banner.dataset.wired) {
+        banner.dataset.wired = '1';
+        document.getElementById('importAcceptBtn').addEventListener('click', () => {
+          if (!applySnapshot(pendingSnap)) {
+            flashHint('Nie udało się zaimportować', 'error');
+            return;
+          }
+          // Clear ?import= from URL
+          const u = new URL(location.href);
+          u.searchParams.delete('import');
+          history.replaceState(null, '', u.pathname + (u.searchParams.toString() ? '?' + u.searchParams : '') + u.hash);
+          banner.classList.add('hidden');
+          renderAll();
+          activeView = 'plan';
+          renderActiveView();
+          flashHint('Zaimportowano plan', 'success');
+        });
+        document.getElementById('importRejectBtn').addEventListener('click', () => {
+          const u = new URL(location.href);
+          u.searchParams.delete('import');
+          history.replaceState(null, '', u.pathname + (u.searchParams.toString() ? '?' + u.searchParams : '') + u.hash);
+          banner.classList.add('hidden');
+        });
+      }
+    }
+
     /** @type {object|null} */
     let data = null;
     /** @type {Set<string>} */
     let selected = new Set();
+
+    /** Snapshot from ?import= awaiting user accept/reject. */
+    let pendingSnap = null;
     let activeDay = null; // 'all' | day number
     let activeView = 'day'; // 'day' | 'plan'
 
@@ -715,6 +957,61 @@
         for (const id of ids) selected.delete(id);
         saveSelected();
         renderActiveView();
+      });
+
+      // ============ Share/export/import ============
+      // On load, check ?import=... and show banner; do not auto-apply.
+      const params = new URLSearchParams(location.search);
+      const importStr = params.get('import');
+      pendingSnap = importStr ? decodeShare(importStr) : null;
+      if (pendingSnap && pendingSnap.app === 'fka2026') {
+        showImportBanner(pendingSnap);
+      }
+
+      // Toggle (settings) re-render needs to re-render banner meta if present
+      // (settings.preShowMinutes may appear there).
+
+      document.getElementById('exportLinkBtn').addEventListener('click', () => {
+        const snap = buildSnapshot();
+        const url = location.origin + location.pathname + '?import=' + encodeShare(snap);
+        copyToClipboard(url, 'Skopiowano link do schowka');
+      });
+
+      document.getElementById('exportJsonBtn').addEventListener('click', () => {
+        const snap = buildSnapshot();
+        const blob = new Blob([JSON.stringify(snap, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        const d = new Date().toISOString().slice(0, 10);
+        a.download = `fka2026-plan-${d}.json`;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 100);
+        flashHint('Pobrano ' + a.download, 'success');
+      });
+
+      document.getElementById('importJsonInput').addEventListener('change', (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const snap = JSON.parse(String(reader.result));
+            if (applySnapshot(snap)) {
+              flashHint('Zaimportowano: ' + file.name, 'success');
+              renderAll();
+              // Auto-switch to plan view to show what's loaded
+              activeView = 'plan';
+              renderActiveView();
+            } else {
+              flashHint('Nieprawidłowy plik — brak app/fka2026', 'error');
+            }
+          } catch {
+            flashHint('Błąd parsowania JSON', 'error');
+          }
+          e.target.value = ''; // allow re-importing same file
+        };
+        reader.readAsText(file);
       });
 
       if (data.festival.generatedAt) {
