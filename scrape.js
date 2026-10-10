@@ -537,6 +537,11 @@ async function main() {
       year: 2026,
       city: 'Łódź',
       dates: ['2026-10-22', '2026-10-23', '2026-10-24', '2026-10-25'],
+      // Default minutes of pre-show (ads/trailers) before each film.
+      // Hours on festival page are seance start (incl. ads); film starts
+      // a few minutes later. Used by index.html to show film times and
+      // detect conflicts based on actual film duration.
+      preShowMinutes: 10,
       sourceUrl: URL,
       generatedAt: new Date().toISOString(),
     },

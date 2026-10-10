@@ -254,6 +254,17 @@
       border-radius: 10px;
     }
     .pin { background: var(--pin); color: #000; font-size: .65rem; padding: 0 .35rem; border-radius: 4px; margin-left: .35rem; vertical-align: middle; }
+    .preshow-badge {
+      display: inline-block;
+      background: var(--surface-2);
+      color: var(--text-2);
+      border: 1px solid var(--border);
+      font-size: .65rem;
+      padding: 0 .35rem;
+      border-radius: 4px;
+      margin-top: .25rem;
+      font-weight: 500;
+    }
     .legend {
       display: flex;
       gap: .75rem;
@@ -524,6 +535,43 @@
         <span>Czas jest symetryczny — para (A, B) = para (B, A)</span>
       </div>
     </section>
+
+    <section id="settings-view" class="hidden">
+      <div class="toolbar">
+        <div class="summary">Ustawienia apki — zapisywane lokalnie w przeglądarce.</div>
+      </div>
+      <div class="transitions-grid">
+        <div class="transition-row" style="grid-template-columns: 1fr auto;">
+          <div>
+            <div style="font-weight: 600; margin-bottom: .25rem;">Reklamy przed filmami</div>
+            <div class="meta" style="font-size: .82rem;">
+              Godziny na stronie festiwalu to początek seansu (reklamy + film). Odejmujemy ten czas, żeby pokazać godzinę startu samego filmu. Wpływa na wykrywanie kolizji.
+            </div>
+          </div>
+          <label style="display: flex; align-items: center; gap: .5rem; cursor: pointer;">
+            <input type="checkbox" id="preShowEnabled" style="width: 1.25rem; height: 1.25rem;" />
+            <span id="preShowEnabledLabel">włączone</span>
+          </label>
+        </div>
+
+        <div class="transition-row" style="grid-template-columns: 1fr auto;">
+          <div>
+            <div style="font-weight: 600; margin-bottom: .25rem;">Czas reklam (minuty)</div>
+            <div class="meta" style="font-size: .82rem;">
+              Domyślnie <strong>10 min</strong>. Zmień jeśli festiwal ma inną długość bloków reklamowych.
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: .35rem;">
+            <input type="number" id="preShowMinutes" class="time-input" min="0" max="60" value="10" inputmode="numeric" />
+            <span class="unit">min</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend" style="margin-top: 1.5rem;">
+        <span>Ustawienia są zapisywane automatycznie po każdej zmianie.</span>
+      </div>
+    </section>
   </main>
 
   <div id="modalRoot" aria-hidden="true"></div>
@@ -538,10 +586,25 @@
     // ============ Config & state ============
     const STORAGE_KEY = 'fka2026.selected.v1';
     const TRANSITIONS_KEY = 'fka2026.transitions.v1';
+    const SETTINGS_KEY = 'fka2026.settings.v1';
     const DEFAULT_TRANSITION_MIN = 15; // default walking time between different venueGroups
+    const DEFAULT_PRE_SHOW_MIN = 10; // minutes of pre-show (ads/trailers) before each film
 
     /** @type {Map<string, number>} override: "from\to" -> minutes */
     let transitions = new Map();
+
+    /** @type {{ preShowEnabled: boolean, preShowMinutes: number }} */
+    let settings = { preShowEnabled: true, preShowMinutes: DEFAULT_PRE_SHOW_MIN };
+
+    function loadSettings() {
+      try {
+        const raw = localStorage.getItem(SETTINGS_KEY);
+        if (raw) settings = { ...settings, ...JSON.parse(raw) };
+      } catch {}
+    }
+    function saveSettings() {
+      try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); } catch {}
+    }
 
     /** Load user-customized transition times from localStorage. */
     function loadTransitions() {
@@ -567,6 +630,27 @@
       if (typeof a === 'number') return a;
       if (typeof b === 'number') return b;
       return DEFAULT_TRANSITION_MIN;
+    }
+
+    /** Returns pre-show minutes applied before each film (0 if disabled). */
+    function getPreShowMin() {
+      if (!settings.preShowEnabled) return 0;
+      const v = Number(settings.preShowMinutes);
+      return Number.isFinite(v) && v >= 0 && v <= 60 ? Math.round(v) : DEFAULT_PRE_SHOW_MIN;
+    }
+
+    /** Returns { filmStart, filmEnd } in "HH:MM" — actual film time, excluding pre-show. */
+    function filmTimes(s) {
+      const pre = getPreShowMin();
+      const filmStartMin = minutes(s.start) + pre;
+      const total = filmStartMin + (s.runtime || 0) + (s.extraMinutes || 0);
+      const endH = Math.floor(total / 60) % 24;
+      const endM = total % 60;
+      return {
+        filmStart: `${String(Math.floor(filmStartMin / 60) % 24).padStart(2, '0')}:${String(filmStartMin % 60).padStart(2, '0')}`,
+        filmEnd: `${String(endH).padStart(2, '0')}:${String(endM).padStart(2, '0')}`,
+        preShow: pre,
+      };
     }
     function setTransitionMin(from, to, minutes) {
       if (from === to) return;
@@ -595,6 +679,7 @@
 
       loadSelected();
       loadTransitions();
+      loadSettings();
       renderTabs();
       renderActiveView();
 
@@ -673,6 +758,7 @@
         const daySelected = data.screenings.filter(s => s.day === dayNum && selected.has(s.id)).length;
         html.push(`<button type="button" class="tab" data-tab="${dayNum}">${dayNum} ${dayNames[i]}</button>`);
       }
+      html.push(`<button type="button" class="tab" data-tab="settings">Ustawienia</button>`);
       html.push(`<button type="button" class="tab" data-tab="transitions">Czasy przejść</button>`);
       tabsEl.innerHTML = html.join('');
       tabsEl.querySelectorAll('.tab').forEach(btn => {
@@ -680,6 +766,7 @@
           const t = btn.dataset.tab;
           if (t === 'plan') activeView = 'plan';
           else if (t === 'transitions') activeView = 'transitions';
+          else if (t === 'settings') activeView = 'settings';
           else { activeView = 'day'; activeDay = t === 'all' ? 'all' : parseInt(t, 10); }
           renderActiveView();
         });
@@ -691,6 +778,7 @@
         const t = btn.dataset.tab;
         if (t === 'plan') btn.classList.toggle('active', activeView === 'plan');
         else if (t === 'transitions') btn.classList.toggle('active', activeView === 'transitions');
+        else if (t === 'settings') btn.classList.toggle('active', activeView === 'settings');
         else if (activeView === 'day') btn.classList.toggle('active', String(activeDay) === t);
       });
     }
@@ -701,16 +789,25 @@
         document.getElementById('day-view').classList.add('hidden');
         document.getElementById('plan-view').classList.remove('hidden');
         document.getElementById('transitions-view').classList.add('hidden');
+        document.getElementById('settings-view').classList.add('hidden');
         renderPlan();
       } else if (activeView === 'transitions') {
         document.getElementById('day-view').classList.add('hidden');
         document.getElementById('plan-view').classList.add('hidden');
         document.getElementById('transitions-view').classList.remove('hidden');
+        document.getElementById('settings-view').classList.add('hidden');
         renderTransitions();
+      } else if (activeView === 'settings') {
+        document.getElementById('day-view').classList.add('hidden');
+        document.getElementById('plan-view').classList.add('hidden');
+        document.getElementById('transitions-view').classList.add('hidden');
+        document.getElementById('settings-view').classList.remove('hidden');
+        renderSettings();
       } else {
         document.getElementById('day-view').classList.remove('hidden');
         document.getElementById('plan-view').classList.add('hidden');
         document.getElementById('transitions-view').classList.add('hidden');
+        document.getElementById('settings-view').classList.add('hidden');
         renderDay();
       }
     }
@@ -795,16 +892,22 @@
       const directorEsc = escapeHtml(s.director || '');
       const sectionEsc = escapeHtml(s.section || '');
       const flagsHtml = s.flags.map(f => `<span class="flag${f === 'audiodeskrypcja' || f === 'pokaz-specjalny' ? ' warn' : ''}">${escapeHtml(flagLabel(f))}</span>`).join('');
+      const ft = filmTimes(s);
+      // Show "HH:MM → HH:MM" of the actual film (always), with a +N min badge for pre-show.
+      const timeLabel = settings.preShowEnabled && ft.preShow > 0
+        ? `${ft.filmStart}<span class="end">→ ${ft.filmEnd}</span><span class="preshow-badge">+${ft.preShow} min</span>`
+        : `${ft.filmStart}<span class="end">→ ${ft.filmEnd}</span>`;
+      const runtimeLabel = s.runtime
+        ? `${s.runtime} min${s.extraMinutes ? ` + ${s.extraMinutes} min` : ''}${settings.preShowEnabled && ft.preShow > 0 ? ` + ${ft.preShow} min reklam` : ''}`
+        : '';
       return `
         <li class="screening" data-id="${escapeHtml(s.id)}">
-          <div class="time">
-            ${s.start}<span class="end">→ ${s.end}</span>
-          </div>
+          <div class="time">${timeLabel}</div>
           <div class="body">
             <p class="title">${titleEsc}</p>
             <div class="meta">
               ${directorEsc ? `<span>${directorEsc}</span>` : ''}
-              ${s.runtime ? `<span>${s.runtime} min${s.extraMinutes ? ` + ${s.extraMinutes} min` : ''}</span>` : ''}
+              ${runtimeLabel ? `<span>${runtimeLabel}</span>` : ''}
               <span class="venue">${venueEsc}</span>
               ${sectionEsc ? `<span>· ${sectionEsc}</span>` : ''}
             </div>
@@ -843,21 +946,23 @@
       for (let i = 0; i < sel.length; i++) {
         for (let j = i + 1; j < sel.length; j++) {
           const a = sel[i], b = sel[j];
-          // Determine chronological order
-          const [first, second] = (a.date + a.start) <= (b.date + b.start) ? [a, b] : [b, a];
+          // Determine chronological order by actual film start
+          const fa = filmTimes(a), fb = filmTimes(b);
+          const [first, second, firstFT, secondFT] =
+            (a.date + fa.filmStart) <= (b.date + fb.filmStart) ? [a, b, fa, fb] : [b, a, fb, fa];
           if (first.day !== second.day) continue; // different days → no conflict
-          // 1. Overlap
-          const overlap = minutes(first.start) < minutes(second.end) && minutes(second.start) < minutes(first.end);
+          // 1. Overlap (uses film times — pre-show is excluded)
+          const overlap = minutes(firstFT.filmStart) < minutes(secondFT.filmEnd) && minutes(secondFT.filmStart) < minutes(firstFT.filmEnd);
           if (overlap) {
             map[first.id].overlap = true;
             map[second.id].overlap = true;
-            map[first.id].items.push({ kind: 'overlap', otherId: second.id, msg: `Nakłada się z "${second.title}" (${second.start}–${second.end})` });
-            map[second.id].items.push({ kind: 'overlap', otherId: first.id, msg: `Nakłada się z "${first.title}" (${first.start}–${first.end})` });
+            map[first.id].items.push({ kind: 'overlap', otherId: second.id, msg: `Nakłada się z "${second.title}" (${secondFT.filmStart}–${secondFT.filmEnd})` });
+            map[second.id].items.push({ kind: 'overlap', otherId: first.id, msg: `Nakłada się z "${first.title}" (${firstFT.filmStart}–${firstFT.filmEnd})` });
             continue;
           }
-          // 2. Travel time
+          // 2. Travel time — gap between end of film A and start of film B
           if (first.venueGroup !== second.venueGroup) {
-            const gap = minutes(second.start) - minutes(first.end);
+            const gap = minutes(secondFT.filmStart) - minutes(firstFT.filmEnd);
             const travel = getTransitionMin(first.venueGroup, second.venueGroup);
             if (gap >= 0 && gap < travel) {
               map[first.id].travel = true;
@@ -917,8 +1022,12 @@
         const conflictList = conflictsById[s.id]?.items?.length
           ? `<ul class="conflict-list">${conflictsById[s.id].items.map(formatConflict).join('')}</ul>`
           : '';
+        const ft = filmTimes(s);
+        const timeLabel = settings.preShowEnabled && ft.preShow > 0
+          ? `${ft.filmStart}<span class="end">→ ${ft.filmEnd}</span><span class="preshow-badge">+${ft.preShow} min</span>`
+          : `${ft.filmStart}<span class="end">→ ${ft.filmEnd}</span>`;
         return `${dayHeader}<li class="screening ${klass}" data-id="${escapeHtml(s.id)}">
-          <div class="time">${s.start}<span class="end">→ ${s.end}</span></div>
+          <div class="time">${timeLabel}</div>
           <div class="body">
             <p class="title">${escapeHtml(s.title)}${s.flags.includes('przedpremierowy') ? '<span class="pin">przedpremiera</span>' : ''}</p>
             <div class="meta">
@@ -957,6 +1066,7 @@
       const root = document.getElementById('modalRoot');
       const d = s.details;
       const isSelected = selected.has(s.id);
+      const ft = filmTimes(s);
 
       const tagsHtml = d.tags && d.tags.length
         ? `<div class="modal-tags">${d.tags.map(t => `<span class="modal-tag">${escapeHtml(t)}</span>`).join('')}</div>`
@@ -972,6 +1082,12 @@
       if (year) metaBits.push(`<strong>${escapeHtml(year)}</strong>`);
       if (d.country) metaBits.push(escapeHtml(d.country));
       if (runtime) metaBits.push(escapeHtml(runtime));
+
+      // Info o czasie seansu vs filmu
+      const pre = getPreShowMin();
+      const showtimeHtml = pre > 0
+        ? `<div class="modal-section"><h4>Godziny seansu</h4><p>Start seansu (z reklamami): <strong>${s.start}</strong><br />Start filmu: <strong>${ft.filmStart}</strong> (po ${pre} min reklam)<br />Koniec filmu: <strong>${ft.filmEnd}</strong></p></div>`
+        : `<div class="modal-section"><h4>Godziny seansu</h4><p>Start: <strong>${s.start}</strong> · Koniec: <strong>${ft.filmEnd}</strong></p></div>`;
 
       const plotSection = d.plot ? `
         <div class="modal-section">
@@ -1012,6 +1128,7 @@
                 ${s.flags.map(f => `<span>· ${escapeHtml(flagLabel(f))}</span>`).join('')}
               </div>
               ${tagsHtml}
+              ${showtimeHtml}
               ${plotSection}
               ${awardsSection}
               ${castSection}
@@ -1060,6 +1177,39 @@
       }
     }
 
+    // ============ Settings editor ============
+    function renderSettings() {
+      const enabledEl = document.getElementById('preShowEnabled');
+      const minutesEl = document.getElementById('preShowMinutes');
+      const labelEl = document.getElementById('preShowEnabledLabel');
+      if (!enabledEl) return;
+      enabledEl.checked = !!settings.preShowEnabled;
+      minutesEl.value = settings.preShowMinutes;
+      labelEl.textContent = enabledEl.checked ? 'włączone' : 'wyłączone';
+
+      enabledEl.onchange = () => {
+        settings.preShowEnabled = enabledEl.checked;
+        saveSettings();
+        renderAll();
+      };
+      minutesEl.onchange = () => {
+        const v = parseInt(minutesEl.value, 10);
+        if (Number.isFinite(v) && v >= 0 && v <= 60) {
+          settings.preShowMinutes = v;
+          saveSettings();
+          renderAll();
+        } else {
+          minutesEl.value = settings.preShowMinutes;
+        }
+      };
+    }
+
+    /** Re-render everything affected by settings (tabs + day/plan views). */
+    function renderAll() {
+      renderTabs();
+      renderActiveView();
+    }
+
     // ============ Transitions editor ============
     function renderTransitions() {
       const el = document.getElementById('transitionsList');
@@ -1096,7 +1246,7 @@
           const v = parseInt(input.value, 10);
           if (Number.isFinite(v) && v >= 0 && v <= 120) {
             setTransitionMin(from, to, v);
-            renderActiveView(); // re-render to update badge/custom class
+            renderAll(); // re-render to update badge/custom class
           } else {
             // Reset to current value
             input.value = getTransitionMin(from, to);
