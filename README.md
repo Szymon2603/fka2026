@@ -22,9 +22,97 @@ npx serve .
 Otwórz `http://localhost:8000`.
 
 ### GitHub Pages
-1. Push do repo (np. `szymo/fka2026`).
-2. Settings → Pages → Source: `main` / `(root)`.
-4. Apka dostępna pod `https://<user>.github.io/fka2026/`.
+
+Pełna instrukcja dla osoby bez doświadczenia z git/GitHubem:
+
+#### 1. Utwórz konto GitHub (jeśli nie masz)
+- Wejdź na https://github.com/signup
+- Podaj email, hasło, nazwę użytkownika
+
+#### 2. Utwórz nowe repo
+- Wejdź na https://github.com/new
+- **Repository name:** `fka2026` (lub inna — bez spacji, bez polskich znaków)
+- **Public** (prywatne też zadziała, ale strona będzie wymagała logowania)
+- **NIE zaznaczaj** "Add a README file", "Add .gitignore", "Choose a license" — klikamy **Create repository**
+
+#### 3. Skonfiguruj git lokalnie (raz, jeśli jeszcze nie masz)
+```bash
+git config --global user.email "twoj@email.com"
+git config --global user.name "Twoje Imię"
+```
+
+#### 4. Dodaj remote i wypchnij kod
+
+**Opcja A — z HTTPS (prostsze, wymaga PAT):**
+```bash
+cd ~/projects/fka2026
+git remote add origin https://github.com/<twój-user>/fka2026.git
+git branch -M main
+git push -u origin main
+```
+
+**Opcja B — z SSH (wymaga klucza SSH w GitHubie):**
+```bash
+cd ~/projects/fka2026
+git remote add origin git@github.com:<twój-user>/fka2026.git
+git branch -M main
+git push -u origin main
+```
+
+Przy HTTPS GitHub zapyta o login + hasło. Hasło GitHuba już nie działa — potrzebujesz **Personal Access Token**:
+1. GitHub → ikona profilu → **Settings** → **Developer settings** (na dole po lewej) → **Personal access tokens** → **Tokens (classic)**
+2. **Generate new token** → zaznacz `repo` → **Generate token**
+3. Skopiuj token (pokazuje się tylko raz) i użyj go jako hasła przy `git push`
+
+#### 5. Włącz GitHub Pages
+1. Na GitHubie otwórz swoje repo `https://github.com/<twój-user>/fka2026`
+2. **Settings** (zakładka na górze)
+3. Po lewej: **Pages**
+4. **Source:** `Deploy from a branch`
+5. **Branch:** `main` / **`/(root)`** ← ważne: root, nie /docs
+6. Klik **Save**
+
+#### 6. Poczekaj i odwiedź stronę
+- Po 1–2 minutach GitHub wygeneruje URL widoczny na stronie Settings → Pages
+- Domyślnie: **`https://<twój-user>.github.io/fka2026/`**
+- Wejdź w przeglądarkę na ten URL — powinna działać pełna apka, PWA, offline
+
+#### 7. Dodaj do ekranu głównego (opcjonalnie)
+- **Android (Chrome):** menu (⋮) → "Dodaj do ekranu głównego"
+- **iOS (Safari):** ikona udostępniania (↑) → "Na ekranie początkowym"
+- Apka zainstaluje się jak natywna i będzie działać offline
+
+#### 8. Aktualizacje
+Po każdej zmianie w kodzie:
+```bash
+cd ~/projects/fka2026
+git add -A
+git commit -m "opis zmiany"
+git push
+```
+GitHub automatycznie zrebuilduje stronę w 1–2 min. Odśwież w przeglądarce.
+
+#### 9. Aktualizacja danych filmów
+```bash
+cd ~/projects/fka2026
+node scrape.js
+git add -A
+git commit -m "Update screenings data"
+git push
+```
+
+#### 10. Własna domena (opcjonalnie)
+W **Settings → Pages → Custom domain** wpisz np. `fka.example.com` i skonfiguruj DNS u rejestratora domeny według instrukcji GitHuba.
+
+#### Troubleshooting
+
+| Problem | Rozwiązanie |
+|---|---|
+| Strona pokazuje JSON zamiast HTML | GitHub Pages cache'uje — sprawdź URL musi być `…/fka2026/` (z końcowym `/`), nie bezpośrednio plik JSON |
+| Service worker serwuje starą wersję | W przeglądarce: DevTools → Application → Service Workers → Unregister + Clear storage |
+| 404 na `data/screenings.json` | Sprawdź czy plik jest w `data/` w repo i czy push się udał |
+| Push wymaga hasła, a hasło nie działa | Użyj Personal Access Token (krok 4, opcja A) |
+| Custom domain nie działa | Sprawdź DNS (A record na `185.199.108.153` itp.) — propagacja do 24h |
 
 ## Aktualizacja danych
 
