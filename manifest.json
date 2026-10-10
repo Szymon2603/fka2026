@@ -1,0 +1,26 @@
+{
+  "name": "Kamera Akcja 2026 — plan seansów",
+  "short_name": "KA 2026",
+  "description": "Planer seansów na 17. Festiwal Kamera Akcja (Łódź, 22–25 października 2026). Wykrywa kolizje czasowe i zbyt krótkie przejścia między lokacjami.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "pl",
+  "theme_color": "#ff3355",
+  "background_color": "#0b0d10",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='36' fill='%23ff3355'/%3E%3Ctext x='96' y='126' font-family='system-ui' font-size='100' font-weight='700' fill='white' text-anchor='middle'%3EKA%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%23ff3355'/%3E%3Ctext x='256' y='340' font-family='system-ui' font-size='270' font-weight='700' fill='white' text-anchor='middle'%3EKA%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

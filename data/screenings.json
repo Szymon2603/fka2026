@@ -1,0 +1,606 @@
+{
+  "festival": {
+    "name": "17. Festiwal Kamera Akcja",
+    "edition": 17,
+    "year": 2026,
+    "city": "Łódź",
+    "dates": [
+      "2026-10-22",
+      "2026-10-23",
+      "2026-10-24",
+      "2026-10-25"
+    ],
+    "sourceUrl": "https://kameraakcja.com.pl/edycja-2026/harmonogram-godzinowy/",
+    "generatedAt": "2026-10-10T18:15:57.848Z"
+  },
+  "venues": [
+    {
+      "group": "monopolis",
+      "name": "Monopolis"
+    },
+    {
+      "group": "muzeum-kinematografii",
+      "name": "Muzeum Kinematografii"
+    },
+    {
+      "group": "niebostan",
+      "name": "Niebostan / Piotrkowska 17"
+    },
+    {
+      "group": "toya-studios",
+      "name": "TOYA Studios"
+    },
+    {
+      "group": "boutique-hotel",
+      "name": "Boutique Hotel"
+    },
+    {
+      "group": "szkola-filmowa-cnm",
+      "name": "Szkoła Filmowa - Budynek CNM"
+    },
+    {
+      "group": "szkola-filmowa-h",
+      "name": "Szkoła Filmowa - Wydział Aktorski, Budynek H"
+    },
+    {
+      "group": "szkola-filmowa-z",
+      "name": "Szkoła Filmowa - Budynek Z"
+    },
+    {
+      "group": "szkola-filmowa",
+      "name": "Szkoła Filmowa w Łodzi"
+    }
+  ],
+  "transitionMinutes": 20,
+  "screenings": [
+    {
+      "id": "22-1830-niewierna-zona",
+      "day": 22,
+      "date": "2026-10-22",
+      "start": "18:30",
+      "end": "20:08",
+      "title": "Niewierna żona",
+      "director": "Claude Chabrol",
+      "runtime": 98,
+      "extraMinutes": 0,
+      "section": "Klasyka Krytyka",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/niewierna-zona/",
+      "flags": [
+        "pokaz-specjalny",
+        "rekonstrukcja"
+      ]
+    },
+    {
+      "id": "22-1845-gradiva",
+      "day": 22,
+      "date": "2026-10-22",
+      "start": "18:45",
+      "end": "21:10",
+      "title": "Gradiva",
+      "director": "Marine Atlan",
+      "runtime": 145,
+      "extraMinutes": 0,
+      "section": "Czułość",
+      "venueGroup": "szkola-filmowa-z",
+      "venueName": "Szkoła Filmowa - Budynek Z",
+      "url": "https://kameraakcja.com.pl/pokaz/gradiva/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "22-2010-boss",
+      "day": 22,
+      "date": "2026-10-22",
+      "start": "20:10",
+      "end": "22:16",
+      "title": "Boss",
+      "director": "Bogdan Mirică",
+      "runtime": 126,
+      "extraMinutes": 0,
+      "section": "Rumuński Akapit",
+      "venueGroup": "muzeum-kinematografii",
+      "venueName": "Muzeum Kinematografii",
+      "url": "https://kameraakcja.com.pl/pokaz/boss/",
+      "flags": []
+    },
+    {
+      "id": "22-2015-matki-rownoleg-e",
+      "day": 22,
+      "date": "2026-10-22",
+      "start": "20:15",
+      "end": "22:28",
+      "title": "Matki równoległe",
+      "director": "Pedro Almodóvar",
+      "runtime": 123,
+      "extraMinutes": 10,
+      "section": "Reżyseria dźwięku",
+      "venueGroup": "szkola-filmowa-h",
+      "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
+      "url": "https://kameraakcja.com.pl/pokaz/matki-rownolegle/",
+      "flags": []
+    },
+    {
+      "id": "22-2045-niezbyt-wygorowane-oczekiwania",
+      "day": 22,
+      "date": "2026-10-22",
+      "start": "20:45",
+      "end": "22:30",
+      "title": "Niezbyt wygórowane oczekiwania",
+      "director": "Eivind Landsvik",
+      "runtime": 105,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/niezbyt-wygorowane-oczekiwania/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "23-1000-wyzwolona",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "10:00",
+      "end": "12:04",
+      "title": "Wyzwolona",
+      "director": "Guy Nattiv",
+      "runtime": 124,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "szkola-filmowa-z",
+      "venueName": "Szkoła Filmowa - Budynek Z",
+      "url": "https://kameraakcja.com.pl/pokaz/wyzwolona/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "23-1030-mi-osc-smierc-i-dojrzewanie-w-camp-miasma",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "10:30",
+      "end": "12:16",
+      "title": "Miłość, śmierć i dojrzewanie w Camp Miasma",
+      "director": "Jane Schoenbrun",
+      "runtime": 106,
+      "extraMinutes": 0,
+      "section": "Na fali",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/milosc-smierc-i-dojrzewanie-w-camp-miasma/",
+      "flags": []
+    },
+    {
+      "id": "23-1230-sirat",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "12:30",
+      "end": "14:34",
+      "title": "Sirât",
+      "director": "Óliver Laxe",
+      "runtime": 114,
+      "extraMinutes": 10,
+      "section": "Reżyseria dźwięku",
+      "venueGroup": "szkola-filmowa-z",
+      "venueName": "Szkoła Filmowa - Budynek Z",
+      "url": "https://kameraakcja.com.pl/pokaz/sirat-2/",
+      "flags": []
+    },
+    {
+      "id": "23-1250-przezyj-to-sam",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "12:50",
+      "end": "14:46",
+      "title": "Przeżyj to sam",
+      "director": "Olivier Nakache, Eric Toledano",
+      "runtime": 116,
+      "extraMinutes": 0,
+      "section": "Na fali",
+      "venueGroup": "szkola-filmowa-h",
+      "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
+      "url": "https://kameraakcja.com.pl/pokaz/przezyj-to-sam/",
+      "flags": []
+    },
+    {
+      "id": "23-1700-powiedz-mi-co-czujesz",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "17:00",
+      "end": "19:27",
+      "title": "Powiedz mi, co czujesz",
+      "director": "Łukasz Ronduda",
+      "runtime": 102,
+      "extraMinutes": 45,
+      "section": "Polska Fala / Filmoznawca-filmowiec",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/powiedz-mi-co-czujesz/",
+      "flags": [
+        "audiodeskrypcja"
+      ]
+    },
+    {
+      "id": "23-1700-z-udzenia-z-yakushimy",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "17:00",
+      "end": "19:02",
+      "title": "Złudzenia z Yakushimy",
+      "director": "Naomi Kawase",
+      "runtime": 122,
+      "extraMinutes": 0,
+      "section": "Czułość",
+      "venueGroup": "muzeum-kinematografii",
+      "venueName": "Muzeum Kinematografii",
+      "url": "https://kameraakcja.com.pl/pokaz/zludzenia-z-yakushimy/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "23-1715-rebelia",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "17:15",
+      "end": "19:22",
+      "title": "Rebelia",
+      "director": "Paul Greengrass",
+      "runtime": 127,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "szkola-filmowa-z",
+      "venueName": "Szkoła Filmowa - Budynek Z",
+      "url": "https://kameraakcja.com.pl/pokaz/rebelia/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "23-2000-budapeszt-1956",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "20:00",
+      "end": "22:12",
+      "title": "Budapeszt 1956",
+      "director": "László Nemes",
+      "runtime": 132,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/budapeszt-1956/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "23-2030-le-vertige",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "20:30",
+      "end": "21:37",
+      "title": "Le Vertige",
+      "director": "Quentin Dupieux",
+      "runtime": 67,
+      "extraMinutes": 0,
+      "section": "Na Fali",
+      "venueGroup": "szkola-filmowa-z",
+      "venueName": "Szkoła Filmowa - Budynek Z",
+      "url": "https://kameraakcja.com.pl/pokaz/le-vertige/",
+      "flags": [
+        "przedpremierowy",
+        "polska-premiera",
+        "bez-dystrybucji"
+      ]
+    },
+    {
+      "id": "24-1000-na-w-asna-reke",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "10:00",
+      "end": "11:34",
+      "title": "Na własną rękę",
+      "director": "Tudor Cristian Jurgiu",
+      "runtime": 94,
+      "extraMinutes": 0,
+      "section": "Rumuński Akapit / Nieobecność",
+      "venueGroup": "szkola-filmowa-h",
+      "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
+      "url": "https://kameraakcja.com.pl/pokaz/na-wlasna-reke/",
+      "flags": [
+        "przedpremierowy",
+        "bez-dystrybucji"
+      ]
+    },
+    {
+      "id": "24-1145-zycie-snem",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "11:45",
+      "end": "14:32",
+      "title": "Życie snem",
+      "director": "Valeska Grisebach",
+      "runtime": 167,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "szkola-filmowa-z",
+      "venueName": "Szkoła Filmowa - Budynek Z",
+      "url": "https://kameraakcja.com.pl/pokaz/zycie-snem/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "24-1245-wilki",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "12:45",
+      "end": "14:35",
+      "title": "Wilki",
+      "director": "Jonas Ulrich",
+      "runtime": 110,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "szkola-filmowa-h",
+      "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
+      "url": "https://kameraakcja.com.pl/pokaz/wilki/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "24-1700-hot-spot",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "17:00",
+      "end": "19:26",
+      "title": "Hot Spot",
+      "director": "Agnieszka Smoczyńska",
+      "runtime": 101,
+      "extraMinutes": 45,
+      "section": "Polska Fala",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/hot-spot/",
+      "flags": [
+        "audiodeskrypcja"
+      ]
+    },
+    {
+      "id": "24-1715-everytime",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "17:15",
+      "end": "19:26",
+      "title": "Everytime",
+      "director": "Sandra Wollner",
+      "runtime": 121,
+      "extraMinutes": 10,
+      "section": "Nieobecność",
+      "venueGroup": "szkola-filmowa-z",
+      "venueName": "Szkoła Filmowa - Budynek Z",
+      "url": "https://kameraakcja.com.pl/pokaz/everytime/",
+      "flags": []
+    },
+    {
+      "id": "24-1730-tierra-viva",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "17:30",
+      "end": "19:07",
+      "title": "Tierra Viva",
+      "director": "Blaise Grisson",
+      "runtime": 92,
+      "extraMinutes": 5,
+      "section": "Nieobecność",
+      "venueGroup": "szkola-filmowa-h",
+      "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
+      "url": "https://kameraakcja.com.pl/pokaz/tierra-viva/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "24-2000-extra-geography",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "20:00",
+      "end": "22:04",
+      "title": "Extra Geography",
+      "director": "Molly Manners",
+      "runtime": 94,
+      "extraMinutes": 30,
+      "section": "Nieobecność",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/extra-geography/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "24-2010-niech-bestia-zdycha",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "20:10",
+      "end": "22:00",
+      "title": "Niech bestia zdycha",
+      "director": "Claude Chabrol",
+      "runtime": 110,
+      "extraMinutes": 0,
+      "section": "Klasyka Krytyka",
+      "venueGroup": "muzeum-kinematografii",
+      "venueName": "Muzeum Kinematografii",
+      "url": "https://kameraakcja.com.pl/pokaz/niech-bestia-zdycha/",
+      "flags": [
+        "pokaz-specjalny",
+        "rekonstrukcja"
+      ]
+    },
+    {
+      "id": "24-2030-zeby-mleczne",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "20:30",
+      "end": "22:14",
+      "title": "Zęby mleczne",
+      "director": "Mihai Mincan",
+      "runtime": 104,
+      "extraMinutes": 0,
+      "section": "Rumuński Akapit",
+      "venueGroup": "szkola-filmowa-h",
+      "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
+      "url": "https://kameraakcja.com.pl/pokaz/zeby-mleczne/",
+      "flags": [
+        "bez-dystrybucji"
+      ]
+    },
+    {
+      "id": "25-1015-w-tym-kraju-nie-ma-dobrych-mezczyzn",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "10:15",
+      "end": "11:58",
+      "title": "W tym kraju nie ma dobrych mężczyzn",
+      "director": "Shahrbanoo Sadat",
+      "runtime": 103,
+      "extraMinutes": 0,
+      "section": "Czułość",
+      "venueGroup": "szkola-filmowa-h",
+      "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
+      "url": "https://kameraakcja.com.pl/pokaz/w-tym-kraju-nie-ma-dobrych-mezczyzn/",
+      "flags": []
+    },
+    {
+      "id": "25-1020-flesh-and-fuel",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "10:20",
+      "end": "11:51",
+      "title": "Flesh and Fuel",
+      "director": "Pierre Le Gall",
+      "runtime": 91,
+      "extraMinutes": 0,
+      "section": "Czułość",
+      "venueGroup": "szkola-filmowa-z",
+      "venueName": "Szkoła Filmowa - Budynek Z",
+      "url": "https://kameraakcja.com.pl/pokaz/flesh-and-fuel/",
+      "flags": [
+        "przedpremierowy",
+        "audiodeskrypcja"
+      ]
+    },
+    {
+      "id": "25-1030-piekny-serge",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "10:30",
+      "end": "12:08",
+      "title": "Piękny Serge",
+      "director": "Claude Chabrol",
+      "runtime": 98,
+      "extraMinutes": 0,
+      "section": "Klasyka Krytyka",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/piekny-serge/",
+      "flags": [
+        "pokaz-specjalny",
+        "rekonstrukcja"
+      ]
+    },
+    {
+      "id": "25-1230-czarna-godzina",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "12:30",
+      "end": "14:30",
+      "title": "Czarna godzina",
+      "director": "Filip Bojarski",
+      "runtime": 75,
+      "extraMinutes": 45,
+      "section": "Polska Fala",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/czarna-godzina/",
+      "flags": [
+        "przedpremierowy",
+        "audiodeskrypcja"
+      ]
+    },
+    {
+      "id": "25-1240-the-meltdown",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "12:40",
+      "end": "14:28",
+      "title": "The Meltdown",
+      "director": "Manuela Martelli",
+      "runtime": 108,
+      "extraMinutes": 0,
+      "section": "Czułość",
+      "venueGroup": "szkola-filmowa-z",
+      "venueName": "Szkoła Filmowa - Budynek Z",
+      "url": "https://kameraakcja.com.pl/pokaz/the-meltdown/",
+      "flags": [
+        "przedpremierowy",
+        "audiodeskrypcja"
+      ]
+    },
+    {
+      "id": "25-1300-afrofuturyzm-i-prorocze-snienie-the-last-angel-of-history",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "13:00",
+      "end": "15:25",
+      "title": "Afrofuturyzm i prorocze śnienie: „The Last Angel of History\"",
+      "director": "John Akomfrah",
+      "runtime": 45,
+      "extraMinutes": 100,
+      "section": "Pokazy Specjalne",
+      "venueGroup": "muzeum-kinematografii",
+      "venueName": "Muzeum Kinematografii",
+      "url": "https://kameraakcja.com.pl/wydarzenie/afrofuturyzm-i-prorocze-snienie-the-last-angel-of-history/",
+      "flags": []
+    },
+    {
+      "id": "25-1730-niespodziewane",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "17:30",
+      "end": "20:46",
+      "title": "Niespodziewane",
+      "director": "Ryûsuke Hamaguchi",
+      "runtime": 196,
+      "extraMinutes": 0,
+      "section": "Czułość",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/niespodziewane/",
+      "flags": [
+        "przedpremierowy"
+      ]
+    },
+    {
+      "id": "25-1900-la-gomera",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "19:00",
+      "end": "20:37",
+      "title": "La Gomera",
+      "director": "Corneliu Porumboiu",
+      "runtime": 97,
+      "extraMinutes": 0,
+      "section": "Rumuński Akapit",
+      "venueGroup": "szkola-filmowa-h",
+      "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
+      "url": "https://kameraakcja.com.pl/pokaz/la-gomera/",
+      "flags": []
+    }
+  ]
+}

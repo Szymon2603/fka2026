@@ -1,0 +1,94 @@
+# Kamera Akcja 2026 — planer seansów
+
+Webowa apka (PWA) do planowania seansów na [17. Festiwal Kamera Akcja](https://kameraakcja.com.pl/edycja-2026/) (Łódź, 22–25 października 2026).
+
+- 📱 mobile-first, instaluje się jak natywna apka (PWA, offline-ready)
+- 🎯 wykrywa **kolizje czasowe** (overlap seansów)
+- ⏱ wykrywa **zbyt krótkie przejścia** między lokacjami (domyślnie 20 min)
+- 💾 lista "chcę obejrzeć" zapisywana w `localStorage`
+- 🌗 motyw auto (`prefers-color-scheme`)
+- 🎬 zero zależności runtime — vanilla HTML/JS, ~25 KB
+
+## Uruchomienie
+
+### Lokalnie
+```bash
+# serwer HTTP (PWA wymaga, nie file://)
+python3 -m http.server 8000
+# albo
+npx serve .
+```
+Otwórz `http://localhost:8000`.
+
+### GitHub Pages
+1. Push do repo (np. `szymo/fka2026`).
+2. Settings → Pages → Source: `main` / `(root)`.
+4. Apka dostępna pod `https://<user>.github.io/fka2026/`.
+
+## Aktualizacja danych
+
+Dane są zescrapowane ze strony festiwalu i zapisane w `data/screenings.json`.
+
+```bash
+# aktualizacja ze strony festiwalu
+node scrape.js
+
+# z lokalnego pliku HTML (gdy nie ma netu)
+node scrape.js --input ./kamera-akcja.html
+
+# ze stdin
+curl -sL "https://kameraakcja.com.pl/edycja-2026/harmonogram-godzinowy/" | node scrape.js --input -
+```
+
+Parser wyciąga tylko **filmy** (z `reż.` i linkami do `pokaz/*` / `wydarzenie/*`). Warsztaty, dyskusje, afterparty są pomijane zgodnie z decyzją.
+
+## Struktura danych
+
+`data/screenings.json`:
+
+```json
+{
+  "festival": { "name": "...", "year": 2026, "dates": ["2026-10-22", ...], "sourceUrl": "..." },
+  "venues": [{ "group": "monopolis", "name": "Monopolis" }, ...],
+  "transitionMinutes": 20,
+  "screenings": [
+    {
+      "id": "22-1830-niewierna-zona",
+      "day": 22,
+      "date": "2026-10-22",
+      "start": "18:30",
+      "end": "20:08",
+      "title": "Niewierna żona",
+      "director": "Claude Chabrol",
+      "runtime": 98,
+      "extraMinutes": 0,
+      "section": "Klasyka Krytyka",
+      "venueGroup": "szkola-filmowa",
+      "venueName": "Szkoła Filmowa w Łodzi",
+      "url": "https://kameraakcja.com.pl/pokaz/niewierna-zona/",
+      "flags": ["pokaz-specjalny", "rekonstrukcja"]
+    }
+  ]
+}
+```
+
+## Algorytm kolizji
+
+Dla każdej pary wybranych seansów `A`, `B` (w tym samym dniu):
+
+1. **Overlap czasowy** — `startA < endB && startB < endA` → 🔴 kolizja czasowa
+2. **Przejście** — jeśli `A.end <= B.start && (B.start - A.end) < transitionMinutes && venueGroupA != venueGroupB` → 🟡 za mało czasu na przejście
+
+`venueGroup` to logiczna grupa budynków (np. wszystkie kina Szkoły Filmowej mają osobne grupy: `-h`, `-z`, `-cnm`, bazowa). Przejście między kinami w jednym budynku jest traktowane jako zerowe, między różnymi grupami — `transitionMinutes`.
+
+## Stack
+
+- **Frontend:** statyczny HTML + vanilla JS (zero zależności runtime)
+- **PWA:** Web App Manifest + service worker (cache-first dla assets, network-first dla HTML/data)
+- **Parser:** Node.js (zero zależności, tylko stdlib)
+- **Hosting:** GitHub Pages (lub dowolny statyczny hosting)
+
+## Licencja
+
+Dane filmów: © Festiwal Kamera Akcja (źródło: [kameraakcja.com.pl](https://kameraakcja.com.pl/)).
+Kod: MIT.

@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)" />
+  <title>Kamera Akcja 2026 — Plan seansów</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ff3355'/%3E%3Ctext x='32' y='42' font-family='system-ui' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3EKA%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ff3355'/%3E%3Ctext x='32' y='42' font-family='system-ui' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3EKA%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f5f5;
+      --surface: #ffffff;
+      --surface-2: #fafafa;
+      --border: #e3e3e3;
+      --text: #1a1a1a;
+      --text-2: #5a5a5a;
+      --text-3: #888;
+      --accent: #ff3355;
+      --accent-fg: #ffffff;
+      --warn-bg: #fff5d6;
+      --warn-border: #f0c000;
+      --warn-text: #6b4a00;
+      --conflict-bg: #ffe1e1;
+      --conflict-border: #d22;
+      --conflict-text: #900;
+      --ok-bg: #e6f4ea;
+      --ok-border: #2e7d32;
+      --ok-text: #1b5e20;
+      --pin: #ff9800;
+      --shadow: 0 1px 2px rgba(0,0,0,.06), 0 4px 12px rgba(0,0,0,.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0d10;
+        --surface: #16191d;
+        --surface-2: #1d2125;
+        --border: #2a2f35;
+        --text: #f0f2f5;
+        --text-2: #b0b6bc;
+        --text-3: #7a8087;
+        --accent: #ff5577;
+        --accent-fg: #0b0d10;
+        --warn-bg: #3a2e10;
+        --warn-border: #d4a017;
+        --warn-text: #ffd770;
+        --conflict-bg: #3d1414;
+        --conflict-border: #d33;
+        --conflict-text: #ffb3b3;
+        --ok-bg: #142b18;
+        --ok-border: #4caf50;
+        --ok-text: #b6e7be;
+        --pin: #ffb74d;
+        --shadow: 0 1px 2px rgba(0,0,0,.4), 0 4px 12px rgba(0,0,0,.4);
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: .75rem 1rem;
+      box-shadow: var(--shadow);
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: -.01em;
+    }
+    h1 small {
+      display: block;
+      font-size: .75rem;
+      color: var(--text-2);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+    .tabs {
+      display: flex;
+      gap: .25rem;
+      overflow-x: auto;
+      margin-top: .75rem;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      flex: 0 0 auto;
+      padding: .4rem .75rem;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      border-radius: 999px;
+      font-size: .85rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .tab.active {
+      background: var(--accent);
+      color: var(--accent-fg);
+      border-color: var(--accent);
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: .75rem;
+      flex-wrap: wrap;
+    }
+    .summary {
+      font-size: .85rem;
+      color: var(--text-2);
+    }
+    .summary strong { color: var(--text); }
+    .summary .bad { color: var(--conflict-text); font-weight: 600; }
+    .summary .warn { color: var(--warn-text); font-weight: 600; }
+    .btn {
+      padding: .4rem .75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: .85rem;
+      cursor: pointer;
+    }
+    .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+    .btn:hover { filter: brightness(.96); }
+    .day-header {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.25rem 0 .5rem;
+      color: var(--text);
+    }
+    .day-header small { color: var(--text-2); font-weight: 400; }
+    .screenings { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .5rem; }
+    .screening {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .75rem .9rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: .65rem;
+      align-items: start;
+      transition: border-color .15s, background .15s;
+    }
+    .screening.selected { border-color: var(--accent); }
+    .screening.has-conflict { box-shadow: inset 0 0 0 2px var(--conflict-border); }
+    .screening.has-warn { box-shadow: inset 0 0 0 2px var(--warn-border); }
+    .time {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--text);
+      min-width: 4.5rem;
+    }
+    .time .end { color: var(--text-3); font-weight: 400; font-size: .8rem; display: block; }
+    .body { min-width: 0; }
+    .title {
+      font-weight: 600;
+      font-size: .98rem;
+      margin: 0 0 .15rem;
+      word-wrap: break-word;
+    }
+    .meta {
+      font-size: .82rem;
+      color: var(--text-2);
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem .75rem;
+      align-items: center;
+    }
+    .meta .venue { color: var(--text); font-weight: 500; }
+    .flags { display: flex; flex-wrap: wrap; gap: .25rem; margin-top: .35rem; }
+    .flag {
+      font-size: .7rem;
+      padding: .1rem .4rem;
+      border-radius: 4px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text-2);
+    }
+    .flag.warn { background: var(--warn-bg); color: var(--warn-text); border-color: var(--warn-border); }
+    .toggle {
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--surface-2);
+      cursor: pointer;
+      margin-top: 2px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      color: var(--text-3);
+      font-size: 1rem;
+    }
+    .toggle.checked { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+    .conflict-list {
+      margin: .35rem 0 0;
+      padding-left: 0;
+      list-style: none;
+      font-size: .78rem;
+      display: flex;
+      flex-direction: column;
+      gap: .2rem;
+    }
+    .conflict-list li {
+      padding: .25rem .5rem;
+      border-radius: 6px;
+      display: flex;
+      gap: .4rem;
+      align-items: baseline;
+    }
+    .conflict-list li.travel {
+      background: var(--warn-bg);
+      color: var(--warn-text);
+      border: 1px solid var(--warn-border);
+    }
+    .conflict-list li.overlap {
+      background: var(--conflict-bg);
+      color: var(--conflict-text);
+      border: 1px solid var(--conflict-border);
+    }
+    .conflict-list .ico { font-weight: 700; }
+    .selected-list { display: flex; flex-direction: column; gap: .35rem; }
+    .selected-empty {
+      padding: 1rem;
+      text-align: center;
+      color: var(--text-3);
+      background: var(--surface-2);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+    }
+    .pin { background: var(--pin); color: #000; font-size: .65rem; padding: 0 .35rem; border-radius: 4px; margin-left: .35rem; vertical-align: middle; }
+    .legend {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      font-size: .75rem;
+      color: var(--text-2);
+      margin-top: .5rem;
+    }
+    .legend span { display: inline-flex; align-items: center; gap: .3rem; }
+    .swatch { display: inline-block; width: .75rem; height: .75rem; border-radius: 3px; }
+    .swatch.overlap { background: var(--conflict-bg); border: 1px solid var(--conflict-border); }
+    .swatch.travel { background: var(--warn-bg); border: 1px solid var(--warn-border); }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: var(--text-3);
+      font-size: .75rem;
+    }
+    footer a { color: var(--text-2); }
+    .hidden { display: none !important; }
+    @media (max-width: 480px) {
+      main { padding: .75rem; }
+      .screening { padding: .65rem .75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      17. Festiwal Kamera Akcja
+      <small>Łódź · 22–25 października 2026 · plan seansów</small>
+    </h1>
+    <nav class="tabs" id="dayTabs"></nav>
+  </header>
+
+  <main>
+    <section id="day-view">
+      <div class="toolbar">
+        <div class="summary" id="daySummary"></div>
+        <button class="btn" id="clearDayBtn" type="button">Wyczyść dzień</button>
+      </div>
+      <ul class="screenings" id="screeningsList"></ul>
+    </section>
+
+    <section id="plan-view" class="hidden">
+      <div class="toolbar">
+        <div class="summary" id="planSummary"></div>
+        <button class="btn" id="clearAllBtn" type="button">Wyczyść wszystko</button>
+      </div>
+      <ul class="selected-list" id="planList"></ul>
+      <div class="legend">
+        <span><span class="swatch overlap"></span> kolizja czasowa (overlap)</span>
+        <span><span class="swatch travel"></span> zbyt mało czasu na przejście</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Dane z <a href="https://kameraakcja.com.pl/edycja-2026/harmonogram-godzinowy/" target="_blank" rel="noopener">kameraakcja.com.pl</a>.
+    <span id="lastUpdated"></span>
+  </footer>
+
+  <script>
+    'use strict';
+    // ============ Config & state ============
+    const STORAGE_KEY = 'fka2026.selected.v1';
+    const TRANSITION_MIN = 20; // minutes needed to walk between different venueGroups
+
+    /** @type {object|null} */
+    let data = null;
+    /** @type {Set<string>} */
+    let selected = new Set();
+    let activeDay = null; // 'all' | day number
+    let activeView = 'day'; // 'day' | 'plan'
+
+    // ============ Init ============
+    async function init() {
+      try {
+        const res = await fetch('data/screenings.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        data = await res.json();
+      } catch (e) {
+        document.getElementById('screeningsList').innerHTML =
+          `<li class="selected-empty">Nie udało się wczytać danych: ${escapeHtml(String(e))}.</li>`;
+        return;
+      }
+
+      loadSelected();
+      renderTabs();
+      renderActiveView();
+
+      document.getElementById('clearAllBtn').addEventListener('click', () => {
+        if (confirm('Usunąć wszystkie zaznaczone seanse?')) {
+          selected.clear();
+          saveSelected();
+          renderActiveView();
+        }
+      });
+
+      document.getElementById('clearDayBtn').addEventListener('click', () => {
+        if (activeDay === 'all') return;
+        const ids = data.screenings.filter(s => s.day === activeDay).map(s => s.id);
+        if (!confirm(`Usunąć zaznaczenia z tego dnia?`)) return;
+        for (const id of ids) selected.delete(id);
+        saveSelected();
+        renderActiveView();
+      });
+
+      if (data.festival.generatedAt) {
+        const d = new Date(data.festival.generatedAt);
+        document.getElementById('lastUpdated').textContent =
+          `Aktualizacja danych: ${d.toLocaleDateString('pl-PL')}`;
+      }
+
+      // Re-render on storage change (other tab)
+      window.addEventListener('storage', (e) => {
+        if (e.key === STORAGE_KEY) {
+          loadSelected();
+          renderActiveView();
+        }
+      });
+    }
+
+    // ============ Persistence ============
+    function loadSelected() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        selected = new Set(raw ? JSON.parse(raw) : []);
+      } catch {
+        selected = new Set();
+      }
+    }
+    function saveSelected() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...selected]));
+      } catch (e) {
+        console.warn('localStorage save failed', e);
+      }
+    }
+
+    // ============ Tabs ============
+    function renderTabs() {
+      const tabsEl = document.getElementById('dayTabs');
+      const days = data.festival.dates;
+      const dayNames = ['czw', 'pt', 'sob', 'niedz'];
+      const html = [];
+      html.push(`<button type="button" class="tab" data-tab="plan">Plan (${selected.size})</button>`);
+      html.push(`<button type="button" class="tab" data-tab="all">Wszystkie</button>`);
+      for (let i = 0; i < days.length; i++) {
+        const dayNum = parseInt(days[i].slice(8, 10), 10);
+        const daySelected = data.screenings.filter(s => s.day === dayNum && selected.has(s.id)).length;
+        html.push(`<button type="button" class="tab" data-tab="${dayNum}">${dayNum} ${dayNames[i]}</button>`);
+      }
+      tabsEl.innerHTML = html.join('');
+      tabsEl.querySelectorAll('.tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const t = btn.dataset.tab;
+          if (t === 'plan') activeView = 'plan';
+          else { activeView = 'day'; activeDay = t === 'all' ? 'all' : parseInt(t, 10); }
+          renderActiveView();
+        });
+      });
+      updateTabActive();
+    }
+    function updateTabActive() {
+      document.querySelectorAll('#dayTabs .tab').forEach(btn => {
+        const t = btn.dataset.tab;
+        if (t === 'plan') btn.classList.toggle('active', activeView === 'plan');
+        else if (activeView === 'day') btn.classList.toggle('active', String(activeDay) === t);
+      });
+    }
+
+    function renderActiveView() {
+      updateTabActive();
+      if (activeView === 'plan') {
+        document.getElementById('day-view').classList.add('hidden');
+        document.getElementById('plan-view').classList.remove('hidden');
+        renderPlan();
+      } else {
+        document.getElementById('day-view').classList.remove('hidden');
+        document.getElementById('plan-view').classList.add('hidden');
+        renderDay();
+      }
+    }
+
+    // ============ Day view ============
+    function renderDay() {
+      const day = activeDay;
+      const list = day === 'all'
+        ? [...data.screenings].sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start))
+        : data.screenings.filter(s => s.day === day).sort((a, b) => a.start.localeCompare(b.start));
+
+      // Group by day for "all" view
+      const ul = document.getElementById('screeningsList');
+      if (day === 'all') {
+        const byDay = {};
+        for (const s of list) (byDay[s.day] ||= []).push(s);
+        const dayNames = { 22: 'czwartek', 23: 'piątek', 24: 'sobota', 25: 'niedziela' };
+        const parts = [];
+        for (const d of Object.keys(byDay).map(Number).sort((a,b)=>a-b)) {
+          parts.push(`<li class="day-header">${d} października <small>(${dayNames[d]})</small></li>`);
+          parts.push(...byDay[d].map(screeningToListItem));
+        }
+        ul.innerHTML = parts.join('');
+      } else {
+        ul.innerHTML = list.map(screeningToListItem).join('');
+      }
+
+      // Compute conflicts against the selection
+      const conflictsById = computeConflicts();
+
+      // Wire toggles & apply classes
+      ul.querySelectorAll('.screening').forEach(el => {
+        const id = el.dataset.id;
+        const isSel = selected.has(id);
+        el.classList.toggle('selected', isSel);
+        el.classList.toggle('has-conflict', !!conflictsById[id]?.overlap);
+        el.classList.toggle('has-warn', !!conflictsById[id]?.travel && !conflictsById[id]?.overlap);
+
+        const conflictsUl = el.querySelector('.conflict-list');
+        if (conflictsUl && isSel && conflictsById[id]) {
+          conflictsUl.innerHTML = conflictsById[id].items.map(formatConflict).join('');
+          conflictsUl.classList.remove('hidden');
+        } else if (conflictsUl) {
+          conflictsUl.innerHTML = '';
+          conflictsUl.classList.add('hidden');
+        }
+
+        const btn = el.querySelector('.toggle');
+        btn.classList.toggle('checked', isSel);
+        btn.setAttribute('aria-pressed', String(isSel));
+        btn.textContent = isSel ? '✓' : '+';
+        btn.onclick = () => {
+          if (selected.has(id)) selected.delete(id);
+          else selected.add(id);
+          saveSelected();
+          // Re-render whole view so plan tab counter updates too
+          renderTabs();
+          renderActiveView();
+        };
+      });
+
+      // Summary
+      const selInView = list.filter(s => selected.has(s.id)).length;
+      const conflictsInView = list.filter(s => selected.has(s.id) && conflictsById[s.id]?.overlap).length;
+      const warnsInView = list.filter(s => selected.has(s.id) && conflictsById[s.id]?.travel && !conflictsById[s.id]?.overlap).length;
+
+      const dayLabel = day === 'all' ? 'we wszystkich dniach' : `${day} października`;
+      document.getElementById('daySummary').innerHTML =
+        `Wybrane ${dayLabel}: <strong>${selInView}</strong> / ${list.length}` +
+        (conflictsInView ? ` · <span class="bad">${conflictsInView} kolizji</span>` : '') +
+        (warnsInView ? ` · <span class="warn">${warnsInView} zbyt ciasno</span>` : '');
+
+      document.getElementById('clearDayBtn').classList.toggle('hidden', day === 'all');
+    }
+
+    function screeningToListItem(s) {
+      const titleEsc = escapeHtml(s.title);
+      const venueEsc = escapeHtml(s.venueName);
+      const directorEsc = escapeHtml(s.director || '');
+      const sectionEsc = escapeHtml(s.section || '');
+      const flagsHtml = s.flags.map(f => `<span class="flag${f === 'audiodeskrypcja' || f === 'pokaz-specjalny' ? ' warn' : ''}">${escapeHtml(flagLabel(f))}</span>`).join('');
+      return `
+        <li class="screening" data-id="${escapeHtml(s.id)}">
+          <div class="time">
+            ${s.start}<span class="end">→ ${s.end}</span>
+          </div>
+          <div class="body">
+            <p class="title">${titleEsc}</p>
+            <div class="meta">
+              ${directorEsc ? `<span>${directorEsc}</span>` : ''}
+              ${s.runtime ? `<span>${s.runtime} min${s.extraMinutes ? ` + ${s.extraMinutes} min` : ''}</span>` : ''}
+              <span class="venue">${venueEsc}</span>
+              ${sectionEsc ? `<span>· ${sectionEsc}</span>` : ''}
+            </div>
+            ${flagsHtml ? `<div class="flags">${flagsHtml}</div>` : ''}
+            <ul class="conflict-list hidden"></ul>
+          </div>
+          <button type="button" class="toggle" aria-pressed="false" aria-label="Zaznacz seans"></button>
+        </li>
+      `;
+    }
+
+    function flagLabel(f) {
+      return ({
+        'przedpremierowy': 'przedpremiera',
+        'polska-premiera': 'polska premiera',
+        'bez-dystrybucji': 'bez dystrybucji',
+        'pokaz-specjalny': 'pokaz specjalny',
+        'audiodeskrypcja': 'audiodeskrypcja',
+        'lang-en': 'EN',
+        'rekonstrukcja': 'rekonstrukcja',
+      })[f] || f;
+    }
+
+    // ============ Conflicts ============
+    /**
+     * Returns map: id -> { overlap: bool, travel: bool, items: [{kind, otherId, otherTitle, msg}] }
+     * Only considers pairs of selected screenings.
+     */
+    function computeConflicts() {
+      const ids = [...selected];
+      const map = {};
+      const sel = ids.map(id => data.screenings.find(s => s.id === id)).filter(Boolean);
+      for (const s of sel) map[s.id] ||= { overlap: false, travel: false, items: [] };
+
+      for (let i = 0; i < sel.length; i++) {
+        for (let j = i + 1; j < sel.length; j++) {
+          const a = sel[i], b = sel[j];
+          // Determine chronological order
+          const [first, second] = (a.date + a.start) <= (b.date + b.start) ? [a, b] : [b, a];
+          if (first.day !== second.day) continue; // different days → no conflict
+          // 1. Overlap
+          const overlap = minutes(first.start) < minutes(second.end) && minutes(second.start) < minutes(first.end);
+          if (overlap) {
+            map[first.id].overlap = true;
+            map[second.id].overlap = true;
+            map[first.id].items.push({ kind: 'overlap', otherId: second.id, msg: `Nakłada się z "${second.title}" (${second.start}–${second.end})` });
+            map[second.id].items.push({ kind: 'overlap', otherId: first.id, msg: `Nakłada się z "${first.title}" (${first.start}–${first.end})` });
+            continue;
+          }
+          // 2. Travel time
+          if (first.venueGroup !== second.venueGroup) {
+            const gap = minutes(second.start) - minutes(first.end);
+            if (gap >= 0 && gap < TRANSITION_MIN) {
+              map[first.id].travel = true;
+              map[second.id].travel = true;
+              const minutesShort = TRANSITION_MIN - gap;
+              const fromName = escapeHtml(first.venueName);
+              const toName = escapeHtml(second.venueName);
+              map[first.id].items.push({
+                kind: 'travel',
+                otherId: second.id,
+                msg: `Po "${first.title}" brakuje ${minutesShort} min na przejście (${fromName} → ${toName})`,
+              });
+              map[second.id].items.push({
+                kind: 'travel',
+                otherId: first.id,
+                msg: `Przed "${second.title}" brakuje ${minutesShort} min na przejście (${fromName} → ${toName})`,
+              });
+            }
+          }
+        }
+      }
+      return map;
+    }
+
+    function formatConflict(item) {
+      const icon = item.kind === 'overlap' ? '⚠' : '⏱';
+      return `<li class="${item.kind}"><span class="ico">${icon}</span><span>${escapeHtml(item.msg)}</span></li>`;
+    }
+
+    // ============ Plan view ============
+    function renderPlan() {
+      const ul = document.getElementById('planList');
+      const items = data.screenings
+        .filter(s => selected.has(s.id))
+        .sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start));
+
+      if (items.length === 0) {
+        ul.innerHTML = `<li class="selected-empty">Nic nie wybrałeś. Przejdź do dnia i klikaj +, żeby dodać filmy do planu.</li>`;
+        document.getElementById('planSummary').innerHTML = '';
+        return;
+      }
+
+      const conflictsById = computeConflicts();
+      const overlaps = items.filter(s => conflictsById[s.id]?.overlap).length;
+      const travel = items.filter(s => conflictsById[s.id]?.travel && !conflictsById[s.id]?.overlap).length;
+
+      const dayNames = { 22: 'czw', 23: 'pt', 24: 'sob', 25: 'niedz' };
+      let prevDay = null;
+      ul.innerHTML = items.map(s => {
+        const showDay = s.day !== prevDay;
+        prevDay = s.day;
+        const dayHeader = showDay
+          ? `<li class="day-header">${s.day} października <small>(${dayNames[s.day]})</small></li>`
+          : '';
+        const klass = conflictsById[s.id]?.overlap ? 'has-conflict'
+          : conflictsById[s.id]?.travel ? 'has-warn' : '';
+        const conflictList = conflictsById[s.id]?.items?.length
+          ? `<ul class="conflict-list">${conflictsById[s.id].items.map(formatConflict).join('')}</ul>`
+          : '';
+        return `${dayHeader}<li class="screening ${klass}" data-id="${escapeHtml(s.id)}">
+          <div class="time">${s.start}<span class="end">→ ${s.end}</span></div>
+          <div class="body">
+            <p class="title">${escapeHtml(s.title)}${s.flags.includes('przedpremierowy') ? '<span class="pin">przedpremiera</span>' : ''}</p>
+            <div class="meta">
+              ${s.director ? `<span>${escapeHtml(s.director)}</span>` : ''}
+              <span class="venue">${escapeHtml(s.venueName)}</span>
+              ${s.section ? `<span>· ${escapeHtml(s.section)}</span>` : ''}
+            </div>
+            ${conflictList}
+          </div>
+          <button type="button" class="toggle checked" aria-pressed="true">✓</button>
+        </li>`;
+      }).join('');
+
+      // Wire toggles
+      ul.querySelectorAll('.screening').forEach(el => {
+        const id = el.dataset.id;
+        el.querySelector('.toggle').onclick = () => {
+          selected.delete(id);
+          saveSelected();
+          renderTabs();
+          renderActiveView();
+        };
+      });
+
+      document.getElementById('planSummary').innerHTML =
+        `<strong>${items.length}</strong> wybranych` +
+        (overlaps ? ` · <span class="bad">${overlaps} kolizji</span>` : '') +
+        (travel ? ` · <span class="warn">${travel} zbyt ciasno</span>` : '');
+    }
+
+    // ============ Utils ============
+    function minutes(hhmm) {
+      const [h, m] = hhmm.split(':').map(Number);
+      return h * 60 + m;
+    }
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+      }[c]));
+    }
+
+    // ============ Service worker ============
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(err => console.warn('SW register failed', err));
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
