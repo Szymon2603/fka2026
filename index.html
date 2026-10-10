@@ -283,6 +283,16 @@
       display: grid;
       gap: .5rem;
     }
+    .transitions-filter-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      cursor: pointer;
+      font-size: .85rem;
+      color: var(--text-2);
+    }
+    .transitions-filter-toggle small { color: var(--text-3); font-size: .75rem; }
+    .transitions-filter-toggle input { width: 1rem; height: 1rem; cursor: pointer; }
     .transition-row {
       display: grid;
       grid-template-columns: 1fr auto 1fr auto;
@@ -529,6 +539,13 @@
           Czasy przejść między lokacjami. Domyślnie <strong>15 min</strong>. Zmieniaj jeśli wiesz lepiej (zależy od pogody, tramwaju itp.).
         </div>
         <button class="btn" id="resetTransitionsBtn" type="button">Przywróć domyślne</button>
+      </div>
+      <div class="toolbar" style="margin-top: -.5rem;">
+        <label class="transitions-filter-toggle">
+          <input type="checkbox" id="showAllPairs" />
+          <span>Pokaż pary bez seansów w programie</span>
+          <small>(<span id="transitionsCount"></span>)</small>
+        </label>
       </div>
       <div id="transitionsList"></div>
       <div class="legend">
@@ -1211,16 +1228,34 @@
     }
 
     // ============ Transitions editor ============
+    /** Set of venueGroup IDs that have at least one screening in the program. */
+    function usedVenueGroups() {
+      const s = new Set();
+      for (const sc of data.screenings) s.add(sc.venueGroup);
+      return s;
+    }
+
     function renderTransitions() {
       const el = document.getElementById('transitionsList');
       const venues = data.venues;
+      const showAll = !!document.getElementById('showAllPairs')?.checked;
+      const used = usedVenueGroups();
+
       // Generuj pary (kanoniczny porządek: a < b)
-      const pairs = [];
+      const allPairs = [];
       for (let i = 0; i < venues.length; i++) {
         for (let j = i + 1; j < venues.length; j++) {
-          pairs.push([venues[i], venues[j]]);
+          allPairs.push([venues[i], venues[j]]);
         }
       }
+      const pairs = showAll
+        ? allPairs
+        : allPairs.filter(([a, b]) => used.has(a.group) && used.has(b.group));
+
+      // Update counter "X / Y"
+      const counter = document.getElementById('transitionsCount');
+      if (counter) counter.textContent = `${pairs.length} z ${allPairs.length}`;
+
       el.innerHTML = `<div class="transitions-grid">${pairs.map(([a, b]) => {
         const minutes = getTransitionMin(a.group, b.group);
         const custom = transitions.has(`${a.group}\t${b.group}`) ||
@@ -1246,7 +1281,7 @@
           const v = parseInt(input.value, 10);
           if (Number.isFinite(v) && v >= 0 && v <= 120) {
             setTransitionMin(from, to, v);
-            renderAll(); // re-render to update badge/custom class
+            renderActiveView(); // re-render to update badge/custom class
           } else {
             // Reset to current value
             input.value = getTransitionMin(from, to);
@@ -1262,6 +1297,13 @@
           });
         }
       });
+
+      // Toggle "Pokaż pary bez seansów"
+      const toggle = document.getElementById('showAllPairs');
+      if (toggle && !toggle.dataset.wired) {
+        toggle.dataset.wired = '1';
+        toggle.addEventListener('change', renderTransitions);
+      }
 
       // Global reset button
       const resetAll = document.getElementById('resetTransitionsBtn');
