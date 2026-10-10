@@ -3,12 +3,14 @@
 Webowa apka (PWA) do planowania seansów na [17. Festiwal Kamera Akcja](https://kameraakcja.com.pl/edycja-2026/) (Łódź, 22–25 października 2026).
 
 - 📱 mobile-first, instaluje się jak natywna apka (PWA, offline-ready)
-- 🎯 wykrywa **kolizje czasowe** (overlap seansów)
-- ⏱ wykrywa **zbyt krótkie przejścia** między lokacjami (domyślnie 15 min, edytowalne)
+- 🎯 wykrywa **kolizje czasowe** (overlap seansów, liczone od rzeczywistego czasu filmu, nie seansu)
+- ⏱ wykrywa **zbyt krótkie przejścia** między lokacjami (domyślnie 15 min, edytowalne per para)
+- 🎞 uwzględnia **czas reklam przed filmem** (domyślnie 10 min, konfigurowalny) — pokazuje godzinę startu samego filmu
 - 🎬 **opis filmu** po kliknięciu (modal: plakat, opis fabuły, bio reżysera, obsada, nagrody, tagi)
-- 💾 lista "chcę obejrzeć" zapisywana w `localStorage`
+- 📤 **udostępnianie planu** linkiem lub plikiem JSON (selected + konfiguracja przejść + ustawienia)
+- 💾 lista "chcę obejrzeć" + konfiguracja zapisywana w `localStorage`
 - 🌗 motyw auto (`prefers-color-scheme`)
-- 🎬 zero zależności runtime — vanilla HTML/JS, ~45 KB
+- 🎬 zero zależności runtime — vanilla HTML/JS, ~50 KB
 
 ## Uruchomienie
 
@@ -191,7 +193,47 @@ Dla każdej pary wybranych seansów `A`, `B` (w tym samym dniu):
 
 ## Edycja czasów przejść
 
-W zakładce **Czasy przejść** możesz nadpisać domyślne 15 min dla każdej pary venueGroupów (np. `Monopolis → Szkoła Filmowa - Wydział Aktorski, Budynek H = 18 min` bo idzie się dłużej). Zmiany zapisują się w `localStorage`. Przycisk ↺ przy wierszu przywraca domyślne dla tej pary; **Przywróć domyślne** resetuje wszystko.
+W zakładce **Czasy przejść** możesz nadpisać domyślne 15 min dla każdej pary venueGroupów (np. `Monopolis → Szkoła Filmowa - Wydział Aktorski, Budynek H = 18 min` bo idzie się dłużej). Domyślnie pokazywane są tylko pary venue, które faktycznie mają seanse w programie (teraz: 6 par). Toggle "Pokaż pary bez seansów w programie" przywraca pełną listę 36 par (na przyszłość). Zmiany zapisują się w `localStorage`. Przycisk ↺ przy wierszu przywraca domyślne dla tej pary; **Przywróć domyślne** resetuje wszystko.
+
+## Ustawienia (czas reklam)
+
+W zakładce **Ustawienia** możesz włączyć/wyłączyć blok reklam przed filmami oraz zmienić jego długość (0–60 min, domyślnie 10). Godziny na stronie festiwalu to początek seansu (reklamy + film), więc apka odejmuje ten czas przy wyświetlaniu godziny startu samego filmu. Algorytm kolizji też operuje na rzeczywistym czasie filmu — np. `Niewierna żona` (rekl. 10 + film 98 = 108 min) kończy się o `20:18`, nie `20:08`.
+
+## Udostępnianie planu
+
+Zakładka **Plan** (trzecia zakładka, obok dat) ma trzy przyciski:
+
+| Przycisk | Co robi |
+|---|---|
+| 📋 Kopiuj link | Generuje URL `?import=<base64>` ze snapshotem i kopiuje do schowka |
+| ⬇ Pobierz JSON | Ściąga `fka2026-plan-YYYY-MM-DD.json` (czytelny, z wcięciami) |
+| ⬆ Importuj JSON | Wczytuje wcześniej pobrany snapshot z pliku |
+
+### Jak to działa
+
+- Link jest **self-contained** — wystarczy wysłać go znajomemu, nic nie trzeba konfigurować
+- Po kliknięciu linku pojawia się banner na górze *"Zaimportowano plan z linku — 5 seansów · 2 własnych przejść · reklamy: 10 min"*. Przyciskiem **Akceptuj** zapisujesz plan u siebie, **Odrzuć** zamyka banner
+- Plik JSON ma identyczną strukturę jak wewnętrzny snapshot — można nim np. backupować plan przed zmianą telefonu lub przenosić między przeglądarkami
+
+### Format snapshotu
+
+```json
+{
+  "v": 1,
+  "app": "fka2026",
+  "selected": ["monopolis/2026-10-22/18:00"],
+  "transitions": [["monopolis\tszkola-filmowa", 12]],
+  "settings": { "preShowEnabled": true, "preShowMinutes": 10 }
+}
+```
+
+`v` to schema version — przyszłe migracje będą odrzucać nieznane wersje. `applySnapshot` filtruje IDs których nie ma w aktualnym programie, więc zaimportowanie starego planu po aktualizacji danych nie zepsuje nic.
+
+### Ograniczenia
+
+- URL w nosi ~750–900 znaków dla pełnego planu (limit przeglądarek to zwykle 2000+). Jeśli chcesz krótszy link — wrzuć przez [TinyURL](https://tinyurl.com) albo `git.io`
+- Bez real-time sync — każda osoba ma własny `localStorage`. Do prawdziwego współdzielenia między telefonami potrzeba backendu (Firebase, Gist API itp.)
+- Dane są w przeglądarce klienta — wyczyszczenie danych przeglądarki czyści plan
 
 ## Stack
 
