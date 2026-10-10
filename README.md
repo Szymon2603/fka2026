@@ -5,9 +5,10 @@ Webowa apka (PWA) do planowania seansów na [17. Festiwal Kamera Akcja](https://
 - 📱 mobile-first, instaluje się jak natywna apka (PWA, offline-ready)
 - 🎯 wykrywa **kolizje czasowe** (overlap seansów)
 - ⏱ wykrywa **zbyt krótkie przejścia** między lokacjami (domyślnie 20 min)
+- 🎬 **opis filmu** po kliknięciu (modal: plakat, opis fabuły, bio reżysera, obsada, nagrody, tagi)
 - 💾 lista "chcę obejrzeć" zapisywana w `localStorage`
 - 🌗 motyw auto (`prefers-color-scheme`)
-- 🎬 zero zależności runtime — vanilla HTML/JS, ~25 KB
+- 🎬 zero zależności runtime — vanilla HTML/JS, ~35 KB
 
 ## Uruchomienie
 
@@ -30,21 +31,27 @@ Otwórz `http://localhost:8000`.
 Dane są zescrapowane ze strony festiwalu i zapisane w `data/screenings.json`.
 
 ```bash
-# aktualizacja ze strony festiwalu
+# aktualizacja ze strony festiwalu + opisy z WP JSON API (~31 requestów)
 node scrape.js
 
-# z lokalnego pliku HTML (gdy nie ma netu)
+# tylko harmonogram, bez opisów filmów
+node scrape.js --skip-details
+
+# z lokalnego pliku HTML (gdy nie ma netu, scrape harmonogramu)
 node scrape.js --input ./kamera-akcja.html
 
 # ze stdin
 curl -sL "https://kameraakcja.com.pl/edycja-2026/harmonogram-godzinowy/" | node scrape.js --input -
+
+# kontrola liczby równoległych requestów do API
+node scrape.js --concurrency 6
 ```
 
 Parser wyciąga tylko **filmy** (z `reż.` i linkami do `pokaz/*` / `wydarzenie/*`). Warsztaty, dyskusje, afterparty są pomijane zgodnie z decyzją.
 
 ## Struktura danych
 
-`data/screenings.json`:
+`data/screenings.json` (~85 KB z opisami):
 
 ```json
 {
@@ -66,7 +73,20 @@ Parser wyciąga tylko **filmy** (z `reż.` i linkami do `pokaz/*` / `wydarzenie/
       "venueGroup": "szkola-filmowa",
       "venueName": "Szkoła Filmowa w Łodzi",
       "url": "https://kameraakcja.com.pl/pokaz/niewierna-zona/",
-      "flags": ["pokaz-specjalny", "rekonstrukcja"]
+      "flags": ["pokaz-specjalny", "rekonstrukcja"],
+      "details": {
+        "slug": "niewierna-zona",
+        "url": "https://kameraakcja.com.pl/pokaz/niewierna-zona/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Niewierna-zona-1024x1024.png",
+        "originalTitle": "La femme infidèle / The Unfaithful Wife",
+        "year": 1969,
+        "country": "Francja, Włochy",
+        "cast": "Michel Bouquet, Stéphane Audran, Maurice Ronet, Michel Duchaussoy, Guy Marly",
+        "awards": "National Board of Review 1969 – Najlepszy Film Zagraniczny",
+        "plot": "(Nie)idealne małżeństwo Charles i Hélène prowadzą dostatnie...",
+        "directorBio": "Francuski reżyser, scenarzysta i krytyk filmowy...",
+        "tags": ["zdrada", "małżeństwo", "zazdrość", "thriller psychologiczny", "mieszczaństwo"]
+      }
     }
   ]
 }
@@ -85,7 +105,7 @@ Dla każdej pary wybranych seansów `A`, `B` (w tym samym dniu):
 
 - **Frontend:** statyczny HTML + vanilla JS (zero zależności runtime)
 - **PWA:** Web App Manifest + service worker (cache-first dla assets, network-first dla HTML/data)
-- **Parser:** Node.js (zero zależności, tylko stdlib)
+- **Parser:** Node.js (zero zależności, tylko stdlib) — pobiera harmonogram + WP JSON API z detalami filmów
 - **Hosting:** GitHub Pages (lub dowolny statyczny hosting)
 
 ## Licencja

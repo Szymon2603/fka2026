@@ -11,7 +11,7 @@
       "2026-10-25"
     ],
     "sourceUrl": "https://kameraakcja.com.pl/edycja-2026/harmonogram-godzinowy/",
-    "generatedAt": "2026-10-10T18:15:57.848Z"
+    "generatedAt": "2026-10-10T18:28:32.634Z"
   },
   "venues": [
     {
@@ -70,7 +70,27 @@
       "flags": [
         "pokaz-specjalny",
         "rekonstrukcja"
-      ]
+      ],
+      "details": {
+        "slug": "niewierna-zona",
+        "url": "https://kameraakcja.com.pl/pokaz/niewierna-zona/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Niewierna-zona-1024x1024.png",
+        "originalTitle": "La femme infidèle / The Unfaithful Wife",
+        "year": 1969,
+        "country": "Francja, Włochy",
+        "cast": "Michel Bouquet, Stéphane Audran, Maurice Ronet, Michel Duchaussoy, Guy Marly",
+        "awards": "National Board of Review 1969 – Najlepszy Film Zagraniczny",
+        "plot": "(Nie)idealne małżeństwo Charles i Hélène prowadzą dostatnie, spokojne życie z dala od miejskiego zgiełku. Gdy jednak mąż zaczyna podejrzewać żonę o romans, wynajmuje prywatnego detektywa, by poznać prawdę. Z pozoru niewinne odkrycie uruchamia lawinę zazdrości, lęku i przemocy. „Niewierna żona\" to precyzyjnie skonstruowany thriller psychologiczny Claude'a Chabrola, w którym chłodna elegancja mieszczańskiego świata kontrastuje z narastającym napięciem. W dusznym, pełnym niedopowiedzeń klimacie reżyser obnaża kruchość pozornie idealnego związku i obsesyjną potrzebę kontroli.",
+        "directorBio": "Francuski reżyser, scenarzysta i krytyk filmowy, jeden z najważniejszych przedstawicieli francuskiej Nowej Fali. Zanim stanął za kamerą, był krytykiem związanym z „Cahiers du Cinéma\". Jako jeden z twórców francuskiej Nowej Fali zasłynął thrillerami psychologicznymi i przenikliwymi portretami mieszczaństwa. Do jego najważniejszych filmów należą „Piękny Serge\" (1958), „Kuzyni\" (1959), „Niewierna żona\" (1969), „Rzeźnik\" (1970) i „Niech bestia zdycha\" (1969).",
+        "tags": [
+          "zdrada",
+          "małżeństwo",
+          "zazdrość",
+          "thriller psychologiczny",
+          "mieszczaństwo"
+        ],
+        "director": "Claude Chabrol"
+      }
     },
     {
       "id": "22-1845-gradiva",
@@ -88,7 +108,21 @@
       "url": "https://kameraakcja.com.pl/pokaz/gradiva/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "gradiva",
+        "url": "https://kameraakcja.com.pl/pokaz/gradiva/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-La-Gradiva-1024x1024.png",
+        "originalTitle": "La Gradivia",
+        "year": 2026,
+        "country": "Francja, Włochy",
+        "cast": "Colas Quignard, Suzanne Gerin, Matita Capellier, Antonia Bursei",
+        "awards": "MFF w Cannes 2026 – Grand Prix Ami Paris, Tydzień Krytyki, TAURON Nowe Horyzonty 2026 – Nagroda Publiczności, udział w Międzynarodowym Konkursie Nowe Horyzonty",
+        "plot": "Szkolna wycieczka do Pompejów staje się podróżą w głąb młodości, pożądania i przemijania. Zwycięzca Grand Prix Tygodnia Krytyki w Cannes i Nagrody Publiczności Nowych Horyzontów, „Gradivia\" Marine Atlan to zmysłowa opowieść o młodości na progu dorosłości. Grupa francuskich licealistów wyrusza na wycieczkę do Neapolu i Pompejów, gdzie w cieniu Wezuwiusza budzą się pierwsze miłości, fascynacje i konflikty. Toni, James i Suzanne mierzą się z pożądaniem, samotnością i niepewnością przyszłości. Inspirowany nowelą Wilhelma Jensena film łączy historię dojrzewania z refleksją nad pamięcią i przemijaniem.\n\nW mediach: «„Supersamiec\" prowadzony lekkimi pociągnięciami pędzla przez Alice Rohrwacher.» — Maciej Roch Satora, Filmweb, czytaj pełny tekstu tutaj «Marine Atlan balansuje między buzującą młodzieńczą energią i równie buzującym Neapolem a powagą podejmowanych tematów – od miłości i potrzebie bliskości, przez różnice klasowe, po poszukiwanie własnej tożsamości. Opowiada o nich z ogromną empatią, nigdy nie traktuje młodych bohaterów i bohaterek protekcjonalnie, przez co wymyka się daleko poza kategorię „coming of age\". Bardzo poruszający, hipnotyzujący seans.» — Jakub Nowociński, Filmawka, recenzja kapsułkowa Filmweb tutaj «Mój ulubiony typ gadanego filmu francuskiego, w którym opowieść nonszalancko przepływa pomiędzy bohaterami; świetna młoda obsada, postać nauczycielki, i podstępne piękno obrazu (tylko czy mury Neapolu wyczyszczono ostatnimi czasy z haseł komunistycznych ultrasów Napoli??).» — Klara Cykorz, Chaszcze filmowe – podcast, recenzja kapsułkowa Filmweb tutaj",
+        "directorBio": "Francuska reżyserka i autorka zdjęć. Ukończyła wydział operatorski paryskiej szkoły filmowej La Fémis. Jako autorka zdjęć pracowała przy filmach fabularnych, dokumentalnych i animowanych. Wyreżyserowała m.in. krótkometrażowe „Les amours vertes\" oraz „Daniel fait face\", prezentowane na festiwalu Premiers Plans w Angers. „Gradiva\" jest jej pełnometrażowym debiutem reżyserskim.",
+        "tags": [],
+        "director": "Marine Atlan"
+      }
     },
     {
       "id": "22-2010-boss",
@@ -104,7 +138,27 @@
       "venueGroup": "muzeum-kinematografii",
       "venueName": "Muzeum Kinematografii",
       "url": "https://kameraakcja.com.pl/pokaz/boss/",
-      "flags": []
+      "flags": [],
+      "details": {
+        "slug": "boss",
+        "url": "https://kameraakcja.com.pl/pokaz/boss/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Boss--1024x1024.png",
+        "originalTitle": null,
+        "year": 2023,
+        "country": "Rumunia, Luksemburg, Szwecja",
+        "cast": "Laurențiu Bănescu, Ioana Bugarin, Mimi Brănescu, Sergiu Costache, Cosmina Stratan",
+        "awards": null,
+        "plot": "Jedno przestępstwo wystarczy, by sumienie zamieniło się w obsesję Bogdan, skrupulatny i inteligentny kierowca karetki z Bukaresztu, bierze udział w napadzie z bronią w ręku razem z trzema mężczyznami, których ledwie zna. Podczas ucieczki z miejsca przestępstwa dochodzi do potrącenia świadka, który zapada w śpiączkę, a następnie umiera w podejrzanych okolicznościach. To wydarzenie wstrząsa sumieniem Bogdana. Próbując opanować sytuację, rozpoczyna drobiazgowe, niemal obsesyjne śledztwo, by odkryć prawdziwą tożsamość swoich wspólników, lecz im więcej się dowiaduje, tym głębiej pogrąża się w spirali strachu i paranoi, która zaczyna przejmować kontrolę nad całym jego życiem.\n\nBogdan Mirică Rumuński reżyser i scenarzysta. Zadebiutował pełnometrażowym filmem „Psy\" („Câini\") w 2016 r., który został zaprezentowany w sekcji Un Certain Regard na MFF w Cannes tego samego roku. Jest również twórcą i scenarzystą popularnego rumuńskiego serialu „W cieniu\" („Umbre\") z 2019 r.. W swoich filmach łączy kino gatunkowe z psychologiczną obserwacją bohaterów.\n\nTagi: kryminał, paranoja, moralność, przestępstwo, Bukareszt",
+        "directorBio": null,
+        "tags": [
+          "kryminał",
+          "paranoja",
+          "moralność",
+          "przestępstwo",
+          "Bukareszt"
+        ],
+        "director": "Bogdan Mirică"
+      }
     },
     {
       "id": "22-2015-matki-rownoleg-e",
@@ -120,7 +174,25 @@
       "venueGroup": "szkola-filmowa-h",
       "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
       "url": "https://kameraakcja.com.pl/pokaz/matki-rownolegle/",
-      "flags": []
+      "flags": [],
+      "details": {
+        "slug": "matki-rownolegle",
+        "url": "https://kameraakcja.com.pl/pokaz/matki-rownolegle/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Matki-rownolegle--1024x1024.png",
+        "originalTitle": "Madres paralelas / Parallel Mothers",
+        "year": 2021,
+        "country": "Francja, Hiszpania",
+        "cast": "Penélope Cruz, Milena Smit, Israel Elejalde, Aitana Sánchez-Gijón, Rossy de Palma, Julieta Serrano",
+        "awards": "Oscar 2022 – nominacja dla najlepszej aktorki pierwszoplanowej (Penelope Cruz), nominacja za najlepszą muzykę (Alberto Iglesias); MFF w Wenecji 2021 – Puchar Volpi dla najlepszej aktorki (Penelope Cruz)",
+        "plot": "— intro przed filmem: Jakub Popielecki (Filmweb) — pokazowi towarzyszy przyjazd Lai Casanovas i Masterclass. Sound Design wokół filmu „ Sirât \". Nominowany do dwóch Oscarów głośny dramat o sile macierzyństwa. Poruszający melodramat Pedra Almodóvara o macierzyństwie, tajemnicy i dziedziczeniu traum. Janis i Ana spotykają się na oddziale położniczym, choć dzieli je niemal wszystko – doświadczenie, wiek i stosunek do nadchodzącego macierzyństwa. Losy kobiet splatają się jednak znacznie mocniej, niż mogłyby przypuszczać. Pod powierzchnią emocjonalnej opowieści narasta napięcie rodem z thrillera, które potęguje sugestywna warstwa dźwiękowa i nominowana do Oscara muzyka Alberto Iglesiasa. Dźwięki, cisza i muzyka stają się tu nośnikami emocji oraz pamięci.\n\nW mediach: «Przygotujcie się na melodramat, który ogląda się jak najlepszy dreszczowiec, a także na rozdzierającą opowieść o matczynej miłości, dziedziczeniu traum oraz sztuce jako nośniku pamięci. Mówiąc krótko, dobry almotowar.» — Jakub Popielecki, Filmweb, czytaj całość tutaj Reżyser znowu skupia się na kobietach, które mierzą się z samotnym wychowywaniem dziecka. Losy obu pań przecinają się częściej niż są w stanie to sobie wyobrazić. Zaś gdzieś wisi nad tymi postaciami tajemnica, podskórnie budująca napięcie niczym w rasowym thrillerze. » — Radosław Ostrowski, Kinoblog, czytaj całość tutaj «[Penelope Cruz] wchodzi jednak na niebotyczny poziom, tworząc najlepszą kreację od czasów „Volver\", a może i w całej karierze. Tu nie ma ani jednej fałszywej nuty. Płynnie przechodzi od zwykłego krojenia ziemniaków do emocjonalnej karuzeli, przeżyć, które odbierają oddech. To Cruz jest tym filmem, to ona odpowiada za jego ducha. Wzbudza podziw, wzrusza, szokuje, denerwuje… Jest w tym niespotykana szczerość.» — Karol Barzowski, Onet, czytaj całość tutaj",
+        "directorBio": "Reżyser, scenarzysta i producent urodzony w 1949 roku w Calzada de Calatrava (Hiszpania). Od lat 70. tworzy kino łączące melodramat, czarny humor i kampową estetykę, często skupione na doświadczeniach kobiet. Międzynarodową sławę przyniosły mu „Kobiety na skraju załamania nerwowego\" i nagrodzony Oscarem film „Wszystko o mojej matce\". Kolejną statuetkę zdobył za scenariusz „Porozmawiaj z nią\".",
+        "tags": [
+          "kino hiszpańskie",
+          "macierzyństwo",
+          "tajemnica"
+        ],
+        "director": "Pedro Almodóvar"
+      }
     },
     {
       "id": "22-2045-niezbyt-wygorowane-oczekiwania",
@@ -138,7 +210,27 @@
       "url": "https://kameraakcja.com.pl/pokaz/niezbyt-wygorowane-oczekiwania/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "niezbyt-wygorowane-oczekiwania",
+        "url": "https://kameraakcja.com.pl/pokaz/niezbyt-wygorowane-oczekiwania/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Niezbyt-wygorowane-oczekiwania-1024x1024.png",
+        "originalTitle": "Lave forventninger / Low Expectations",
+        "year": 2026,
+        "country": "Norwegia, Dania",
+        "cast": "Marie Ulven, Anders Danielsen Lie, Tone Mostraum, Embla Berntsen, Snorre Kind Monsson",
+        "awards": "MFF w Cannes 2026 – Quinzaine des Cinéastes, konkurs o Caméra d'Or",
+        "plot": "Gdy sława zaczyna ciążyć, trzeba nauczyć się żyć bez niej Pełnometrażowy debiut Eivinda Landsvika, w którym na dużym ekranie po raz pierwszy pojawia się norweska artystka indiepopowa Marie Ulven, znana pod pseudonimem Girl In Red, której partneruje Anders Danielsen Lie („Najgorszy człowiek na świecie\"). U szczytu muzycznej kariery Maja niespodziewanie traci grunt pod nogami. Zmuszona odłożyć ambicje, bez pieniędzy i perspektyw wraca do rodzinnego domu i podejmuje pracę w lokalnym liceum. Z dala od sceny, oczekiwań i presji sukcesu odkrywa świat zbudowany z małych gestów, codziennych spotkań i zwyczajnej bliskości. Eivind Landsvik opowiada z czułością i humorem o kryzysie, samotności i dojrzewaniu do życia na własnych zasadach. To słodko-gorzka historia o tym, że czasem trzeba stracić wszystko, by odzyskać siebie.\n\nW mediach: «Niezbyt wygórowane oczekiwania\" okazały się znajome i kojące niczym ciepły powiew wiatru.» — Rory O'Connor, The Film Stage, całość czytaj tutaj «Film ma w sobie ukryte ciepło, które sprawia, że z czystym sumieniem można go polecić.» — Max Borg, The Film Verdict, całość czytaj tutaj «„Niezbyt wygórowane oczekiwania\" okazują się zaskakująco poruszającą opowieścią o sztuce życia z mniejszym bagażem oczekiwań.» — Tomris Laffly, Variety, całość czytaj tutaj",
+        "directorBio": "Norweski reżyser i scenarzysta. Karierę zaczynał od realizacji teledysków, a następnie tworzył filmy krótkometrażowe. Jego „Tits\" (2023) miał premierę w konkursie głównym Festiwalu w Cannes na Najlepszy film krótkometrażowy i trafił później na ponad sto festiwali. „Niezbyt wygórowane oczekiwania\" to jego pełnometrażowy debiut.",
+        "tags": [
+          "kryzys",
+          "muzyka",
+          "depresja",
+          "samotność",
+          "dorastanie"
+        ],
+        "director": "Eivind Landsvik"
+      }
     },
     {
       "id": "23-1000-wyzwolona",
@@ -156,7 +248,21 @@
       "url": "https://kameraakcja.com.pl/pokaz/wyzwolona/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "wyzwolona",
+        "url": "https://kameraakcja.com.pl/pokaz/wyzwolona/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-The-Liberation-1024x1024.png",
+        "originalTitle": "The Liberation",
+        "year": 2026,
+        "country": "USA, Wielka Brytania, Nowa Zelandia",
+        "cast": "Carrie Coon, Lily James, Bella Ramsey, Odessa Young, Tracy Letts",
+        "awards": "MFF w Toronto 2026 – pokaz specjalny, MFF w Telluride 2026",
+        "plot": "Jedno spotkanie wystarczy, by zachwiać całym dotychczasowym życiem. Lata 80. Rita wiedzie pozornie zwyczajne życie – pracuje jako zastępczyni kierownika banku, jest żoną i matką, a jednocześnie zmaga się z traumą z przeszłości. Wszystko zmienia się, gdy w jej banku pojawia się charyzmatyczna i tajemnicza Ricki. Zafascynowana nową znajomością Rita coraz mocniej angażuje się w życie żeńskiej społeczności, aż w końcu porzuca rodzinę, by dołączyć do niej i pomóc w stworzeniu wiejskiej komuny. Zaniepokojone dorosłe córki ruszają jej śladem, stopniowo odkrywając duszny świat manipulacji i zależności.\n\nW mediach: «Carrie Coon daje tu popis aktorskiego kunsztu, sięgając po niezwykle złożone i trudne emocje. Jej pełna intensywności kreacja wciąga widza i prowadzi go przez mroczną historię bohaterki..» — Matt Neglia, Next Best Picture, r ecenzja kapsułkowa Letterboxd «Carrie Coon zachwyca w roli kobiety zwabionej przez sektę w niezwykle osobistym filmie Guya Nattiva.» — Tomris Laffly, Variety czytaj całość tutaj «Występ Coon pozostaje w pamięci – aktorka, którą zazwyczaj kojarzymy z siłą, pokazuje, jak przekonująco potrafi być delikatna..» — Benjamin Lee, The Guardian, całość czytaj t utaj",
+        "directorBio": "Izraelski reżyser, na co dzień mieszkający w Stanach Zjednoczonych. Laureat Oscara za krótkometrażowy „Skóra\" (2018) oraz reżyser dramatów „Golda\" (2023) oraz współreżyser „Tatami\" (2023). W twórczości zgłębia motywy traumy i tożsamości.",
+        "tags": [],
+        "director": "Guy Nattiv"
+      }
     },
     {
       "id": "23-1030-mi-osc-smierc-i-dojrzewanie-w-camp-miasma",
@@ -172,7 +278,21 @@
       "venueGroup": "szkola-filmowa",
       "venueName": "Szkoła Filmowa w Łodzi",
       "url": "https://kameraakcja.com.pl/pokaz/milosc-smierc-i-dojrzewanie-w-camp-miasma/",
-      "flags": []
+      "flags": [],
+      "details": {
+        "slug": "milosc-smierc-i-dojrzewanie-w-camp-miasma",
+        "url": "https://kameraakcja.com.pl/pokaz/milosc-smierc-i-dojrzewanie-w-camp-miasma/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Teenage-Sex-and-Death-at-Camp-Miasma--1024x1024.png",
+        "originalTitle": "Teenage Sex and Death at Camp Miasma",
+        "year": 2026,
+        "country": "Stany Zjednoczone, Kanada",
+        "cast": "Gillian Anderson, Hannah Einbinder, Amanda Fix, Arthur Conti, Eva Victor, Zach Cherry, Sarah Sherman",
+        "awards": "MFF w Cannes 2026 – Sekcja Un Certain Regard, Queer Palm",
+        "plot": "Na dnie jeziora jest dziura… Legendarna Gillian Anderson i znana z serialu „Hacks\" Hannah Einbinder w najbardziej elektryzującym duecie roku, który rozlicza się z ikonografią slaszerów lat 80. i 90. Młoda, utalentowana reżyserka Kris dostaje od studia filmowego szansę życia – ma nakręcić remake kultowej serii horrorów „Camp Miasma\", która cieszyła się ogromną popularnością w latach 80. i 90. W centrum tej opowieści stoją dwie bohaterki reprezentujące dwa różne pokolenia. Kris postanawia za wszelką cenę zaangażować do projektu legendarną ikonę i dawną gwiazdę oryginału. Praca nad filmem szybko przeradza się w fascynującą, surrealistyczną grę z tradycją kina gatunkowego, tożsamością oraz popkulturowymi mitami.\n\nW mediach: «Film o tym, że kiedy oglądamy filmy, filmy oglądają też nas. Schoenbrun używa języka horroru jako języka pożądania, więc jeśli w ogóle jest to horror, to o strachu przed&#8230; orgazmem.» — Jakub Popielecki, recenzja kapsułkowa Filmweb tutaj «Pierwszy film w nurcie metamodernizmu? Taką przełomowość tutaj wyczuwam. Film godzien analiz, które spotykają Łowcę Androidów.» — Michał Chudoliński, recenzja kapsułkowa Filmweb tutaj «Orgazmiczna, iście kampowa perełka zrodzona z miłości do kina gatunkowego. Autoparodia slashera i hołd dla kobiecego spojrzenia w kinie. Jane Schoenbrun problematyzuje i zarazem celebruje ambiwalencję związaną z byciem final girl &#8211; towarzyszącą mu mieszankę wstydu, przyjemności i ekscytacji, znajdując przy tym sporo humoru i czystej eskapistycznej zabawy.» — Daria Sienkiewicz, recenzja kapsułkowa Filmweb tutaj",
+        "directorBio": "Amerykańska osoba reżyserska i scenariuszowa, uznawana za jeden z najciekawszych głosów współczesnego kina niezależnego i gatunkowego. Rozgłos zdobyła takimi produkcjami jak „We're All Going to the World's Fair\" oraz docenionym przez krytyków „I Saw the TV Glow\". W swojej twórczości często porusza wątki tożsamości, popkultury, mediów i nostalgii.",
+        "tags": [],
+        "director": "Jane Schoenbrun"
+      }
     },
     {
       "id": "23-1230-sirat",
@@ -188,7 +308,25 @@
       "venueGroup": "szkola-filmowa-z",
       "venueName": "Szkoła Filmowa - Budynek Z",
       "url": "https://kameraakcja.com.pl/pokaz/sirat-2/",
-      "flags": []
+      "flags": [],
+      "details": {
+        "slug": "sirat-2",
+        "url": "https://kameraakcja.com.pl/pokaz/sirat-2/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Sirat--1024x1024.png",
+        "originalTitle": null,
+        "year": 2025,
+        "country": "Hiszpania, Francja",
+        "cast": "Sergi López, Bruno Núñez Arjona, Stefania Gadda",
+        "awards": "MFF w Cannes 2025 – Nagroda Jury; Oscar 2026 – nominacja dla Najlepszego filmu międzynarodowego oraz Najlepszy dźwięk",
+        "plot": "— intro przed filmem: Laia Casanovas (sound designerka filmu) i Jakub Popielecki (Filmweb) — Masterclass. Sound Design z Laią Casanovas Rave'owy hit prosto z Cannes! Ojciec z synem przybywają na rave głęboko w górach południowego Maroka. Szukają Mar – córki i siostry – która zniknęła kilka miesięcy wcześniej na jednej z niekończących się i bezsennych imprez. Otoczeni elektroniczną muzyką oraz nieznajomym dotąd poczuciem wolności, rozdają jej zdjęcie na lewo i prawo. Nadzieja znika, ale mężczyźni przedzierają się przez tłumy imprezowiczów zmierzających na ostatnią zabawę na pustyni. Zapuszczając się coraz głębiej w nieznaną dzikość, zostają zmuszeni do stawienia czoła własnym lękom i ograniczeniom.\n\nW mediach: «O tym, że poszukiwanie idealnego rave'u i idealnej wspólnoty jest trochę jak czekanie na Godota. Film, w którym są wszystkie filmy od „2001: Odysei kosmicznej&#8221; przez „Gerry'ego&#8221; i „Ostatnią krucjatę&#8221; po „Cenę strachu&#8221;.» — Jakub Popielecki, recenzja kapsułkowa Filmweb tutaj « To film, który ma wszelkie podstawy do zostania obiektem kultu kinomanów i filmowców. Artystyczna wartość pożeniona została z rozrywkową dostępnością i filozoficzną dysputą, a Galicja potwierdziła swoją rolę nowego Betlejem bezkompromisowych neomodernistów. » — Marcin Prymas, Pełna Sala, czytaj całość tutaj «Laxe jawi się tu jako duchowy spadkobierca Lyncha – w „Sirâcie\" zamiast linearnej opowieści otrzymasz transową podróż, którą czujesz wszystkimi zmysłami.» — Marcin Radomski, recenzja kapsułkowa Filmweb tutaj",
+        "directorBio": "Reżyser, scenarzysta, aktor urodzony w 1982 roku. Studiował na Uniwersytecie Pompeu Fabry w Barcelonie, a następnie w Londynie rozpoczął karierę filmowca. Zadebiutował filmem dokumentalnym „Wszyscy jesteście szefami\", za który otrzymał Nagrodę FIPRESCI na MFF w Cannes. Filmem „Siła ognia\" z 2019 roku debiutował w sekcji Un Certain Regard i otrzymał Nagrodę Jury. Jego najnowszy film „Sirât\" otrzymał na tegorocznym festiwalu w Cannes Nagrodę Jury.",
+        "tags": [
+          "kino hiszpańskie",
+          "rave",
+          "pustynia"
+        ],
+        "director": "Oliver Laxe"
+      }
     },
     {
       "id": "23-1250-przezyj-to-sam",
@@ -204,7 +342,21 @@
       "venueGroup": "szkola-filmowa-h",
       "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
       "url": "https://kameraakcja.com.pl/pokaz/przezyj-to-sam/",
-      "flags": []
+      "flags": [],
+      "details": {
+        "slug": "przezyj-to-sam",
+        "url": "https://kameraakcja.com.pl/pokaz/przezyj-to-sam/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Przezyj-to-sam-1024x1024.png",
+        "originalTitle": "Juste une illusion / Just an Illusion",
+        "year": 2026,
+        "country": "Francja",
+        "cast": "Louis Garrel, Camille Cottin, Pierre Lottin, Simon Boublil, Adèle Jayle",
+        "awards": "MFF Tofifest 2026",
+        "plot": "Światło analogowych lat 80. i chwytający za serce portret dojrzewania. Paryż, lata 80. Trzynastoletni Vincent próbuje nawigować między skłóconymi rodzicami a porywami pierwszych uczuć. Chłopiec szybko odkrywa, że dorośli wcale nie znają odpowiedzi na najważniejsze pytania – po prostu sprawniej udają. Toledano i Nakache z pasją zanurzają nas w rozedrganym świecie młodości, gdzie humor miesza się ze wzruszeniem, a opowieść o szukaniu swojego miejsca w rodzinie staje się uniwersalną medytacją nad pierwszeństwem prawdy nad iluzją.\n\nW mediach: «Francuskie „Nie ma jak w rodzinie\" – śmieszne, ciekawie wpisane w realia lat 80.» — Stanisław Sobczyk, Immersja, recenzja kapsułkowa Filmweb\n\nÉric Toledano i Olivier Nakache Uwielbiany francuski duet reżyserski. Sławę przyniósł im światowy hit „Nietykalni\" (2011). Twórcy takich przebojów jak „Nadzwyczajni\" (2019), słynący z unikalnego łączenia humoru i głębokiej empatii.\n\nTagi: coming-of-age, pierwsza miłość, lata 80., nostalgia",
+        "directorBio": null,
+        "tags": [],
+        "director": "Éric Toledano, Olivier Nakache"
+      }
     },
     {
       "id": "23-1700-powiedz-mi-co-czujesz",
@@ -222,7 +374,26 @@
       "url": "https://kameraakcja.com.pl/pokaz/powiedz-mi-co-czujesz/",
       "flags": [
         "audiodeskrypcja"
-      ]
+      ],
+      "details": {
+        "slug": "powiedz-mi-co-czujesz",
+        "url": "https://kameraakcja.com.pl/pokaz/powiedz-mi-co-czujesz/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Powiedz-mi-co-czujesz-1024x1024.png",
+        "originalTitle": "Tell Me What You Feel",
+        "year": 2026,
+        "country": "Polska",
+        "cast": "Jan Sałasiński, Izabella Dudziak, Sebastian Dela, Anita Poddębniak, Adam Szyszkowski, Aleksandra Justa, Andrzej Konopka",
+        "awards": "MFF w Rotterdamie 2026 – Big Screen Competition, FPFF w Gdyni 2026 – Srebrne Lwy (Łukasz Ronduda), Profesjonalny debiut aktorski (Jan Sałasiński) , TAURON Nowe Horyzonty 2026 – pokazy galowe",
+        "plot": "—Łukaszem Rondudą (reżyserem filmu) — Drugim filmem w ramach sekcji „Filmoznawca-filmowiec\" jest „ Freak Show \" pokazywany na Festiwalu Mediów Człowiek w Zagrożeniu. Czy można nauczyć się płakać przy kimś? Maria i Patryk są młodymi artystami, których łączą ambicje, talent i wrażliwość, ale dzielą doświadczenia oraz pochodzenie. Ona tworzy projekt „Skup Łez\", w którym płaci ludziom za ich emocje, on sam nie potrafi płakać. Gdy się poznają, ich relacja szybko staje się przestrzenią bliskości, pożądania i konfrontacji z dawnymi ranami. Inspirowany życiem i twórczością Patryka Różyckiego oraz Karoliny Balcer, a także projektem artystycznym „Skup Łez\", film Łukasza Rondudy opowiada o miłości, emocjach i próbie zrozumienia siebie poprzez drugiego człowieka.\n\nW mediach: «Doczekaliśmy się takich czasów w polskim kinie, że dostajemy ekranową emocjonalność bez nagromadzenia konfliktów – i to z taką czułością, że aż chce się o tym wszystkim pisać.» — Łukasz Mańkowski, Filmweb, czytaj całość tutaj «To jeden z najczulszych portretów skomplikowanej, pozbawionej lukru miłości, która w otwartej przed widzem niedoskonałości jest właśnie najpiękniejsza.» — Mary Kosiarz, Interia, czytaj całość tutaj «Kameralne dzieło Łukasza Rondudy to pełne czułości studium relacji – zanurza się głęboko w traumę, by z uważnością śledzić wątłe nici porozumienia między obolałymi duszami.» — Mariana Hristova, Cineuropa, czytaj całość tutaj",
+        "directorBio": "Reżyser, scenarzysta, kurator i badacz sztuki współczesnej. Absolwent programu reżyserskiego i scenariuszowego Szkoły Wajdy, od lat działa na styku kina i sztuk wizualnych. Jego filmy – m.in. „Performer\" (2015), „Serce miłośc\"i (2017) i „Wszystkie nasze strachy\" (2021) – często czerpią z historii i twórczości realnych artystów. Ten ostatni, współreżyserowany z Łukaszem Guttem, zdobył Złote Lwy na Festiwalu Polskich Filmów Fabularnych w Gdyni, a „Rave\", współtworzony z Dawidem Nickelem został świetnie przyjęty podczas festiwalu Millenium Docs Against Gravity. „Powiedz mi, co czujesz\" jest jego najnowszym samodzielnym filmem fabularnym. Zobacz filmografię reżysera na FilmPolski.pl",
+        "tags": [
+          "emocje",
+          "sztuka",
+          "terapia",
+          "młodość"
+        ],
+        "director": "Łukasz Ronduda"
+      }
     },
     {
       "id": "23-1700-z-udzenia-z-yakushimy",
@@ -240,7 +411,27 @@
       "url": "https://kameraakcja.com.pl/pokaz/zludzenia-z-yakushimy/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "zludzenia-z-yakushimy",
+        "url": "https://kameraakcja.com.pl/pokaz/zludzenia-z-yakushimy/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Zludzenia-z-Yakushimy-1024x1024.png",
+        "originalTitle": "L'Illusion de Yakushima / Yakushima's Illusion",
+        "year": 2025,
+        "country": "Francja, Japonia, Belgia, Luksemburg",
+        "cast": "Vicky Krieps, Kan'ichirô Satô, Ojiro Nakamura, Misaki Nakano, Haruto Tsuchiya",
+        "awards": "MFF w Locarno 2025 – Konkurs Główny",
+        "plot": "Zmysłowy, kontemplacyjny powrót mistrzyni japońskiego kina. Corry, francuska koordynatorka transplantacji, próbuje odnaleźć się w Japonii. Gdy walczy o życie małego pacjenta, jej partner znika bez śladu, dołączając do tajemniczej grupy ludzi doborowolnie wymazujących się z dotychczasowego życia. Kawase prowadzi widza przez spowite mgłą lasy wyspy Yakushima, tworząc poruszający dramat o ulotności obecności i uzdrawiającej mocy natury. Naomi Kawase łączy siłę natury z intymnym studium straty, tworząc czułą opowieść o ucieczce i przebaczeniu.\n\nW mediach «Sceny z dziecięcego szpitala i odchodzenia są najbardziej wzruszające.» — Tomasz Barczak, recenzja kapsułkowa Filmweb",
+        "directorBio": "Jedna z najważniejszych współczesnych reżyserek japońskich. Najmłodsza w historii laureatka Złotej Kamery na MFF w Cannes oraz zdobywczyni Grand Prix za „Las w żałobie\" (2007). W twórczości łączy dokumentalizm z poetycką obserwacją natury.",
+        "tags": [
+          "żałoba",
+          "zniknięcie",
+          "johatsu",
+          "natura",
+          "medycyna"
+        ],
+        "director": "Naomi Kawase"
+      }
     },
     {
       "id": "23-1715-rebelia",
@@ -258,7 +449,25 @@
       "url": "https://kameraakcja.com.pl/pokaz/rebelia/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "rebelia",
+        "url": "https://kameraakcja.com.pl/pokaz/rebelia/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Rebelia-1024x1024.png",
+        "originalTitle": "The Uprising",
+        "year": 2026,
+        "country": "Wielka Brytania, Stany Zjednoczone",
+        "cast": "Andrew Garfield , Thomasin McKenzie , Katherine Waterston , Jamie Bell , Tom Hollander",
+        "awards": "MFF w Wenecji 2026 – Pokaz Specjalny, BFI London Film Festival 2026",
+        "plot": "Średniowieczna Anglia w ogniu ludowego gniewu. Po spustoszeniach czarnej śmierci i pod ciężarem drastycznych, podatków wycieńczony naród staje na skraju wytrzymałości. Gdy bezwzględne żądania korony uderzają w ubogie wioski, farmer Ploughman staje na czele chłopskiego oporu. Wokół niego gromadzą się tysiące zdesperowanych ludzi pod wodzą Wata Tylera i charyzmatycznego kaznodziei Johna Balla. Bunt przeistacza się w wielki marsz na Londyn, dając początek narodzinom mitycznej legendy o oporze wobec tyranii.\n\nW mediach: «Niesiony świetną kreacją Andrew Garfielda, „The Uprising\" to znakomity przykład widowiska historycznego, w którym dojrzałe, wyraziste aktorstwo pierwszoplanowe wznosi całość ponad garść niedopracowanych wątków, mogących w przeciwnym razie ściągnąć ten film w dół.» — Brennan Klein, The Uprising, całość czytaj tutaj «Sekwencje bitewne są niezwykle intensywne i brutalne, a charakterystyczne dla Greengrassa zdjęcia z ręki i dynamiczny styl „rozedrganej kamery\" nadają tym momentom niemal bezwzględną, poruszającą dosłowność.» — Lacy Baugher, RogerEbert.com, czytaj całość tutaj",
+        "directorBio": "Ceniony brytyjski reżyser i scenarzysta, mistrz kina operującego konwencją dokumentalną i wysokim napięciem. Laureat Złotego Niedźwiedzia w Berlinie za „Krwawą niedzielę\" (2002). Twórca kultowych thrillerów z serii o Jasonie Bournie [„Krucjata Bourne'a\" (2004), „Ultimatum Bourne'a\" (2007)] oraz nominowanego do Oscara „Lotu 93\" (2006).",
+        "tags": [
+          "średniowiecze",
+          "rewolucja",
+          "powstanie chłopskie"
+        ],
+        "director": "Paul Greengrass"
+      }
     },
     {
       "id": "23-2000-budapeszt-1956",
@@ -276,7 +485,26 @@
       "url": "https://kameraakcja.com.pl/pokaz/budapeszt-1956/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "budapeszt-1956",
+        "url": "https://kameraakcja.com.pl/pokaz/budapeszt-1956/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Budapeszt-1956-1024x1024.png",
+        "originalTitle": "Orphan / Árva",
+        "year": 2025,
+        "country": "Węgry, Wielka Brytania, Francja, Niemcy",
+        "cast": "Bojtorján Barabas, Grégory Gadebois, Marcin Czarnik, Andrea Waskovics, Elíz Szabó",
+        "awards": "MFF w Wenecji 2025 – Konkurs Główny",
+        "plot": "Cień historii i bolesny proces dojrzewania. Laureat Oscara za „Syna Szawła\" powraca z gęstą, analogową opowieścią o poszukiwaniu tożsamości na gruzach powojennej Europy. Budapeszt, rok 1957. W krajobrazie po krwawo stłumionym powstaniu węgierskim 12-letni Andor próbuje zdefiniować samego siebie. Chłopiec wychowuje się z matką, karmiony opowieściami o ojcu zaginionym na wojnie. Krucha stabilizacja rozpada się, gdy w ich życiu pojawia się brutalny mężczyzna roszczący sobie prawa do rodziny. Nemes tworzy gęstą atmosferę – kamera 35 mm rejestruje świat oczami dziecka, gdzie dramat rodzinny staje się metaforą losu narodu.\n\nW mediach: «Nemes z nowym otwarciem – oswobadza kamerę od klaustrofobii „pleców\" swoich postaci.» — Jakub Popielecki, recenzja kapsułkowa Filmweb «Film jak stara, wyblakła pocztówka z ciężkich czasów, zrealizowana z bezkompromisową precyzją. » — Tymoteusz Piątek, recenzja kapsułkowa Filmweb «Unikalna próba zmierzenia się z powojenną traumą i rozliczenia z przeszłością. » — Jonathan Romney, ScreenDaily, czytaj całość tutaj",
+        "directorBio": "Węgierski reżyser i scenarzysta, jeden z najwyrazistszych twórców kina europejskiego. Światowy rozgłos przyniósł mu debiut „Syn Szawła\" (2015), wyróżniony m.in. Oscarem za najlepszy film nieanglojęzyczny oraz Grand Prix w Cannes dla najlepszego filmu. Zaś kolejny, „Schyłek dnia\" (2018), nagrodzony MFF w Wenecji FIPRESCI.",
+        "tags": [
+          "komunizm",
+          "tożsamość",
+          "rodzina",
+          "trauma powojenna"
+        ],
+        "director": "László Nemes"
+      }
     },
     {
       "id": "23-2030-le-vertige",
@@ -296,7 +524,26 @@
         "przedpremierowy",
         "polska-premiera",
         "bez-dystrybucji"
-      ]
+      ],
+      "details": {
+        "slug": "le-vertige",
+        "url": "https://kameraakcja.com.pl/pokaz/le-vertige/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Le-Vertige-1024x1024.png",
+        "originalTitle": null,
+        "year": 2026,
+        "country": "Francja",
+        "cast": null,
+        "awards": "MFF w Cannes 2026 – Pokaz Zamknięcia sekcji Quinzaine des cinéastes",
+        "plot": "Surrealistyczna miniatura o symulacji, absurdzie i granicach ludzkiej percepcyjnej stabilności. O poranku Jacky składa niespodziewaną wizytę swojemu znajomemu Bruno, by podzielić się wstrząsającym odkryciem – cała ludzka egzystencja stanowi jedynie misternie skonstruowaną symulację komputerową. Ta z pozoru absurdalna rewelacja błyskawicznie uruchamia lawinę absurdalnych dialogów, paranoicznych hipotez i egzystencjalnych niepokojów. Francuski mistrz ekranowego absurdu, Quentin Dupieux tworzy wygenerowaną w cyfrowej przestrzeni, pełną czarnego humoru powiastkę, w której potoczna codzienność nieustannie zderza się z surrealistyczną metafizyką.\n\nW mediach «To ten Dupiex którego kocham. Ma jakiś zarys pomysłu i patrzy gdzie go zabierze. Piękny shitpost.» — Łukasz Mikołajczyk, Immersja, recenzja kapsułkowa Filmweb «Dupieux po raz kolejny serwuje błyskotliwy, pełen czarnego humoru majstersztyk absurdu, wywracający konwencje do góry nogami.» — Cinopsis, czytaj całość tutaj «Klasyczny Dupieux, czyli wszystko czegoś chcieć od idealnego porannego seansu. Animacja jak z ery 2D, komedia o symulacji świata, a w tym kotle znalazła się przestrzeń, aby zadrwić z szefów big techów.» — Filip Mańka, Immersja, recenzja kapsułkowa Filmweb",
+        "directorBio": "Francuski reżyser, scenarzysta, kompozytor (znany również jako Mr. Oizo) i operator filmowy. Jeden z najbardziej wyrazistych i płodnych twórców współczesnego kina autorskiego. Słynie z bezkompromisowego, absurdalnego humoru oraz surrealistycznych konceptów narracyjnych [„Mordercza opona\" (2010), „Mandibules\" (2020), „Daaaaaalí!\" (2023), „Yannick\" (2023)].",
+        "tags": [
+          "absurd",
+          "animacja 3D",
+          "science-fiction",
+          "Quentin Dupieux"
+        ],
+        "director": "Quentin Dupieux"
+      }
     },
     {
       "id": "24-1000-na-w-asna-reke",
@@ -315,7 +562,27 @@
       "flags": [
         "przedpremierowy",
         "bez-dystrybucji"
-      ]
+      ],
+      "details": {
+        "slug": "na-wlasna-reke",
+        "url": "https://kameraakcja.com.pl/pokaz/na-wlasna-reke/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Na-wlasna-reke--1024x1024.png",
+        "originalTitle": "De capul nostru / On Our Own",
+        "year": 2026,
+        "country": "Rumunia, Włochy",
+        "cast": "Denisa Vraja, Vlad Furtună, Mara Diaconu-Ducica, Sofia Vasiliu, Dominique Toma",
+        "awards": "MFF w Berlinie 2026 – sekcja Forum (CICAE Art Cinema Award)",
+        "plot": "Kiedy rodzice wyjeżdżają, dzieci muszą nauczyć się być dorosłe W małym mieście w Rumunii grupa nastolatków uczy się radzić bez rodziców, którzy wyjechali do pracy za granicę. Zmuszeni do zbyt wczesnego dorośnięcia, tworzą własną „rodzinę\" w desperackiej próbie wypełnienia pustki. W centrum grupy jest Flavia, silna dziewczyna, która ukrywa emocje za sarkazmem. Jednak troska o innych zmienia sposób, w jaki zaczyna postrzegać siebie i otaczający ją świat. Brawura Flavii, podobnie jak u pozostałych bohaterów, skrywa cierpienie spowodowane samotnością, brakiem miłości i zaniedbaniem ze strony własnych rodziców.\n\nW mediach: «De Capul Nostru jest obecny w Berlinale w sekcji Forum, poświęconej filmom autorskim. (&#8230;) To coming-of-age insolit, w którym dzieci, zmuszone przedwcześnie do samodzielnego życia, nie mają jak traktować dorosłości zbyt serio.» — Films in Frame, czytaj całość tutaj",
+        "directorBio": "Rumuński reżyser i scenarzysta. Jego debiut „The Japanese Dog\" (2013) miał premierę na festiwalu w San Sebastián. W swoich filmach koncentruje się na codzienności, relacjach rodzinnych i społecznych konsekwencjach przemian współczesnej Rumunii. „Na własną rękę\" jest jego trzecim pełnometrażowym filmem fabularnym.",
+        "tags": [
+          "dorastanie",
+          "samotność",
+          "rodzina",
+          "młodość",
+          "emigracja"
+        ],
+        "director": "Tudor Cristian Jurgiu"
+      }
     },
     {
       "id": "24-1145-zycie-snem",
@@ -333,7 +600,26 @@
       "url": "https://kameraakcja.com.pl/pokaz/zycie-snem/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "zycie-snem",
+        "url": "https://kameraakcja.com.pl/pokaz/zycie-snem/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Zycie-snem-1024x1024.png",
+        "originalTitle": "The Dreamed Adventure / Das geträumte Abenteuer",
+        "year": 2026,
+        "country": "Niemcy, Francja, Bułgaria, Austria",
+        "cast": "Yana Radeva, Syuleyman Alilov Letifov, Stoicho Kostadinov, Nikolay Shekerdjiev",
+        "awards": "MFF w Cannes 2026 – Nagroda Jury, Oscary 2027 – bułgarski kandydat do nominacji w kategorii najlepszy film międzynarodowy",
+        "plot": "Granica między snem a rzeczywistością nigdy nie była tak cienka. W pokrytym pyłem, górzystym regionie na granicy Bułgarii i Turcji o wpływy walczą grupy przemytników. Saïd, drobny przestępca utrzymujący się z przemytu paliwa, spotyka po latach archeolożkę Veskę. Ich wspólna przeszłość splata się z lokalnymi konfliktami, tajemniczymi zniknięciami i legendami, których prawdziwość trudno zweryfikować. Hipnotyczna, powoli rozwijająca się opowieść o świecie rządzącym się własnymi zasadami. Valeska Grisebach zaciera granice między rzeczywistością, pamięcią i majątkiem, tworząc film o nieuchwytnej atmosferze i zmiennych regułach gry.\n\nW mediach: «Płynie sobie ta opowieść, płynie, po bułgarskiej krainie&#8230; Fascynujący niejednoznaczny portret pogranicza, małomiasteczkowego bagienka i wędrowania po śladach przeszłości. Grisebach kręci rzadko, ale zawsze wraca z konkretami.» — Wojciech Tutaj, recenzja kapsułkowa Filmweb tutaj « Kino o istocie archeologii – o odkopywaniu przeszłości, która tylko pozornie pozostaje bez znaczenia. » — Michał Piepiórka, recenzja kapsułkowa Filmweb tutaj",
+        "directorBio": "Niemiecka reżyserka i scenarzystka, jedna z najciekawszych autorek współczesnego kina europejskiego. Jej filmy, cenione za realistyczny styl i wyrazistą atmosferę, często koncentrują się na relacjach międzyludzkich oraz napięciach obecnych w pozornie zwyczajnej rzeczywistości. Międzynarodowe uznanie przyniosły jej m.in. „Western\" (2017) oraz „Życie snem\", uhonorowane Nagrodą Jury na festiwalu w Cannes.",
+        "tags": [
+          "tajemnica",
+          "przemyt",
+          "granica",
+          "kryminał"
+        ],
+        "director": "Valeska Grisebach"
+      }
     },
     {
       "id": "24-1245-wilki",
@@ -351,7 +637,25 @@
       "url": "https://kameraakcja.com.pl/pokaz/wilki/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "wilki",
+        "url": "https://kameraakcja.com.pl/pokaz/wilki/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Wilki-1024x1024.png",
+        "originalTitle": "Wolves",
+        "year": 2025,
+        "country": "Szwajcaria",
+        "cast": "Selma Kopp, Bartosz Bielenia, Judith Hofmann",
+        "awards": "Filmfestival Max Ophüls Preis 2026 – Nagroda Krytyków, Nagroda Młodego Jury",
+        "plot": "Między wolnością a fanatyzmem granica potrafi być niebezpiecznie cienka. Młoda kobieta poznaje tajemniczego frontmana zespołu metalowego i wkracza do świata podziemnej sceny muzycznej. Nowa relacja staje się początkiem intensywnej podróży w poszukiwaniu własnej tożsamości, wolności i przynależności. Z czasem fascynacja nieznanym zaczyna jednak odsłaniać swoją mroczniejszą stronę, a granica między wyzwoleniem a fanatyzmem coraz bardziej się zaciera. Intensywna, niepokojąca opowieść o sile muzyki, potrzebie buntu i niebezpieczeństwach, które mogą kryć się za obietnicą całkowitej wolności.\n\nW mediach: «„Wilki\" to mocny dramat o stopniowym upadku, który od początku wydaje się nieuchronny. Film śledzi losy młodej kobiety, która zakochuje się w tajemniczym muzyku związanym z undergroundową sceną metalową. Zaślepiona uczuciem i własną naiwnością ignoruje kolejne sygnały ostrzegawcze, a granica między wolnością, fascynacją i fanatyzmem zaczyna się niebezpiecznie zacierać. » — Yannick Bracher, OutNow, czytaj całość tutaj «Czasem to, co najstraszniejsze, może skrywać się pod piękną powierzchnią, a potrzeba bolesnej konfrontacji, by dostrzec jego prawdziwe oblicze. Trudno o trafniejsze słowa w odniesieniu do ,,Wilków'', pełnometrażowego debiutu pochodzącego z Zurychu Jonasa Ulricha, który jest jednocześnie scenarzystą, reżyserem i montażystą filmu. » — Olivia Popp, CineEuropa.com, czytaj całość tuta j",
+        "directorBio": "Szwajcarski reżyser, scenarzysta i montażysta z Zurychu. Przez ponad dekadę realizował filmy krótkometrażowe, teledyski i reklamy, a jego krótkie metraże prezentowano na festiwalach na całym świecie. Jest współzałożycielem firmy produkcyjnej Dynamic Frame. „Wilki\" to jego pełnometrażowy debiut, w którym łączy autorską wrażliwość z energią niezależnego kina.",
+        "tags": [
+          "muzyka metalowa",
+          "underground",
+          "wolność"
+        ],
+        "director": "Jonas Ulrich"
+      }
     },
     {
       "id": "24-1700-hot-spot",
@@ -369,7 +673,29 @@
       "url": "https://kameraakcja.com.pl/pokaz/hot-spot/",
       "flags": [
         "audiodeskrypcja"
-      ]
+      ],
+      "details": {
+        "slug": "hot-spot",
+        "url": "https://kameraakcja.com.pl/pokaz/hot-spot/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Hot-spot-1024x1024.png",
+        "originalTitle": null,
+        "year": 2026,
+        "country": "Polska, Grecja, Szwecja, Norwegia",
+        "cast": "Andrzej Konopka, Noomi Rapace, Reika Kirishima",
+        "awards": "MFF Fantasia 2026 – Specjalne Wyróżnienie Jury za Zespół Aktorski, FPFF w Gdyni 2026 – Złoty Pazur im. Andrzeja Żuławskiego (Agnieszka Smoczyńska), Kostiumy (Katarzyna Lewińska), Dźwięk (Marcin Lenarczyk), Muzyka (Marcin Macuk, Zuzanna Wrońska",
+        "plot": "— Spotkanie po filmie z Agnieszką Smoczyńską (reżyserka filmu). Prowadzący Michał Walkiewicz. W świecie, którym rządzą algorytmy, największym zagrożeniem może być prawda. Niedaleka przyszłość. Porządek społeczny wyznacza świadoma sztuczna inteligencja, a prywatny detektyw prowadzi śledztwo w sprawie morderstwa. Trop prowadzi go do grupy rebeliantów zdolnych zachwiać cyfrowym systemem władzy. Im głębiej zanurza się w sprawę, tym wyraźniej odkrywa, że nic nie jest takie, jakim się wydaje. „ Hot Spot \" to futurystyczny thriller Agnieszki Smoczyńskiej, łączący science fiction, kryminał i społeczną satyrę. Hipnotyczny, niepokojący i olśniewający wizualnie klimat cyberpunkowego noir spotyka się tu z egzystencjalnym lękiem przed światem podporządkowanym technologii.\n\nW mediach: «Yummy! Szczególnie dla tych, którzy tak jak reżyserka lubią podejmować ryzyko wchodząc do kina. Gatunki to tutaj pole zabawy i eksperymentu, a nie reprodukowania schematów, więc jeszcze pyszniej. Świat to postapo na greckim lotnisku, sytuacja trwałej tymczasowości i wiecznej migracji &#8211; tym ciekawiej działa obsada i językowe gry.» — Kaja Klimek, Kajutex, recenzja kapsułkowa Filmweb tutaj « Film wygląda jak anime przepuszczone przez eurotrash. Sceny rejwu kręcone są jak rytuał, a kostiumy Katarzyny Lewińskiej pracują dosadniej niż dialogi. Jednak to przede wszystkim muzyka Marcina Macuka i Zuzanny Wrońskiej pcha całość w stronę transu. » — Grzegorz Narożny, Pełna Sala, czytaj pełny tekst tutaj « Począwszy od scenarzysty Roberta Bolesto, przez autora zdjęć Jakuba Kijowskiego, kostiumografkę Katarzynę Lewińską, po Marcina Macuka i siostry Wrońskie odpowiedzialnych za muzykę. Wspólnie wykreowali świat mający w sobie coś z halucynacji i cyberpunkowej wizji rzeczywistości. Jednocześnie to, co oglądamy, na gruncie polskiego kina jest naprawdę oryginalne. U Smoczyńskiej podoba mi się to, że w realizowanych filmach puszcza wodze fantazji, nie ogranicza swojej wyobraźni, ryzykuje. „ Hot Spot \" pewnie podzieli widzów. Nie każdy odnajdzie się w tej estetyce, ale przyznać trzeba, że jest to w pełni jej film. » — Kuba Armata, InteriaFilm, czytaj pełny tekst tutaj",
+        "directorBio": "Reżyserka i scenarzystka. Absolwentka reżyserii na WRiTV Uniwersytetu Śląskiego oraz Mistrzowskiej Szkoły Reżyserii Filmowej Andrzeja Wajdy. Jej pełnometrażowy debiut „Córki dancingu\" (2015) zdobył m.in. Nagrodę Specjalną Jury na Festiwalu w Sundance. Kolejny film „Fuga\" (2018) miał premierę w sekcji Semaine de la Critique w Cannes, a anglojęzyczny debiut „The Silent Twins\" (2022) trafił do sekcji Un Certain Regard oraz przyniósł jej Złote Lwy na FPFF w Gdyni. Zobacz filmografię reżyserki na FilmPolski.pl",
+        "tags": [
+          "cyberpunk",
+          "sztuczna inteligencja",
+          "thriller",
+          "science fiction",
+          "dystopia",
+          "Grecja",
+          "prywatny detektyw"
+        ],
+        "director": "Agnieszka Smoczyńska"
+      }
     },
     {
       "id": "24-1715-everytime",
@@ -385,7 +711,26 @@
       "venueGroup": "szkola-filmowa-z",
       "venueName": "Szkoła Filmowa - Budynek Z",
       "url": "https://kameraakcja.com.pl/pokaz/everytime/",
-      "flags": []
+      "flags": [],
+      "details": {
+        "slug": "everytime",
+        "url": "https://kameraakcja.com.pl/pokaz/everytime/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Everytime-1024x1024.png",
+        "originalTitle": null,
+        "year": 2026,
+        "country": "Austria, Niemcy",
+        "cast": "Brigit Minichmayr, Lotte Shirin Keiling, Tristan López, Carla Hüttermann",
+        "awards": "MFF w Cannes 2026 – Nagroda Un Certain Regard, Oscary 2027 – niemiecki kandydat do nominacji w kategorii najlepszy film międzynarodowy",
+        "plot": "Po rodzinnej tragedii matka, córka i chłopak zmarłej próbują nauczyć się żyć z jej nieobecnością. Laureat nagrody Un Certain Regard na festiwalu w Cannes, „Everytime\" Sandry Wollner to przejmująca i formalnie odważna opowieść o żałobie, pamięci i życiu po stracie. Rok po tragedii Ella i jej córka Melli próbują wrócić do codzienności, podczas gdy Lux zmaga się z poczuciem winy. Wspólna podróż na Teneryfę staje się konfrontacją z przeszłością, a granice między wspomnieniem, wyobraźnią i rzeczywistością zaczynają się zacierać. To niezwykła opowieść o pamięci, w której ci, których straciliśmy, mogą wciąż pozostawać obecni.\n\nW mediach: «Wollner przypomina tym samym, że nasza pamięć składa się w dużej mierze z zapisów pamięci.» — Jakub Popielecki, Filmweb, pełna recenzja tutaj «Esencja filmowej poezji i wzruszający portret straty, który zostawia w widzu ślad.» — Daria Sienkiewicz, recenzja kapsułkowa Filmweb tutaj «Poprowadzony z pełną kontrolą, przemyślany w najdrobniejszych szczegółach obraz żałoby, ale też dojrzewania i dzieciństwa. Obrazy nasączone emocjami o różnej tonacji, każda scena przemodelowuje konstrukcję całości. Jednocześnie kino duchologiczne i narkotyczny trip. Najoryginalniejsze jakie widziałem od lat.» — Michał Piepiórka, recenzja kapsułkowa Filmweb tutaj",
+        "directorBio": "Austriacka reżyserka i scenarzystka. Studiowała film dokumentalny w Film Academy Baden-Württemberg. Jej pełnometrażowym debiutem było „The Impossible Picture\" (2016), a „The Trouble with Being Born\" (2020) przyniosło jej Nagrodę Specjalną Jury sekcji Encounters na Berlinale. „Everytime\" zdobyło nagrodę Un Certain Regard w Cannes 2026.",
+        "tags": [
+          "żałoba",
+          "pamięć",
+          "strata",
+          "rodzinaa rzeczywistość"
+        ],
+        "director": "Sandra Wollner"
+      }
     },
     {
       "id": "24-1730-tierra-viva",
@@ -403,7 +748,26 @@
       "url": "https://kameraakcja.com.pl/pokaz/tierra-viva/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "tierra-viva",
+        "url": "https://kameraakcja.com.pl/pokaz/tierra-viva/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Tierra-Viva-1024x1024.png",
+        "originalTitle": null,
+        "year": 2026,
+        "country": "Polska, Gwatemala",
+        "cast": "Katarzyna Butowtt, Juan Diego Paiz, Ewelina Flinta, Blaise Grisson",
+        "awards": null,
+        "plot": "Słodko-gorzki dramat obyczajowy i kameralne kino drogi o konfrontacji dwóch odmiennych światów. Marta, niegdyś popularna polska piosenkarka, otrzymuje wstrząsającą wiadomość o nagłej śmierci swojego dorosłego syna Daniela w Gwatemali. Zdeterminowana, by sprowadzić jego ciało do kraju, wyrusza w daleką podróż. Na miejscu odbiera ją Marco, życiowy partner Daniela, o którego istnieniu kobieta nie miała pojęcia. Wspólna wyprawa przez gęstą prowincję i gwatemalskie bezdroża, początkowo pełna nieufności i walki o kontrolę, powoli przeradza się w poruszającą konfrontację z własnymi wyobrażeniami o zmarłym synu i pytaniami o granice bliskości. Zmysłowa, osadzona w egzotycznych pejzażach Gwatemali opowieść o żałobie, matczynej miłości oraz trudnych próbach zrozumienia tożsamości bliskich.",
+        "directorBio": "(Błażej Grzechnik) Studiował reżyserię w Warszawskiej Szkole Filmowej, a swoje umiejętności rozwijał podczas licznych międzynarodowych warsztatów filmowych. W latach 2010–2012 pracował dla firmy dystrybucyjnej Vision Film, a w latach 2015–2020 pełnił funkcję dyrektora ds. komunikacji Międzynarodowego Festiwalu Filmowego Nowe Horyzonty, jednego z najważniejszych wydarzeń filmowych w Europie. Jego pełnometrażowy debiut fabularny „Cudowne życie\" (2022) pokazał go jako twórcę o wyrazistym języku filmowym i odważnym podejściu do opowiadania historii, tworzącego kino pełne energii, humoru i emocjonalnej głębi. Od kilku lat Grisson mieszka i pracuje w Ameryce Łacińskiej oraz na Karaibach. Jego drugi film fabularny, „Tierra Viva\", został zrealizowany w Gwatemali w 2025 roku, z udziałem głównie lokalnej obsady i ekipy filmowej. Grisson opiera swoją twórczość na długotrwałym zanurzeniu w lokalnej kulturze i ścisłej współpracy z mieszkańcami. Dąży do przedstawienia Gwatemali w sposób autentyczny i pełen szacunku, unikając sprowadzania jej piękna i bogactwa kulturowego do egzotycznych obrazów. Jego celem jest oddanie hołdu ludziom i tradycjom Gwatemali, jednocześnie opowiadając historie intymne i uniwersalne.",
+        "tags": [
+          "kino drogi",
+          "żałoba",
+          "relacje rodzinne",
+          "tożsamość"
+        ],
+        "director": "Blaise Grisson"
+      }
     },
     {
       "id": "24-2000-extra-geography",
@@ -421,7 +785,26 @@
       "url": "https://kameraakcja.com.pl/pokaz/extra-geography/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "extra-geography",
+        "url": "https://kameraakcja.com.pl/pokaz/extra-geography/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Extra-Geography-1024x1024.png",
+        "originalTitle": null,
+        "year": 2026,
+        "country": "Wielka Brytania",
+        "cast": "Alice Englert, Galaxie Clear, Marni Duggan, Aoife Riddell",
+        "awards": "Sundance 2026 – udział w konkursie na najlepszy dramat zagraniczny",
+        "plot": "— intro przed filmem: Marta Jodko (Ale Kino! Festival) Pierwsza miłość to poważna sprawa. Zwłaszcza gdy trzeba ją znaleźć na zawołanie. Minna i Flic są nierozłącznymi przyjaciółkami, które wspólnie planują przyszłość daleko poza murami żeńskiego internatu. Zanim jednak ruszą w świat, postanawiają nadrobić jedno z najważniejszych doświadczeń dorastania – zakochać się. Ich przyspieszony kurs dojrzewania szybko okazuje się bardziej skomplikowany, niż mogły przypuszczać. Pełna humoru i niezręcznych momentów opowieść o pierwszych uczuciach, buncie i marzeniach o dorosłości, a przede wszystkim szczery portret dziewczyńskiej przyjaźni wystawionej na nieoczekiwaną próbę.\n\nW mediach: «Minna i Flic, grane przez znakomite debiutantki Galaxie Clear i Marni Duggan, rozpoczynają dziesiątą klasę gdzieś na początku XXI wieku, w świecie beztroski i intensywnych emocji. Poruszają się w idealnej harmonii, dzielą łóżko i maniery, mają wspólne cele – marzą o studiach w Oksfordzie lub Cambridge – oraz podobne niechęci, zwłaszcza do chłopców i tych, którzy się nimi interesują.» — Adrian Horton, The Guardian, czytaj całość tutaj «„Extra Geography\" jest najbardziej ekscytujące, gdy odsłania skrywaną pod starannie wypielęgnowaną powierzchnią tego świata nutę złośliwości i okrucieństwa. Minna i Flic od początku mają w sobie coś uszczypliwego, lecz z czasem ich relacja nabiera prawdziwie bolesnego wymiaru. Okrucieństwo przenika ich wzajemne interakcje w sposób, który ostatecznie okazuje się rozdzierający.» —Esther Zuckerman,IndieWire, czytaj całość tutaj «Bezkompromisowo zadziorne i błyskotliwe „Extra Geography\", z rewelacyjnymi debiutantkami Marni Duggan i Galaxie Clear w rolach głównych, z dużą dawką humoru i czułości przygląda się dziewczęcym lękom oraz młodzieńczej nieporadności. » — Tomris Laffly, Variety, czytaj całość tutaj",
+        "directorBio": "Nagradzana reżyserka filmowa i telewizyjna, laureatka BAFTY. Rozpoznawalność przyniosła jej praca przy serialu „One Day\" (2024), za który otrzymała dwie nominacje do BAFTY, w tym za reżyserię, oraz nagrodę RTS. Wcześniej współtworzyła ceniony serial „In My Skin\" (2021), nagrodzony m.in. BAFTĄ. Jej pełnometrażowym debiutem jest „Extra Geography\", którego światowa premiera odbyła się podczas festiwalu Sundance w 2026 r.",
+        "tags": [
+          "dojrzewanie",
+          "przyjaźń",
+          "pierwsza miłość",
+          "internat"
+        ],
+        "director": "Molly Manners"
+      }
     },
     {
       "id": "24-2010-niech-bestia-zdycha",
@@ -440,7 +823,25 @@
       "flags": [
         "pokaz-specjalny",
         "rekonstrukcja"
-      ]
+      ],
+      "details": {
+        "slug": "niech-bestia-zdycha",
+        "url": "https://kameraakcja.com.pl/pokaz/niech-bestia-zdycha/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Niech-bestia-zdycha-1024x1024.png",
+        "originalTitle": "Que la bête meure / The Man Must Die",
+        "year": 1969,
+        "country": "Francja",
+        "cast": "Michel Duchaussoy, Caroline Cellier, Jean Yanne, Anouk Ferjac",
+        "awards": "National Board of Review 1971 &#8211; Najlepszy Film Zagraniczny",
+        "plot": "Ofiara czy kat? Studium przypadku Po śmierci syna, potrąconego przez samochód, zrozpaczony Charles postanawia odnaleźć sprawcę i sam wymierzyć mu sprawiedliwość. Trop prowadzi go od przypadkowego świadka aż do bezwzględnego mężczyzny, którego życie i relacje z bliskimi skrywają mroczne tajemnice. „Niech bestia zdycha\" to chłodny, precyzyjnie skonstruowany thriller psychologiczny Claude'a Chabrola, w którym żałoba stopniowo przeradza się w obsesję. W dusznej atmosferze narastającego napięcia granica między ofiarą a katem coraz bardziej się zaciera, a pragnienie sprawiedliwości okazuje się równie niebezpieczne jak sama zbrodnia.",
+        "directorBio": "Francuski reżyser, scenarzysta i krytyk filmowy, jeden z najważniejszych przedstawicieli francuskiej Nowej Fali. Zanim stanął za kamerą, był krytykiem związanym z „Cahiers du Cinéma\". Jako jeden z twórców francuskiej Nowej Fali zasłynął thrillerami psychologicznymi i przenikliwymi portretami mieszczaństwa. Do jego najważniejszych filmów należą „Piękny Serge\" (1958), „Kuzyni\" (1959), „Niewierna żona\" (1969), „Rzeźnik\" (1970) i „Niech bestia zdycha\" (1969).",
+        "tags": [
+          "Francja",
+          "adaptacja",
+          "zbrodnia i kara"
+        ],
+        "director": "Claude Chabrol"
+      }
     },
     {
       "id": "24-2030-zeby-mleczne",
@@ -458,7 +859,27 @@
       "url": "https://kameraakcja.com.pl/pokaz/zeby-mleczne/",
       "flags": [
         "bez-dystrybucji"
-      ]
+      ],
+      "details": {
+        "slug": "zeby-mleczne",
+        "url": "https://kameraakcja.com.pl/pokaz/zeby-mleczne/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Zeby-mleczne--1024x1024.png",
+        "originalTitle": "Dinți de lapte / Milk teeth",
+        "year": 2025,
+        "country": "Rumunia, Francja, Dania, Grecja, Bułgaria",
+        "cast": "Emma Ioana Mogoș, Marina Palii, Igor Babiac, István Téglás",
+        "awards": "MFF w Wenecji 2025 – konkurs Orizzonti",
+        "plot": "Dzieciństwo kończy się tam, gdzie zaczyna się strach Rumunia, 1989. Schyłek dyktatury Nicolae Ceaușescu. W małym, odizolowanym miasteczku Maria, dziesięcioletnia dziewczynka, jest ostatnią osobą, która widzi, jak jej siostra znika na jej oczach. Załamana tą stratą, próbuje zrozumieć nową, przerażającą rzeczywistość i zmierzyć się z dwoma koszmarnymi wymiarami: światem, w którym jest zagubiona, ignorowana i pozostawiona sama sobie oraz przestrzenią snów, gdzie mroczne wizje zaczynają przejmować kontrolę nad jej życiem. Czy zdoła znaleźć w sobie odwagę, by dorosnąć?",
+        "directorBio": "Rumuński reżyser, scenarzysta i pisarz. Zadebiutował pełnometrażowym filmem „To The North\" (2022), który miał premierę na festiwalu w Wenecji. W swojej twórczości często podejmuje temat ludzi funkcjonujących na marginesie społeczeństwa, przemocy i sytuacji granicznych.",
+        "tags": [
+          "dzieciństwo",
+          "dyktatura",
+          "żałoba",
+          "strach",
+          "Rumunia"
+        ],
+        "director": "Mihai Mincan"
+      }
     },
     {
       "id": "25-1015-w-tym-kraju-nie-ma-dobrych-mezczyzn",
@@ -474,7 +895,27 @@
       "venueGroup": "szkola-filmowa-h",
       "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
       "url": "https://kameraakcja.com.pl/pokaz/w-tym-kraju-nie-ma-dobrych-mezczyzn/",
-      "flags": []
+      "flags": [],
+      "details": {
+        "slug": "w-tym-kraju-nie-ma-dobrych-mezczyzn",
+        "url": "https://kameraakcja.com.pl/pokaz/w-tym-kraju-nie-ma-dobrych-mezczyzn/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-W-tym-kraju-nie-ma-dobrych-mezczyzn-1024x1024.png",
+        "originalTitle": "No Good Men",
+        "year": 2026,
+        "country": "Niemcy, Francja, Norwegia, Dania, Afganistan",
+        "cast": "Shahrbanoo Sadat, Anwar Hashimi",
+        "awards": "MFF w Berlinie 2026 – Konkurs Konfrontacje",
+        "plot": "Czuła i pełna humoru opowieść o miłości, która pojawia się w najmniej oczekiwanym momencie. Kabul, tuż przed powrotem Talibów do władzy. Naru, porzuciwszy niewiernego męża, spogląda na świat z gorzkim przekonaniem, że nie ma w nim miejsca na uczucie. Trafiając w sam środek reporterskiego zgiełku u boku urokliwego prezentera wiadomości, powoli otwiera się na nieznany dotąd ton relacji. To kino intymne, czułe i pulsujące słodko-gorzką energią, w którym śmiech staje się najsilniejszą formą oporu.\n\nW mediach: «Pokazuje ludzi, którzy pracują, zakochują się, żartują i próbują planować przyszłość.» — Marta Mizińska, Filmiks.pl, czytaj całość tutaj «Sadat tworzy szczery, autentyczny i deeply ludzki portret.» — Adam Kruk, Filmweb, czytaj całość tutaj «Słodko-gorzka opowieść o miłości, która nie ma prawa się spełnić. Nie w państwie z kartonu, jakim w celnym oku kamery Sadat jest Afganistan.» — Katarzyna Kabernik, recenzja kapsułkowa Filmweb",
+        "directorBio": "Afgańska reżyserska i scenarzystka mieszkająca w Niemczech. Laureatka Nagrody Art Cinema w Cannes za debiut „Wolf and Sheep\" (2016). W swoich filmach z rozbrajającą szczerością i humorem łączy wątki autobiograficzne z wnikliwą obserwacją społeczną.",
+        "tags": [
+          "feminizm",
+          "dyskryminacja",
+          "dziennikarstwo",
+          "Afganistan",
+          "Kabul"
+        ],
+        "director": "Shahrbanoo Sadat"
+      }
     },
     {
       "id": "25-1020-flesh-and-fuel",
@@ -493,7 +934,26 @@
       "flags": [
         "przedpremierowy",
         "audiodeskrypcja"
-      ]
+      ],
+      "details": {
+        "slug": "flesh-and-fuel",
+        "url": "https://kameraakcja.com.pl/pokaz/flesh-and-fuel/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026.-Flesh-and-fuel-1024x1024.png",
+        "originalTitle": "Du fioul dans les artères",
+        "year": 2026,
+        "country": "Francja, Polska",
+        "cast": "Alexis Manenti, Julian Świeżewski",
+        "awards": "MFF w Cannes 2026 – Semaine de la Critique, Revelation Queer Palm",
+        "plot": "Czy miłość może przetrwać, gdy każda droga prowadzi gdzie indziej? Życie Étienne'a upływa między magazynami, przejściami granicznymi i parkingami przy autostradach. Wszystko zmienia się, gdy poznaje Bartosza, polskiego kierowcę ciężarówki, który na przekór trudnej codzienności wciąż potrafi dostrzec możliwość szczęścia. Rodzące się między mężczyznami uczucie musi jednak zmierzyć się z bezwzględną logiką pracy i życia w ciągłym ruchu. „Flesh and Fuel\" to czuła, melancholijna opowieść o miłości, samotności i poszukiwaniu bliskości w świecie, który nieustannie popycha ludzi ku rozstaniom.\n\nW mediach: «„Flesh and Fuel\" potwierdza, że Le Gall jest reżyserem, którego warto obserwować. Jego wrażliwość jest pełna empatii, ale pozbawiona sentymentalizmu; polityczna, lecz nie nachalna. Twórca przedstawia bohaterów queerowych jako wielowymiarowych ludzi, a nie symbole cierpienia. Film pozostawia po sobie poczucie nadziei – nie dlatego, że świat jest łaskawy, lecz dlatego, że wierzy, iż nawet w nim wciąż można odnaleźć i stworzyć przestrzeń dla czułości. » — Edin Čusto, Flicker Magazine, czytaj całość tutaj «Zaczyna się jak kino społeczne, ale szybko zamienia w fantazję (erotyczną) o miłości w branży spedycyjnej i bliskości w późnym kapitalizmie. Melodramatyczna formuła świetnie sprawdza się w opowieści o samotności życia zdominowanego przez pracę ponad siły» — Michał Piepiórka, recenzja kapsułkowa Filmweb tutaj «(&#8230;)nie mogę nie pochwalić ujmującej gry Alexisa Manentiego w roli Etienna, który idealnie odgrywa bohatera, którego tak niespodziewanie dosięgła strzała amora i przeżywa on, prawdopodobnie, pierwszą prawdziwą miłość w swoim życiu. » — Basia Gruba, SKVOT MAG, czytaj całość tutaj",
+        "directorBio": "Francuski scenarzysta i reżyser. Dorastając na prowincji, marzył o życiu w drodze, a później rozpoczął pracę dla telewizji, teatru i kina. Jest współautorem scenariusza animowanego filmu krótkometrażowego „Scars We Love\" (2024), prezentowanego w Cannes i nominowanego do Cezara. „Flesh and Fuel to jego pełnometrażowy debiut, w którym podejmuje bliskie mu tematy czasu, drogi i miłości.",
+        "tags": [
+          "miłość",
+          "kierowcy ciężarówek",
+          "droga",
+          "queer"
+        ],
+        "director": "Pierre Le Gall"
+      }
     },
     {
       "id": "25-1030-piekny-serge",
@@ -512,7 +972,27 @@
       "flags": [
         "pokaz-specjalny",
         "rekonstrukcja"
-      ]
+      ],
+      "details": {
+        "slug": "piekny-serge",
+        "url": "https://kameraakcja.com.pl/pokaz/piekny-serge/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Piekny-Serge-1024x1024.png",
+        "originalTitle": null,
+        "year": 1958,
+        "country": "Francja",
+        "cast": "Gérard Blain, Jean-Claude Brialy, Bernadette Lafont, Michèle Méritz",
+        "awards": "MFF w Locarno 1958 – Nagroda za Najlepszą Reżyserię; Prix Jean Vigo 1959",
+        "plot": "Stare przyjaźnie miewają gorzki posmak Po niemal dziesięciu latach François wraca do rodzinnej wioski, gdzie spotyka dawnego przyjaciela, Serge'a. Z dawnej duszy towarzystwa pozostał zgorzkniały, pogrążony w alkoholu człowiek. Próba ocalenia przyjaciela staje się dla François bolesną konfrontacją z przeszłością i rzeczywistością francuskiej prowincji. „Piękny Serge\", pełnometrażowy debiut Claude'a Chabrola, to jeden z filmów zapowiadających francuską Nową Falę. Utrzymana w surowym, melancholijnym klimacie opowieść łączy realizm z gorzką obserwacją ludzkich słabości, niespełnionych marzeń i społecznych ograniczeń.\n\nW mediach: «Trzeba pamiętać, że „Piękny Serge\" to hołd złożony kinu przez kinofila-amatora, efekt szczerej radości tworzenia, a przy okazji wstęp do jednego z najważniejszych zjawisk w historii światowej kinematografii, czyli francuskiej Nowej Fali. W tym również – poza treścią – kryje się jego wartość. » — Anna Felskowska, Cinerama , cały tekst tutaj",
+        "directorBio": "Francuski reżyser, scenarzysta i krytyk filmowy, jeden z najważniejszych przedstawicieli francuskiej Nowej Fali. Współpracował z „Cahiers du cinéma\", zanim w 1958 roku zrealizował „Pięknego Serge\", swój pełnometrażowy debiut i jeden z pierwszych filmów nurtu. Za obraz otrzymał Nagrodę za Najlepszą Reżyserię w Locarno oraz Prix Jean Vigo. W kolejnych dekadach zasłynął przede wszystkim jako mistrz przewrotnych kryminałów i bezlitosny obserwator francuskiej burżuazji.",
+        "tags": [
+          "Nowa Fala",
+          "francuska prowincja",
+          "przyjaźń",
+          "alkoholizm",
+          "kryzys"
+        ],
+        "director": "Claude Chabrol"
+      }
     },
     {
       "id": "25-1230-czarna-godzina",
@@ -531,7 +1011,28 @@
       "flags": [
         "przedpremierowy",
         "audiodeskrypcja"
-      ]
+      ],
+      "details": {
+        "slug": "czarna-godzina",
+        "url": "https://kameraakcja.com.pl/pokaz/czarna-godzina/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Czarna-godzina-1024x1024.png",
+        "originalTitle": "Empty Pockets",
+        "year": 2026,
+        "country": "Polska",
+        "cast": "Helka Rząsa, Julia Piklikiewicz, Mikołaj Osiński, Marta Bizoń",
+        "awards": "FPFF w Gdyni 2026 – Szafirowe Lwy (Filip Bojarski)",
+        "plot": "— Spotkanie po filmie z Filipem Bojarskim (reżyserem filmu). Prowadząca: Małgorzata Steciak Gdy walka o własny kąt staje się walką o wspólne życie. Ada i Ewa, zakochane w sobie młode nauczycielki, muszą opuścić blok przeznaczony do wyburzenia. Bez oszczędności i perspektyw ruszają na poszukiwanie nowego miejsca do życia. Ich wędrówka przez miasto szybko zamienia się w pełną absurdów i niespodzianek odyseję. Łącząc humor z doskonałą obserwacją, reżyser portretuje pokolenie dorastające w cieniu kolejnych kryzysów. To historia o walce o niezależność, miłości i marzenia, utrzymana w klimacie gorzko-zabawnego, często absurdalnego, komedio-dramatu.",
+        "directorBio": "Reżyser i scenarzysta filmów krótkometrażowych oraz teledysków prezentowanych i nagradzanych na polskich i międzynarodowych festiwalach filmowych. Absolwent Reżyserii w Szkole Filmowej w Łodzi, gdzie obronił pracę magisterską: „Aha\" a „ha-ha\". Związek informacji z humorem na przykładzie analizy filmu komediowego Larsa Von Triera „Szef wszystkich szefów\". Ukończył również studia I stopnia na kierunku Kognitywistyka w Instytucie Filozofii UJ w Krakowie . „Czarna godzina\" jest jego pełnometrażowym debiutem. Zobacz filmografię reżysera na FilmPolski.pl",
+        "tags": [
+          "kryzys mieszkaniowy",
+          "queer",
+          "młode pokolenie",
+          "dorosłość",
+          "absurd",
+          "czarny humor"
+        ],
+        "director": "Filip Bojarski"
+      }
     },
     {
       "id": "25-1240-the-meltdown",
@@ -550,7 +1051,26 @@
       "flags": [
         "przedpremierowy",
         "audiodeskrypcja"
-      ]
+      ],
+      "details": {
+        "slug": "the-meltdown",
+        "url": "https://kameraakcja.com.pl/pokaz/the-meltdown/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-The-Meltdown-1024x1024.png",
+        "originalTitle": "El deshielo",
+        "year": 2026,
+        "country": "Chile, USA, Hiszpania, Meksyk",
+        "cast": "Maya O'Rourke, Saskia Rosendahl, Maia Domagala, Jakub Gierszał, Paulina Urrutia, Mauricio Pešutić",
+        "awards": "MFF Cannes 2026 – udział w przeglądzie Un Certain Regard, Oscary 2027 – chilijski kandydat do nominacji w kategorii najlepszy film międzynarodowy",
+        "plot": "Najtrudniejsze do odkrycia bywają tajemnice ukryte pod powierzchnią. Chile, rok 1992. Dziewięcioletnia Inés spędza ferie w hotelu prowadzonym przez dziadków, położonym u stóp ośnieżonych Andów. Samotna dziewczynka zaprzyjaźnia się z Hanną, młodą niemiecką narciarką, której pobyt nagle kończy się tajemniczym zniknięciem. Poszukiwania odsłaniają sekrety ukryte zarówno w murach pensjonatu, jak i w pamięci kraju próbującego zostawić za sobą lata dyktatury. „The Meltdown\" to chłodna, pełna niedopowiedzeń opowieść o dojrzewaniu, pamięci i tym, co przez lata pozostawało wyparte.\n\nW mediach: « Film autorstwa chilijskiej reżyserki i aktorki Manueli Martelli zachwyca znaczeniem wielowarstwowym niczym śnieżny puch. Najbliżej ziemi, u podstawy historii, jest polityczna odwilż lat 90., moment, kiedy do głosu dochodzą błogosławieństwa i przekleństwa kapitalizmu. » — Ida Marszałek, Zwierciadło.pl, czytaj całość tutaj «Tak więc, choć historia ta jest na swój sposób tragedią, pozostaje tragedią antydramatyczną – tragedią nieobecności. Opowiada o bystrej dziewczynce, która uczy się, nie otrzymawszy nigdy okrutnej i błędnej lekcji, że plemienna lojalność i instynkt samozachowawczy powinny przeważać nad sumieniem, gdy chodzi o mówienie prawdy.» — Jessica Kiang, Variety, czytaj całość tutaj «„The Meltdown\" podejmuje swój temat z pełną sceptycyzmu naiwnością, przez którą nawet najbardziej życzliwi dorośli sprawiają wrażenie, jakby wszyscy byli zamieszani w ten sam spisek. W pewnym sensie być może rzeczywiście tak jest. » — David Ehrlich, IndieWire, czytaj całość tutaj",
+        "directorBio": "Chilijska aktorka i reżyserka, która karierę rozpoczęła przed kamerą, współpracując m.in. z Andrésem Woodem, Sebastiánem Lelio i Martínem Rejtmanem. Jej debiut fabularny „1976\" (2022) miał premierę w sekcji Quinzaine des Cinéastes w Cannes i zdobył m.in. nagrodę Sutherland na festiwalu BFI London. W swojej twórczości Martelli często przygląda się historii Chile przez pryzmat pamięci, przemilczeń i indywidualnych doświadczeń.",
+        "tags": [
+          "Chile",
+          "pamięć",
+          "tajemnica",
+          "dojrzewanie"
+        ],
+        "director": "Manuela Martelli"
+      }
     },
     {
       "id": "25-1300-afrofuturyzm-i-prorocze-snienie-the-last-angel-of-history",
@@ -584,7 +1104,26 @@
       "url": "https://kameraakcja.com.pl/pokaz/niespodziewane/",
       "flags": [
         "przedpremierowy"
-      ]
+      ],
+      "details": {
+        "slug": "niespodziewane",
+        "url": "https://kameraakcja.com.pl/pokaz/niespodziewane/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Niespodziewane-1024x1024.png",
+        "originalTitle": "Soudain / All of a Sudden",
+        "year": 2026,
+        "country": "Francja, Japonia, Niemcy, Belgia",
+        "cast": "Virginie Efira, Tao Okamoto, Kyôzô Nagatsuka, Kodai Kurosaki",
+        "awards": "MFF w Cannes 2026 – Nagroda dla Najlepszej Aktorki (Virginie Efira i Tao Okamoto), Oscary 2027 – japoński kandydat do nominacji w kategorii najlepszy film międzynarodowy",
+        "plot": "Co tak naprawdę znaczy być blisko drugiego człowieka? Ryûsuke Hamaguchi powraca z hipnotyzującym dziełem o sztuce troski i ucieczce od bezdusznego tempa współczesnego świata. W podparyskim domu opieki dyrektorka Marie-Lou próbuje wdrożyć pełną empatii metodę pracy z osobami starszymi. Trafia jednak na ścianę rynkowych realiów. Przypadkowe spotkanie z Mari, japońską reżyserką zmagającą się z nieuleczalną chorobą, daje początek niezwykłej relacji. W długich rozmowach i cichych wieczorach kobiety budują bezpieczny azyl – przestrzeń, w której sztuka i filozofia splatają się w medytację nad codziennym humanizmem.\n\nW mediach: «To kino wyrafinowane i eleganckie, ale jednocześnie subtelnie rewolucyjne.» — Łukasz Mańkowski, Filmweb, czytaj całość tutaj «Japoński reżyser wierzy w ludzi (&#8230;) Proponuje delikatny, aczkolwiek wyraźny optymizm.» — Kuba Armata, Interia, czytaj całość tutaj «Każdy z nas, bez wyjątku, zasługuje na swoje własne, intymne doświadczenie humanitude.» — Szymon Pazera, Pełna Sala, czytaj całość tutaj",
+        "directorBio": "Jeden z najważniejszych i najbardziej docenianych współczesnych reżyserów japońskich. Laureat Oscara za „Drive My Car\" (2021) oraz Srebrnego Niedźwiedzia w Berlinie. Jego styl charakteryzuje się wrażliwością literacką i zgłębianiem subtelnych niuansów emocji.",
+        "tags": [
+          "dramat",
+          "relacje",
+          "śmierć",
+          "demencja"
+        ],
+        "director": "Ryûsuke Hamaguchi"
+      }
     },
     {
       "id": "25-1900-la-gomera",
@@ -600,7 +1139,27 @@
       "venueGroup": "szkola-filmowa-h",
       "venueName": "Szkoła Filmowa - Wydział Aktorski, Budynek H",
       "url": "https://kameraakcja.com.pl/pokaz/la-gomera/",
-      "flags": []
+      "flags": [],
+      "details": {
+        "slug": "la-gomera",
+        "url": "https://kameraakcja.com.pl/pokaz/la-gomera/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-La-Gomera--1024x1024.png",
+        "originalTitle": "The Whistlers",
+        "year": 2019,
+        "country": "Rumunia, Francja, Niemcy, Szwecja",
+        "cast": "Vlad Ivanov, Catrinel Marlon, Rodica Lazăr, Antonio Buil, Agustí Villaronga",
+        "awards": "MFF w Cannes 2019 – Konkurs Główny; Oscar 2020 – rumuński kandydat w kategorii Najelpszy Film Międzynarodowy",
+        "plot": "Gdy policja podsłuchuje rozmowy, najlepiej zacząć&#8230; gwizdać. Mistrz rumuńskiej Nowej Fali zabiera nas na wakacje od powagi, i to nie byle gdzie, bo na jedną z Wysp Kanaryjskich – Gomerę. To tu przypływa skorumpowany, ponury gliniarz z Bukaresztu, by nauczyć się sekretnego lokalnego języka gwizdów, el silbo. Dzięki niemu może dogadywać się z mafią i planować porwanie, gwiżdżąc na policyjne podsłuchy. Nauczycielami Rumuna zostają tutejszy gangster i tajemnicza, ciemnowłosa femme fatale. Nieprzewidywalna, rozpędzona, stale zmieniająca gatunkowe przebrania La Gomera kluczy i miesza scenariuszowe tropy. Kryminalna komedia w reżyserii Corneliu Porumboiu dowodzi, że każdy, kto traktuje siebie śmiertelnie poważnie, jest po prostu śmieszny.\n\nW mediach: «To gangsterska komedia z absurdalnym punktem wyjścia i jeszcze bardziej absurdalnym finałem. A zarazem niezwykle delikatna satyra na różnorakie formy zinstytucjonalizowanej hipokryzji.» — Michał Walkiewicz, Filmweb, czytaj całość tutaj «La Gomera jest duchowym spadkobiercą tamtego lingwistycznego anty-kryminału (&#8230;). Porumboiu doskonale zdaje sobie z tego sprawę, jednak, w swoim stylu, pozostaje powściągliwy i w specyficzny sposób cieniuje humor.» — Dawid Smyk, Pełna Sala, czytaj całość tutaj",
+        "directorBio": "Jeden z najważniejszych przedstawicieli rumuńskiej Nowej Fali. Jego debiut „12:08 na wschód od Bukaresztu\" (2006) zdobył Złotą Kamerę na MFF w Cannes (2006), a kolejne filmy – m.in. „Policjant, przymiotnik\" (2009), „Skarb\" (2015) i „La Gomera\" (2019) – potwierdziły jego charakterystyczne połączenie absurdu, humoru i obserwacji społecznej. W swoich filmach często przygląda się językowi, instytucjom i mechanizmom władzy.",
+        "tags": [
+          "rumuńska Nowa Fala",
+          "mafia",
+          "policja",
+          "czarna komedia",
+          "absurd"
+        ],
+        "director": "Corneliu Porumboiu"
+      }
     }
   ]
 }

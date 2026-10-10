@@ -5,9 +5,11 @@
  Wyjście: data/screenings.json
 
  Użycie:
-   node scrape.js                                   # fetch ze strony
-   node scrape.js --input path/do/pliku.html         # z lokalnego pliku
+   node scrape.js                                   # fetch ze strony + opisy z WP JSON API
+   node scrape.js --input path/do/pliku.html         # z lokalnego pliku HTML
    node scrape.js --input -                         # ze stdin
+   node scrape.js --skip-details                    # tylko harmonogram, bez opisów
+   node scrape.js --concurrency 5                   # ile równoległych requestów do API
  */
 
 const fs = require('node:fs');
@@ -15,6 +17,7 @@ const path = require('node:path');
 const process = require('node:process');
 
 const URL = 'https://kameraakcja.com.pl/edycja-2026/harmonogram-godzinowy/';
+const WP_API = 'https://kameraakcja.com.pl/wp-json/wp/v2/show';
 
 // ============ Pomocnicze ============
 function stripTags(s) {
@@ -250,6 +253,185 @@ function parseScreening(paragraphHtml, day, dateISO) {
   };
 }
 
+// ============ Parser detali filmu (z WP JSON) ============
+// Struktura content.rendered (po stripTags):
+//   [LOKALIZACJA]
+//   Tytuł oryginalny / tytuł PL
+//   ROK, RUNTIME min.
+//   <flagi>
+//   Nagrody i selekcje: ...
+//   Reżyseria: ...
+//   Obsada: ...
+//   Kraj: ...
+//   [POKAZ STACJONARNY]
+//   <OPIS FABUŁY>
+//   <BIO REŻYSERA>
+//   Tagi: ...
+
+function parseField(text, label, stopLabels) {
+  // Szuka "<label>:<spacja>wartość" do przecinka lub klamry lub innego labelu lub końca tekstu
+  stopLabels = stopLabels || [];
+  const stopPattern = [...stopLabels, 'Reżyseria', 'Obsada', 'Kraj', 'Nagrody', 'Tagi'].join('|');
+  const re = new RegExp(`${label}\\s*:\\s*(.+?)(?=\\s*(?:\\n|\\[(?:POKAZ|SCENA|KINO|SALA|MUZEUM)|${stopPattern}|$))`, 'i');
+  const m = text.match(re);
+  if (!m) return null;
+  return m[1].trim();
+}
+
+function extractDetails(contentHtml, slug, url) {
+  const text = stripTags(contentHtml);
+  const details = {
+    slug,
+    url,
+    poster: null,
+    originalTitle: null,
+    year: null,
+    country: null,
+    cast: null,
+    awards: null,
+    plot: null,
+    directorBio: null,
+    tags: [],
+  };
+
+  // Rok
+  const yearMatch = text.match(/\b(19|20)\d{2}\b/);
+  if (yearMatch) details.year = parseInt(yearMatch[0], 10);
+
+  // Reżyseria
+  details.director = parseField(text, 'Reżyseria');
+
+  // Obsada
+  details.cast = parseField(text, 'Obsada');
+
+  // Kraj
+  details.country = parseField(text, 'Kraj');
+
+  // Nagrody
+  details.awards = parseField(text, 'Nagrody i selekcje');
+
+  // Tytuł oryginalny — przed "Reżyseria:" lub przed pierwszym rokiem
+  // Format: "<i>Tytuł oryginalny / tytuł PL</i>" — zwykle po [LOKALIZACJA], przed rokiem
+  const locEnd = text.indexOf(']');
+  const searchStart = locEnd >= 0 ? locEnd + 1 : 0;
+  const sub = text.slice(searchStart, Math.min(text.length, searchStart + 500));
+  // Szukamy "<tytuł> ROK," lub "<tytuł> + INTRO"
+  const titleMatch = sub.match(/^\s*([^,\n]+?)\s*(?:\d{4}\s*,|\+\s*(?:Q&A|INTRO|INTRO Nauka))/);
+  if (titleMatch) {
+    const candidate = titleMatch[1].trim();
+    if (candidate.length > 1 && candidate.length < 200 && !/^(?:Intro|Legenda|Łączny|[a-z]+:)/i.test(candidate)) {
+      details.originalTitle = candidate;
+    }
+  }
+
+  // Tagi: "Tagi: tag1, tag2, tag3" — ale tylko do końca sensownego fragmentu (przed buttonami)
+  const tagsRaw = text.match(/Tagi:\s*([^.\n]+?)(?=\s*(?:ZOBACZ|SEKCJA|DOSTĘPNOŚĆ|KUP|$))/i);
+  if (tagsRaw) {
+    details.tags = tagsRaw[1].split(',').map(t => t.trim()).filter(Boolean);
+  }
+
+  // Opis fabuły + bio reżysera — operujemy na HTML z <hr/> jako separatorem
+  // Ekstrahujemy sekcje między [POKAZ STACJONARNY] a końcem (przed buttonami)
+  // Struktura WP content.rendered po [POKAZ STACJONARNY]:
+  //   <p>...</p>
+  //   <hr/>
+  //   <p>...recenzje...</p>  (opcjonalnie)
+  //   <hr/>
+  //   <p><b>Marine Atlan</b></p>
+  //   <p>Bio...</p>
+  //   <hr/>
+  //   <p><b>Tagi</b>: ...</p>
+  //   <hr/>  (separator przed buttonami)
+  //   <div class="wp-block-buttons">...</div>
+  // Wycinamy "buttons" przez szukanie `<div class="wp-block-buttons">`
+  const startMark = '[POKAZ STACJONARNY]';
+  const startIdx = contentHtml.indexOf(startMark);
+  if (startIdx < 0) return details;
+
+  // Odetnij po [POKAZ STACJONARNY]
+  let after = contentHtml.slice(startIdx + startMark.length);
+  // Odetnij wszystko od <div class="wp-block-buttons (pierwsze buttony)
+  const buttonsIdx = after.search(/<div class="wp-block-buttons/i);
+  if (buttonsIdx >= 0) after = after.slice(0, buttonsIdx);
+
+  // Podziel po <hr/>
+  const sections = after
+    .split(/<hr\s*\/?>\s*/i)
+    .map(s => s.trim())
+    .filter(Boolean)
+    .map(s => stripTags(s));
+
+  // sections[0] = opis fabuły (z ewentualnymi recenzjami z mediów)
+  // Znajdź sekcję z bio reżysera — to ta, która **zaczyna się od** "<Imię> <Nazwisko>"
+  // (bo w HTML jest `<p><b>Imię Nazwisko</b></p>` w osobnej sekcji po <hr/>).
+  // NIE bierzemy sekcji, w której imię+nazwisko pojawia się w środku (to recenzja lub opis).
+  const directorName = details.director;
+  let bioIdx = -1;
+  if (directorName) {
+    const escaped = directorName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    for (let i = 1; i < sections.length; i++) {
+      // Sekcja MUSI zaczynać się od imienia i nazwiska (po ewentualnych białych znakach)
+      if (new RegExp(`^\\s*${escaped}\\b`, 'i').test(sections[i])) {
+        bioIdx = i;
+        break;
+      }
+    }
+  }
+
+  // Opis = wszystko przed bioIdx (łącznie z recenzjami)
+  // Filtrujemy krótkie nagłówki typu "W mediach:"
+  if (bioIdx > 0) {
+    const plotSections = sections.slice(0, bioIdx);
+    details.plot = plotSections
+      .filter(s => !/^W mediach:?\s*$/i.test(s))
+      .filter(s => !/^\s*$/.test(s))
+      .join('\n\n')
+      .trim() || null;
+    // Bio: sekcja z bioIdx zwykle zaczyna się od "<Imię> <Nazwisko>" (sama w jednej sekcji po <hr/>)
+    // Ale stripTags usuwa tagi, więc po prostu bierzemy sekcję i ewentualnie wycinamy imię
+    let bio = sections[bioIdx];
+    if (directorName) {
+      // Wycinamy dokładnie imię+nazwisko z początku
+      const escaped = directorName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      bio = bio.replace(new RegExp(`^\\s*${escaped}\\s*`, 'i'), '').trim();
+    }
+    details.directorBio = bio || sections[bioIdx];
+  } else if (sections.length > 0) {
+    // Brak bioIdx — całość to opis
+    details.plot = sections.join('\n\n').trim() || null;
+  }
+
+  // Wycinamy "Spotkanie po seansie..." / "Q&A..." / "Intro przed..." z plot
+  if (details.plot) {
+    details.plot = details.plot
+      .replace(/\s*—\s*film\s*Otwarcia.*$/, '')
+      .replace(/\s*Spotkanie po seansie.*?(?=[A-ZŻŹĆĄĘŚŁÓŃ])/g, '')
+      .replace(/\s*Q&A.*?(?=[A-ZŻŹĆĄĘŚŁÓŃ])/g, '')
+      .trim();
+  }
+
+  return details;
+}
+
+async function fetchShowDetails(slug) {
+  const url = `${WP_API}?slug=${encodeURIComponent(slug)}`;
+  const res = await fetch(url, {
+    headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36' },
+  });
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status} for ${slug}`);
+  }
+  const arr = await res.json();
+  if (!arr.length) return null;
+  const show = arr[0];
+  const details = extractDetails(show.content.rendered, show.slug, show.link);
+  details.poster = show.uagb_featured_image_src?.large?.[0] || show.uagb_featured_image_src?.full?.[0] || null;
+  details.year = details.year || (show.date ? parseInt(show.date.slice(0, 4), 10) : null);
+  // Tagi z WordPress (jeśli są w treści nie ma)
+  // Sekcje (kategorie) - przydatne do debugowania
+  return details;
+}
+
 // ============ Main ============
 async function fetchHtml() {
   const res = await fetch(URL, {
@@ -274,6 +456,9 @@ function readInput(args) {
 
 async function main() {
   const args = process.argv.slice(2);
+  const skipDetails = args.includes('--skip-details');
+  const concurrencyArg = args.indexOf('--concurrency');
+  const concurrency = concurrencyArg >= 0 ? parseInt(args[concurrencyArg + 1], 10) || 4 : 4;
   const input = await readInput(args);
   const html = input !== null ? input : await fetchHtml();
 
@@ -306,6 +491,44 @@ async function main() {
 
   // Statystyki per dzień
   const byDay = screenings.reduce((acc, s) => { acc[s.day] = (acc[s.day] || 0) + 1; return acc; }, {});
+
+  // Pobierz opisy filmów z WP JSON API
+  if (!skipDetails) {
+    const uniqueSlugs = [...new Set(screenings.map(s => s.url?.match(/\/(pokaz|wydarzenie)\/([^/]+)\/?$/)?.[2]).filter(Boolean))];
+    console.log(`Pobieram opisy dla ${uniqueSlugs.length} unikalnych filmów (concurrency=${concurrency})...`);
+
+    const detailsBySlug = {};
+    let done = 0;
+    let failed = 0;
+    const queue = [...uniqueSlugs];
+    const workers = Array.from({ length: concurrency }, async () => {
+      while (queue.length) {
+        const slug = queue.shift();
+        try {
+          const details = await fetchShowDetails(slug);
+          if (details) detailsBySlug[slug] = details;
+        } catch (e) {
+          failed++;
+          console.warn(`  ⚠ ${slug}: ${e.message}`);
+        }
+        done++;
+        if (done % 5 === 0 || done === uniqueSlugs.length) {
+          process.stdout.write(`\r  Postęp: ${done}/${uniqueSlugs.length} (błędy: ${failed})`);
+        }
+      }
+    });
+    await Promise.all(workers);
+    console.log();
+
+    // Przypisz detale do każdego seansu
+    for (const s of screenings) {
+      const slug = s.url?.match(/\/(pokaz|wydarzenie)\/([^/]+)\/?$/)?.[2];
+      if (slug && detailsBySlug[slug]) {
+        s.details = detailsBySlug[slug];
+      }
+    }
+    console.log(`Pobrano opisy dla ${Object.keys(detailsBySlug).length}/${uniqueSlugs.length} filmów`);
+  }
 
   const output = {
     festival: {

@@ -274,6 +274,154 @@
     }
     footer a { color: var(--text-2); }
     .hidden { display: none !important; }
+    .details-btn {
+      appearance: none;
+      background: none;
+      border: none;
+      color: var(--text-3);
+      font-size: 0.75rem;
+      cursor: pointer;
+      padding: 0;
+      margin-top: 0.25rem;
+      text-decoration: underline dotted;
+      text-underline-offset: 3px;
+    }
+    .details-btn:hover { color: var(--text); }
+    .screening .body > a { color: var(--text-2); }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      animation: fade-in 0.15s ease-out;
+    }
+    @media (min-width: 720px) {
+      .modal-backdrop { align-items: center; }
+    }
+    .modal {
+      background: var(--surface);
+      border-radius: 16px 16px 0 0;
+      max-width: 640px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.3);
+      animation: slide-up 0.2s ease-out;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    @media (min-width: 720px) {
+      .modal {
+        border-radius: 16px;
+        max-height: 85vh;
+      }
+    }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slide-up {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-poster {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: var(--surface-2);
+      display: block;
+    }
+    .modal-body { padding: 1rem 1.25rem 1.25rem; }
+    .modal-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+    .modal-poster-wrap { position: relative; }
+    .modal-title {
+      margin: 0 0 0.25rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .modal-original {
+      color: var(--text-2);
+      font-style: italic;
+      font-size: 0.95rem;
+      margin: 0 0 0.5rem;
+    }
+    .modal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-2);
+      margin: 0.5rem 0;
+    }
+    .modal-meta strong { color: var(--text); font-weight: 500; }
+    .modal-section {
+      margin: 1rem 0;
+      padding: 0.75rem;
+      background: var(--surface-2);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .modal-section h4 {
+      margin: 0 0 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .modal-section p { margin: 0; }
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+    }
+    .modal-tag {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text-2);
+    }
+    .modal-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+    .modal-actions .btn { flex: 1; padding: 0.6rem; }
+    .modal-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .modal-link:hover { text-decoration: underline; }
+    .no-poster {
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--surface-2), var(--surface));
+    }
+
     @media (max-width: 480px) {
       main { padding: .75rem; }
       .screening { padding: .65rem .75rem; }
@@ -310,6 +458,8 @@
       </div>
     </section>
   </main>
+
+  <div id="modalRoot" aria-hidden="true"></div>
 
   <footer>
     Dane z <a href="https://kameraakcja.com.pl/edycja-2026/harmonogram-godzinowy/" target="_blank" rel="noopener">kameraakcja.com.pl</a>.
@@ -494,6 +644,15 @@
           renderTabs();
           renderActiveView();
         };
+
+        // Details button — open modal
+        const detailsBtn = el.querySelector('.details-btn');
+        if (detailsBtn) {
+          detailsBtn.onclick = (e) => {
+            e.stopPropagation();
+            openDetailsModal(s);
+          };
+        }
       });
 
       // Summary
@@ -531,6 +690,7 @@
             </div>
             ${flagsHtml ? `<div class="flags">${flagsHtml}</div>` : ''}
             <ul class="conflict-list hidden"></ul>
+            ${s.details ? `<button type="button" class="details-btn" data-details="${escapeHtml(s.id)}">Szczegóły filmu →</button>` : ''}
           </div>
           <button type="button" class="toggle" aria-pressed="false" aria-label="Zaznacz seans"></button>
         </li>
@@ -646,6 +806,7 @@
               ${s.section ? `<span>· ${escapeHtml(s.section)}</span>` : ''}
             </div>
             ${conflictList}
+            ${s.details ? `<button type="button" class="details-btn" data-details="${escapeHtml(s.id)}">Szczegóły filmu →</button>` : ''}
           </div>
           <button type="button" class="toggle checked" aria-pressed="true">✓</button>
         </li>`;
@@ -660,12 +821,129 @@
           renderTabs();
           renderActiveView();
         };
+        const detailsBtn = el.querySelector('.details-btn');
+        if (detailsBtn) {
+          detailsBtn.onclick = (e) => {
+            e.stopPropagation();
+            const s = data.screenings.find(x => x.id === id);
+            if (s) openDetailsModal(s);
+          };
+        }
       });
 
       document.getElementById('planSummary').innerHTML =
         `<strong>${items.length}</strong> wybranych` +
         (overlaps ? ` · <span class="bad">${overlaps} kolizji</span>` : '') +
         (travel ? ` · <span class="warn">${travel} zbyt ciasno</span>` : '');
+    }
+
+    // ============ Details modal ============
+    function openDetailsModal(s) {
+      if (!s.details) return;
+      const root = document.getElementById('modalRoot');
+      const d = s.details;
+      const isSelected = selected.has(s.id);
+
+      const tagsHtml = d.tags && d.tags.length
+        ? `<div class="modal-tags">${d.tags.map(t => `<span class="modal-tag">${escapeHtml(t)}</span>`).join('')}</div>`
+        : '';
+
+      const poster = d.poster
+        ? `<div class="modal-poster-wrap"><img class="modal-poster" src="${escapeHtml(d.poster)}" alt="${escapeHtml(d.title || d.slug)}" loading="lazy" /><button type="button" class="modal-close" aria-label="Zamknij">×</button></div>`
+        : `<div class="modal-poster-wrap"><div class="modal-poster no-poster"></div><button type="button" class="modal-close" aria-label="Zamknij">×</button></div>`;
+
+      const year = d.year ? `${d.year}` : '';
+      const runtime = s.runtime ? `${s.runtime} min${s.extraMinutes ? ` + ${s.extraMinutes} min` : ''}` : '';
+      const metaBits = [];
+      if (year) metaBits.push(`<strong>${escapeHtml(year)}</strong>`);
+      if (d.country) metaBits.push(escapeHtml(d.country));
+      if (runtime) metaBits.push(escapeHtml(runtime));
+
+      const plotSection = d.plot ? `
+        <div class="modal-section">
+          <h4>Opis filmu</h4>
+          <p>${escapeHtml(d.plot)}</p>
+        </div>` : '';
+
+      const directorBioSection = d.directorBio ? `
+        <div class="modal-section">
+          <h4>O reżyserze — ${escapeHtml(d.director || '')}</h4>
+          <p>${escapeHtml(d.directorBio)}</p>
+        </div>` : '';
+
+      const awardsSection = d.awards ? `
+        <div class="modal-section">
+          <h4>Nagrody i selekcje</h4>
+          <p>${escapeHtml(d.awards)}</p>
+        </div>` : '';
+
+      const castSection = d.cast ? `
+        <div class="modal-section">
+          <h4>Obsada</h4>
+          <p>${escapeHtml(d.cast)}</p>
+        </div>` : '';
+
+      root.innerHTML = `
+        <div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+          <div class="modal" role="document">
+            ${poster}
+            <div class="modal-body">
+              <h2 id="modalTitle" class="modal-title">${escapeHtml(s.title)}</h2>
+              ${d.originalTitle && d.originalTitle.toLowerCase() !== s.title.toLowerCase()
+                ? `<p class="modal-original">${escapeHtml(d.originalTitle)}</p>` : ''}
+              <div class="modal-meta">${metaBits.join(' · ')}</div>
+              <div class="modal-meta">
+                <span>${escapeHtml(s.venueName)}</span>
+                ${s.section ? `<span>· ${escapeHtml(s.section)}</span>` : ''}
+                ${s.flags.map(f => `<span>· ${escapeHtml(flagLabel(f))}</span>`).join('')}
+              </div>
+              ${tagsHtml}
+              ${plotSection}
+              ${awardsSection}
+              ${castSection}
+              ${directorBioSection}
+              <div class="modal-actions">
+                <button type="button" class="btn ${isSelected ? '' : 'primary'}" id="modalToggleBtn">
+                  ${isSelected ? '✓ Dodany do planu' : '+ Dodaj do planu'}
+                </button>
+                ${d.url ? `<a class="btn" href="${escapeHtml(d.url)}" target="_blank" rel="noopener">Strona festiwalu ↗</a>` : ''}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      root.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      const close = () => {
+        root.innerHTML = '';
+        root.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onKey);
+      };
+
+      const onKey = (e) => {
+        if (e.key === 'Escape') close();
+      };
+
+      root.querySelector('.modal-backdrop').onclick = (e) => {
+        if (e.target.classList.contains('modal-backdrop')) close();
+      };
+      root.querySelector('.modal-close').onclick = close;
+      document.addEventListener('keydown', onKey);
+
+      const toggleBtn = root.querySelector('#modalToggleBtn');
+      if (toggleBtn) {
+        toggleBtn.onclick = () => {
+          if (selected.has(s.id)) selected.delete(s.id);
+          else selected.add(s.id);
+          saveSelected();
+          renderTabs();
+          renderActiveView();
+          // Re-open modal with updated state
+          openDetailsModal(s);
+        };
+      }
     }
 
     // ============ Utils ============
