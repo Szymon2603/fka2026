@@ -4,11 +4,11 @@ Webowa apka (PWA) do planowania seansów na [17. Festiwal Kamera Akcja](https://
 
 - 📱 mobile-first, instaluje się jak natywna apka (PWA, offline-ready)
 - 🎯 wykrywa **kolizje czasowe** (overlap seansów)
-- ⏱ wykrywa **zbyt krótkie przejścia** między lokacjami (domyślnie 20 min)
+- ⏱ wykrywa **zbyt krótkie przejścia** między lokacjami (domyślnie 15 min, edytowalne)
 - 🎬 **opis filmu** po kliknięciu (modal: plakat, opis fabuły, bio reżysera, obsada, nagrody, tagi)
 - 💾 lista "chcę obejrzeć" zapisywana w `localStorage`
 - 🌗 motyw auto (`prefers-color-scheme`)
-- 🎬 zero zależności runtime — vanilla HTML/JS, ~35 KB
+- 🎬 zero zależności runtime — vanilla HTML/JS, ~45 KB
 
 ## Uruchomienie
 
@@ -100,6 +100,10 @@ Dla każdej pary wybranych seansów `A`, `B` (w tym samym dniu):
 2. **Przejście** — jeśli `A.end <= B.start && (B.start - A.end) < transitionMinutes && venueGroupA != venueGroupB` → 🟡 za mało czasu na przejście
 
 `venueGroup` to logiczna grupa budynków (np. wszystkie kina Szkoły Filmowej mają osobne grupy: `-h`, `-z`, `-cnm`, bazowa). Przejście między kinami w jednym budynku jest traktowane jako zerowe, między różnymi grupami — `transitionMinutes`.
+
+## Edycja czasów przejść
+
+W zakładce **Czasy przejść** możesz nadpisać domyślne 15 min dla każdej pary venueGroupów (np. `Monopolis → Szkoła Filmowa - Wydział Aktorski, Budynek H = 18 min` bo idzie się dłużej). Zmiany zapisują się w `localStorage`. Przycisk ↺ przy wierszu przywraca domyślne dla tej pary; **Przywróć domyślne** resetuje wszystko.
 
 ## Stack
 

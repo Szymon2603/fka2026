@@ -266,6 +266,60 @@
     .swatch { display: inline-block; width: .75rem; height: .75rem; border-radius: 3px; }
     .swatch.overlap { background: var(--conflict-bg); border: 1px solid var(--conflict-border); }
     .swatch.travel { background: var(--warn-bg); border: 1px solid var(--warn-border); }
+
+    /* Transitions editor */
+    .transitions-grid {
+      display: grid;
+      gap: .5rem;
+    }
+    .transition-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto;
+      gap: .5rem;
+      align-items: center;
+      padding: .6rem .75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .transition-row.custom { border-color: var(--accent); }
+    .transition-row .venue { font-size: .9rem; min-width: 0; word-wrap: break-word; }
+    .transition-row .arrow { color: var(--text-3); font-size: .9rem; padding: 0 .25rem; }
+    .transition-row .time-input {
+      width: 4.5rem;
+      padding: .35rem .5rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: .9rem;
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+    .transition-row .time-input:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: -1px;
+      border-color: transparent;
+    }
+    .transition-row .unit { color: var(--text-3); font-size: .85rem; }
+    .transition-row .reset-row {
+      appearance: none;
+      background: none;
+      border: none;
+      color: var(--text-3);
+      cursor: pointer;
+      font-size: .85rem;
+      padding: 0 .25rem;
+    }
+    .transition-row .reset-row:hover { color: var(--accent); }
+    .transition-row .badge {
+      font-size: .65rem;
+      padding: .1rem .4rem;
+      border-radius: 4px;
+      background: var(--accent);
+      color: var(--accent-fg);
+      margin-left: .35rem;
+    }
     footer {
       text-align: center;
       padding: 1rem;
@@ -457,6 +511,19 @@
         <span><span class="swatch travel"></span> zbyt mało czasu na przejście</span>
       </div>
     </section>
+
+    <section id="transitions-view" class="hidden">
+      <div class="toolbar">
+        <div class="summary">
+          Czasy przejść między lokacjami. Domyślnie <strong>15 min</strong>. Zmieniaj jeśli wiesz lepiej (zależy od pogody, tramwaju itp.).
+        </div>
+        <button class="btn" id="resetTransitionsBtn" type="button">Przywróć domyślne</button>
+      </div>
+      <div id="transitionsList"></div>
+      <div class="legend">
+        <span>Czas jest symetryczny — para (A, B) = para (B, A)</span>
+      </div>
+    </section>
   </main>
 
   <div id="modalRoot" aria-hidden="true"></div>
@@ -470,7 +537,42 @@
     'use strict';
     // ============ Config & state ============
     const STORAGE_KEY = 'fka2026.selected.v1';
-    const TRANSITION_MIN = 20; // minutes needed to walk between different venueGroups
+    const TRANSITIONS_KEY = 'fka2026.transitions.v1';
+    const DEFAULT_TRANSITION_MIN = 15; // default walking time between different venueGroups
+
+    /** @type {Map<string, number>} override: "from\to" -> minutes */
+    let transitions = new Map();
+
+    /** Load user-customized transition times from localStorage. */
+    function loadTransitions() {
+      try {
+        const raw = localStorage.getItem(TRANSITIONS_KEY);
+        transitions = new Map(raw ? JSON.parse(raw) : []);
+      } catch { transitions = new Map(); }
+    }
+    function saveTransitions() {
+      try {
+        localStorage.setItem(TRANSITIONS_KEY, JSON.stringify([...transitions.entries()]));
+      } catch {}
+    }
+
+    /**
+     * Returns walking minutes between two venue groups.
+     * Pair key is "from\to" — order-independent (same time both ways).
+     */
+    function getTransitionMin(from, to) {
+      if (from === to) return 0;
+      const a = transitions.get(`${from}\t${to}`);
+      const b = transitions.get(`${to}\t${from}`);
+      if (typeof a === 'number') return a;
+      if (typeof b === 'number') return b;
+      return DEFAULT_TRANSITION_MIN;
+    }
+    function setTransitionMin(from, to, minutes) {
+      if (from === to) return;
+      transitions.set(`${from}\t${to}`, minutes);
+      saveTransitions();
+    }
 
     /** @type {object|null} */
     let data = null;
@@ -492,6 +594,7 @@
       }
 
       loadSelected();
+      loadTransitions();
       renderTabs();
       renderActiveView();
 
@@ -523,6 +626,19 @@
         if (e.key === STORAGE_KEY) {
           loadSelected();
           renderActiveView();
+        }
+      });
+
+      // Event delegation for "Szczegóły filmu" buttons — survives re-renders.
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.details-btn');
+        if (!btn) return;
+        e.preventDefault();
+        e.stopPropagation();
+        const id = btn.dataset.details;
+        const s = data.screenings.find(x => x.id === id);
+        if (s && s.details) {
+          openDetailsModal(s);
         }
       });
     }
@@ -557,11 +673,13 @@
         const daySelected = data.screenings.filter(s => s.day === dayNum && selected.has(s.id)).length;
         html.push(`<button type="button" class="tab" data-tab="${dayNum}">${dayNum} ${dayNames[i]}</button>`);
       }
+      html.push(`<button type="button" class="tab" data-tab="transitions">Czasy przejść</button>`);
       tabsEl.innerHTML = html.join('');
       tabsEl.querySelectorAll('.tab').forEach(btn => {
         btn.addEventListener('click', () => {
           const t = btn.dataset.tab;
           if (t === 'plan') activeView = 'plan';
+          else if (t === 'transitions') activeView = 'transitions';
           else { activeView = 'day'; activeDay = t === 'all' ? 'all' : parseInt(t, 10); }
           renderActiveView();
         });
@@ -572,6 +690,7 @@
       document.querySelectorAll('#dayTabs .tab').forEach(btn => {
         const t = btn.dataset.tab;
         if (t === 'plan') btn.classList.toggle('active', activeView === 'plan');
+        else if (t === 'transitions') btn.classList.toggle('active', activeView === 'transitions');
         else if (activeView === 'day') btn.classList.toggle('active', String(activeDay) === t);
       });
     }
@@ -581,10 +700,17 @@
       if (activeView === 'plan') {
         document.getElementById('day-view').classList.add('hidden');
         document.getElementById('plan-view').classList.remove('hidden');
+        document.getElementById('transitions-view').classList.add('hidden');
         renderPlan();
+      } else if (activeView === 'transitions') {
+        document.getElementById('day-view').classList.add('hidden');
+        document.getElementById('plan-view').classList.add('hidden');
+        document.getElementById('transitions-view').classList.remove('hidden');
+        renderTransitions();
       } else {
         document.getElementById('day-view').classList.remove('hidden');
         document.getElementById('plan-view').classList.add('hidden');
+        document.getElementById('transitions-view').classList.add('hidden');
         renderDay();
       }
     }
@@ -645,14 +771,8 @@
           renderActiveView();
         };
 
-        // Details button — open modal
-        const detailsBtn = el.querySelector('.details-btn');
-        if (detailsBtn) {
-          detailsBtn.onclick = (e) => {
-            e.stopPropagation();
-            openDetailsModal(s);
-          };
-        }
+        // Details button — event delegated, wired once in init()
+        void 0;
       });
 
       // Summary
@@ -738,10 +858,11 @@
           // 2. Travel time
           if (first.venueGroup !== second.venueGroup) {
             const gap = minutes(second.start) - minutes(first.end);
-            if (gap >= 0 && gap < TRANSITION_MIN) {
+            const travel = getTransitionMin(first.venueGroup, second.venueGroup);
+            if (gap >= 0 && gap < travel) {
               map[first.id].travel = true;
               map[second.id].travel = true;
-              const minutesShort = TRANSITION_MIN - gap;
+              const minutesShort = travel - gap;
               const fromName = escapeHtml(first.venueName);
               const toName = escapeHtml(second.venueName);
               map[first.id].items.push({
@@ -821,14 +942,7 @@
           renderTabs();
           renderActiveView();
         };
-        const detailsBtn = el.querySelector('.details-btn');
-        if (detailsBtn) {
-          detailsBtn.onclick = (e) => {
-            e.stopPropagation();
-            const s = data.screenings.find(x => x.id === id);
-            if (s) openDetailsModal(s);
-          };
-        }
+        // details-btn: event delegated, wired once in init()
       });
 
       document.getElementById('planSummary').innerHTML =
@@ -944,6 +1058,69 @@
           openDetailsModal(s);
         };
       }
+    }
+
+    // ============ Transitions editor ============
+    function renderTransitions() {
+      const el = document.getElementById('transitionsList');
+      const venues = data.venues;
+      // Generuj pary (kanoniczny porządek: a < b)
+      const pairs = [];
+      for (let i = 0; i < venues.length; i++) {
+        for (let j = i + 1; j < venues.length; j++) {
+          pairs.push([venues[i], venues[j]]);
+        }
+      }
+      el.innerHTML = `<div class="transitions-grid">${pairs.map(([a, b]) => {
+        const minutes = getTransitionMin(a.group, b.group);
+        const custom = transitions.has(`${a.group}\t${b.group}`) ||
+                       transitions.has(`${b.group}\t${a.group}`);
+        return `
+          <div class="transition-row${custom ? ' custom' : ''}" data-from="${escapeHtml(a.group)}" data-to="${escapeHtml(b.group)}">
+            <span class="venue">${escapeHtml(a.name)}</span>
+            <span class="arrow">→</span>
+            <span class="venue">${escapeHtml(b.name)}${custom ? '<span class="badge">własne</span>' : ''}</span>
+            <input type="number" class="time-input" min="0" max="120" value="${minutes}" inputmode="numeric" aria-label="Czas przejścia w minutach" />
+            <span class="unit">min</span>
+            ${custom ? '<button type="button" class="reset-row" title="Przywróć domyślne 15 min">↺</button>' : ''}
+          </div>
+        `;
+      }).join('')}</div>`;
+
+      // Wire inputs (event delegation)
+      el.querySelectorAll('.transition-row').forEach((row) => {
+        const from = row.dataset.from;
+        const to = row.dataset.to;
+        const input = row.querySelector('.time-input');
+        input.addEventListener('change', () => {
+          const v = parseInt(input.value, 10);
+          if (Number.isFinite(v) && v >= 0 && v <= 120) {
+            setTransitionMin(from, to, v);
+            renderActiveView(); // re-render to update badge/custom class
+          } else {
+            // Reset to current value
+            input.value = getTransitionMin(from, to);
+          }
+        });
+        const resetBtn = row.querySelector('.reset-row');
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            transitions.delete(`${from}\t${to}`);
+            transitions.delete(`${to}\t${from}`);
+            saveTransitions();
+            renderActiveView();
+          });
+        }
+      });
+
+      // Global reset button
+      const resetAll = document.getElementById('resetTransitionsBtn');
+      resetAll.onclick = () => {
+        if (!confirm('Przywrócić domyślne czasy (15 min dla wszystkich przejść)?')) return;
+        transitions.clear();
+        saveTransitions();
+        renderActiveView();
+      };
     }
 
     // ============ Utils ============
