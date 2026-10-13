@@ -10,9 +10,9 @@
       "2026-10-24",
       "2026-10-25"
     ],
+    "preShowMinutes": 10,
     "sourceUrl": "https://kameraakcja.com.pl/edycja-2026/harmonogram-godzinowy/",
-    "generatedAt": "2026-10-10T18:28:32.634Z",
-    "preShowMinutes": 10
+    "generatedAt": "2026-10-13T20:50:54.275Z"
   },
   "venues": [
     {
@@ -54,6 +54,44 @@
   ],
   "transitionMinutes": 20,
   "screenings": [
+    {
+      "id": "22-1800-dziki-dziki-wschod",
+      "day": 22,
+      "date": "2026-10-22",
+      "start": "18:00",
+      "end": "20:30",
+      "title": "Dziki Dziki Wschód",
+      "director": "Jan Holoubek",
+      "runtime": 105,
+      "extraMinutes": 45,
+      "section": "Polska Fala",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/dziki-dziki-wschod/",
+      "flags": [
+        "przedpremierowy",
+        "audiodeskrypcja"
+      ],
+      "details": {
+        "slug": "dziki-dziki-wschod",
+        "url": "https://kameraakcja.com.pl/pokaz/dziki-dziki-wschod/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Dziki-Dziki-Wschod-1024x1024.png",
+        "originalTitle": "Wild Wild East",
+        "year": 2026,
+        "country": "Polska",
+        "cast": "Itay Tiran, Robert Więckiewicz, Piotr Trojan, Joanna Kulig, Jacek Beler, Magdalena Różczka",
+        "awards": "MFF w Gdyni 2026 – Konkurs Główny",
+        "plot": "— film Otwarcia Festiwalu Kamera Akcja —Aleksandrą Takuską (scenarzystką filmu). Prowadzący Jacek Cygan . Gdy pojawia się obcy, dawne sekrety wychodzą na jaw, a poszukiwanie ukrytego skarbu staje się walką o przetrwanie. Sroga zima 1943 roku. Do sennego miasteczka na wschodzie Polski przybywa Wolff, tajemniczy urzędnik z Berlina. Pilnie strzeże powodów swojej wizyty, ale sama jego obecność szybko burzy spokój w Małym Zalesiu. Atmosfera nieufności i zagrożenia narasta. Każdy ma swoje sekrety, a pogłoski o zaginionym złocie sprawiają, że granica między prawdą a kłamstwem zaczyna się zacierać. Opowieść o ludziach uwikłanych w dramatyczne wybory, gdzie stawką jest życie, a każda decyzja niesie realne konsekwencje.\n\nW mediach: «(&#8230;) „Dziki Dziki Wschód\", który w gatunkowej formule mówi o spirali przemocy, moralności w ekstremalnej sytuacji, dzisiaj wybrzmi znacznie mocniej.» — Kuba Armata, Interia FILM, czytaj całość tutaj «Wykorzystując schematy klasycznego kina gatunkowego, Holoubek doskonale zwodzi widza. (&#8230;) Duszną, wręcz drapieżną atmosferę grozy podkręca świetna, przykurzona i zarazem mroźna scenografia.» — Karolina Stankiewicz, Wirtualna Polska, całość czytaj tutaj",
+        "directorBio": "Reżyser i operator filmowy. Jeden z najbardziej uznanych i cenionych twórców współczesnego polskiego kina i telewizji. Twórca nagradzanych dramatów historycznych i seriali sensacyjnych [„25 lat niewinności. Sprawa Tomka Komendy\" (2021), „Doppelgänger. Sobowtór\" (2023), „Rojst\" (2024), „Wielka woda\" (2022)]. Słynie z niezwykłej dbałości o realia epoki, dopracowanej oprawy wizualnej oraz świetnego prowadzenia zespołu aktorskiego. Zobacz filmografię reżysera na FilmPolski.pl",
+        "tags": [
+          "II Wojna Światowa",
+          "western",
+          "kino gatunkowe",
+          "holocaust"
+        ],
+        "director": "Jan Holoubek"
+      }
+    },
     {
       "id": "22-1830-niewierna-zona",
       "day": 22,
@@ -234,6 +272,84 @@
       }
     },
     {
+      "id": "22-2115-papierowy-tygrys",
+      "day": 22,
+      "date": "2026-10-22",
+      "start": "21:15",
+      "end": "23:10",
+      "title": "Papierowy tygrys",
+      "director": "James Gray",
+      "runtime": 115,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/papierowy-tygrys/",
+      "flags": [
+        "przedpremierowy"
+      ],
+      "details": {
+        "slug": "papierowy-tygrys",
+        "url": "https://kameraakcja.com.pl/pokaz/papierowy-tygrys/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Papierowy-Tygrys-1024x1024.png",
+        "originalTitle": "Paper Tiger",
+        "year": 2026,
+        "country": "USA",
+        "cast": "Scarlett Johansson , Miles Teller , Adam Driver , Joel Marsh Garland",
+        "awards": "MFF w Cannes 2026 – udział w Konkursie Głównym",
+        "plot": "James Gray wraca do nowojorskich korzeni, serwując klasyczne kino gangsterskie z wielkim popisem Adama Drivera. W cieniu miejskich zaułków i przesiąkniętych deszczem ulic, dwaj bracia zostają wciągnięci w brutalny konflikt z przestępczością zorganizowaną. Próbując chronić najbliższych, powoli przekraczają kolejne granice, od których nie ma już odwrotu. Gray prowadzi widza przez duszny świat rodzinnych tajemnic i narastającego napięcia, gdzie każda próba wyjścia na prostą przypomina brnięcie w spiralę zagłady. To surowa opowieść o męskiej dumie, chciwości oraz destrukcyjnej sile przeszłości.\n\nW mediach: «James Gray à la Scorsese na smutno. Antyczna tragedia o klasie średniej, która dla wejścia na szczyt drabiny ryzykuje stawianie stóp na połamanych szczeblach. Adam Driver udający tygrysa w trawie – top trzy sceny tegorocznego festiwalu w Cannes.» — Maciej Roch Satora, recenzja kapsułkowa Filmweb «Anty &#8211; „Anora\", polityczna alegoria, w której charyzmatyczny populista mami poczciwą amerykańską rodzinę wizją interesów z ruskimi i zręczna zabawa tropami gatunkowymi (Adam Driver jako \"homme fatal\").» — Piotr Czerkawski, krytyk niezależny, recenzja kapsułkowa Filmweb",
+        "directorBio": "Amerykański reżyser i scenarzysta, mistrz klasycznego kina gatunkowego. Laureat Srebrnego Lwa w Wenecji za debiut „Mała Odessa\" (1994). Twórca filmów „Królowie nocy\" (2007), „Kochankowie\" (2008) oraz „Ad Astra\" (2019).",
+        "tags": [
+          "kryminał",
+          "dramat",
+          "mafia",
+          "Nowy Jork",
+          "bracia",
+          "obsesja",
+          "przemoc"
+        ],
+        "director": "James Gray"
+      }
+    },
+    {
+      "id": "23-1000-ch-opiec-z-pude-ka",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "10:00",
+      "end": "12:06",
+      "title": "Chłopiec z pudełka",
+      "director": "Hirokazu Koreeda",
+      "runtime": 126,
+      "extraMinutes": 0,
+      "section": "Hirokazu Koreeda / Nieobecność",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/chlopiec-z-pudelka/",
+      "flags": [
+        "przedpremierowy"
+      ],
+      "details": {
+        "slug": "chlopiec-z-pudelka",
+        "url": "https://kameraakcja.com.pl/pokaz/chlopiec-z-pudelka/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Chlopiec-z-pudelka-1024x1024.png",
+        "originalTitle": "Hako no Naka no Hitsuji / Sheep in the Box",
+        "year": 2026,
+        "country": "Japonia",
+        "cast": "Haruka Ayase, Daigo Yamamoto, Rimu Kuwaki, Nana Seino, Kan'ichirô Satô",
+        "awards": null,
+        "plot": "Czy można odzyskać utracone dziecko, jeśli jego miejsce zajmie doskonała technologiczna kopia? W niedalekiej przyszłości Otone i Kensuke próbują odbudować życie po śmierci siedmioletniego syna. Dwa lata po tragedii otrzymują od firmy Rebirth niezwykłą propozycję – do ich domu trafia humanoidalny robot wyglądający jak zmarły Kakeru. Dla Otone jego obecność jest szansą na odzyskanie utraconej bliskości, Kensuke nie potrafi jednak zaakceptować maszyny jako własnego dziecka. Hirokazu Koreeda po raz pierwszy sięga po science fiction, pozostając przy swoich najważniejszych tematach: rodzinie, stracie, pamięci i miłości.\n\nW mediach: « Film Koreedy pokazuje nowy sposób na przemyślenie sposobu radzenia sobie z żałobą. » — Zachary Lee, TheWrap, cały tekst tutaj",
+        "directorBio": "Japoński reżyser, scenarzysta, montażysta i producent, jeden z najważniejszych współczesnych twórców kina rodzinnego. Zaczynał od filmów dokumentalnych, a międzynarodowe uznanie przyniosły mu m.in. „Nikt nie wie\", „Jak ojciec i syn\" (2013), „Złodziejaszki\" (2018) i „Monster\" (2023). „Złodziejaszki\" zdobyły Złotą Palmę w Cannes w 2018 r. Koreeda ośmiokrotnie prezentował swoje filmy w Konkursie Głównym festiwalu.",
+        "tags": [
+          "żałoba",
+          "sztuczna inteligencja",
+          "rodzina",
+          "pamięć",
+          "technologia"
+        ],
+        "director": "Hirokazu Koreeda"
+      }
+    },
+    {
       "id": "23-1000-wyzwolona",
       "day": 23,
       "date": "2026-10-23",
@@ -319,14 +435,51 @@
         "country": "Hiszpania, Francja",
         "cast": "Sergi López, Bruno Núñez Arjona, Stefania Gadda",
         "awards": "MFF w Cannes 2025 – Nagroda Jury; Oscar 2026 – nominacja dla Najlepszego filmu międzynarodowego oraz Najlepszy dźwięk",
-        "plot": "— intro przed filmem: Laia Casanovas (sound designerka filmu) i Jakub Popielecki (Filmweb) — Masterclass. Sound Design z Laią Casanovas Rave'owy hit prosto z Cannes! Ojciec z synem przybywają na rave głęboko w górach południowego Maroka. Szukają Mar – córki i siostry – która zniknęła kilka miesięcy wcześniej na jednej z niekończących się i bezsennych imprez. Otoczeni elektroniczną muzyką oraz nieznajomym dotąd poczuciem wolności, rozdają jej zdjęcie na lewo i prawo. Nadzieja znika, ale mężczyźni przedzierają się przez tłumy imprezowiczów zmierzających na ostatnią zabawę na pustyni. Zapuszczając się coraz głębiej w nieznaną dzikość, zostają zmuszeni do stawienia czoła własnym lękom i ograniczeniom.\n\nW mediach: «O tym, że poszukiwanie idealnego rave'u i idealnej wspólnoty jest trochę jak czekanie na Godota. Film, w którym są wszystkie filmy od „2001: Odysei kosmicznej&#8221; przez „Gerry'ego&#8221; i „Ostatnią krucjatę&#8221; po „Cenę strachu&#8221;.» — Jakub Popielecki, recenzja kapsułkowa Filmweb tutaj « To film, który ma wszelkie podstawy do zostania obiektem kultu kinomanów i filmowców. Artystyczna wartość pożeniona została z rozrywkową dostępnością i filozoficzną dysputą, a Galicja potwierdziła swoją rolę nowego Betlejem bezkompromisowych neomodernistów. » — Marcin Prymas, Pełna Sala, czytaj całość tutaj «Laxe jawi się tu jako duchowy spadkobierca Lyncha – w „Sirâcie\" zamiast linearnej opowieści otrzymasz transową podróż, którą czujesz wszystkimi zmysłami.» — Marcin Radomski, recenzja kapsułkowa Filmweb tutaj",
-        "directorBio": "Reżyser, scenarzysta, aktor urodzony w 1982 roku. Studiował na Uniwersytecie Pompeu Fabry w Barcelonie, a następnie w Londynie rozpoczął karierę filmowca. Zadebiutował filmem dokumentalnym „Wszyscy jesteście szefami\", za który otrzymał Nagrodę FIPRESCI na MFF w Cannes. Filmem „Siła ognia\" z 2019 roku debiutował w sekcji Un Certain Regard i otrzymał Nagrodę Jury. Jego najnowszy film „Sirât\" otrzymał na tegorocznym festiwalu w Cannes Nagrodę Jury.",
+        "plot": "— intro przed filmem: Laia Casanovas (sound designerka filmu) i Jakub Popielecki (Filmweb) — Masterclass. Sound Design z Laią Casanovas Rave'owy hit prosto z Cannes! Ojciec z synem przybywają na rave głęboko w górach południowego Maroka. Szukają Mar – córki i siostry – która zniknęła kilka miesięcy wcześniej na jednej z niekończących się i bezsennych imprez. Otoczeni elektroniczną muzyką oraz nieznajomym dotąd poczuciem wolności, rozdają jej zdjęcie na lewo i prawo. Nadzieja znika, ale mężczyźni przedzierają się przez tłumy imprezowiczów zmierzających na ostatnią zabawę na pustyni. Zapuszczając się coraz głębiej w nieznaną dzikość, zostają zmuszeni do stawienia czoła własnym lękom i ograniczeniom.\n\nW mediach: «O tym, że poszukiwanie idealnego rave'u i idealnej wspólnoty jest trochę jak czekanie na Godota. Film, w którym są wszystkie filmy od „2001: Odysei kosmicznej&#8221; przez „Gerry'ego&#8221; i „Ostatnią krucjatę&#8221; po „Cenę strachu&#8221;.» — Jakub Popielecki, recenzja kapsułkowa Filmweb tutaj « To film, który ma wszelkie podstawy do zostania obiektem kultu kinomanów i filmowców. Artystyczna wartość pożeniona została z rozrywkową dostępnością i filozoficzną dysputą, a Galicja potwierdziła swoją rolę nowego Betlejem bezkompromisowych neomodernistów. » — Marcin Prymas, Pełna Sala, czytaj całość tutaj «Laxe jawi się tu jako duchowy spadkobierca Lyncha – w „Sirâcie\" zamiast linearnej opowieści otrzymasz transową podróż, którą czujesz wszystkimi zmysłami.» — Marcin Radomski, recenzja kapsułkowa Filmweb tutaj\n\nOliver Laxe Reżyser, scenarzysta, aktor urodzony w 1982 roku. Studiował na Uniwersytecie Pompeu Fabry w Barcelonie, a następnie w Londynie rozpoczął karierę filmowca. Zadebiutował filmem dokumentalnym „Wszyscy jesteście szefami\", za który otrzymał Nagrodę FIPRESCI na MFF w Cannes. Filmem „Siła ognia\" z 2019 roku debiutował w sekcji Un Certain Regard i otrzymał Nagrodę Jury. Jego najnowszy film „Sirât\" otrzymał na tegorocznym festiwalu w Cannes Nagrodę Jury.\n\nTagi: kino hiszpańskie, rave, pustynia",
+        "directorBio": null,
         "tags": [
           "kino hiszpańskie",
           "rave",
           "pustynia"
         ],
-        "director": "Oliver Laxe"
+        "director": "Óliver Laxe"
+      }
+    },
+    {
+      "id": "23-1245-najsamotniejszy-cz-owiek-w-miescie",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "12:45",
+      "end": "14:14",
+      "title": "Najsamotniejszy człowiek w mieście",
+      "director": "Tizza Covi, Rainer Frimmel",
+      "runtime": 86,
+      "extraMinutes": 3,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/najsamotniejszy-czlowiek-w-miescie/",
+      "flags": [
+        "przedpremierowy"
+      ],
+      "details": {
+        "slug": "najsamotniejszy-czlowiek-w-miescie",
+        "url": "https://kameraakcja.com.pl/pokaz/najsamotniejszy-czlowiek-w-miescie/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Najsamotniejszy-czlowiek-w-miescie-1024x1024.png",
+        "originalTitle": "The Loneliest Man in Town",
+        "year": 2026,
+        "country": "Austria",
+        "cast": "Al Cook, Alfred Blechinger, Alois Hoch, Brigitte Meduna",
+        "awards": "Berlinale 2026 – Nagroda Specjalna",
+        "plot": "Co zostaje, gdy wspomnienia są jedynym miejscem, które można nazwać domem? Al Cook żyje otoczony wspomnieniami. Jego mieszkanie i piwniczne studio wypełniają książki, płyty, kasety i ślady życia, które bezpowrotnie minęło. Po śmierci ukochanej żony i w obliczu świata, który zdaje się zapominać o muzyce bluesowej, Al coraz bardziej zamyka się w swojej przeszłości. Gdy firma deweloperska przeznacza jego dom do rozbiórki, traci ostatnią bezpieczną przystań. Czasem trzeba pożegnać to, co znamy najlepiej, by odzyskać własny głos.\n\nW mediach: «Nie tylko o godzeniu się z przemijaniem, ale i szukaniu małych zwycięstw w starciu z taranem systemu, który prędzej czy później dotknie oraz zburzy nasz mały świat, w którym możemy czuć się niczym „królowie\".» — Filip Mańka, recenzja kapsułkowa Filmweb tutaj «Film z tych prostych, czułych, trafiających prosto w serce.» — Jakub Nowociński, recenzja kapsułkowa Filmweb tutaj «Nie brakuje tu uroku i czułości, ale jest to film przede wszystkim dla cierpliwych widzów.» — Lee Marshall, ScreenDaily, czytaj całość tutaj",
+        "directorBio": "Wspólnie, od 1996 r., tworzą filmy, spektakle teatralne i projekty fotograficzne. Ich twórczość regularnie gości na Berlinale, gdzie prezentowali m.in. „Babooska\" (2005), „La Pivellina\" (2009) i „Vera\" (2022). Charakterystyczne dla ich kina jest zacieranie granicy między dokumentem a fikcją oraz skupienie na bohaterach funkcjonujących na marginesie współczesnego społeczeństwa. Ich filmy łączą czułość, realizm i uważną obserwację ludzkich losów.",
+        "tags": [
+          "żałoba",
+          "muzyka",
+          "wspomnienia",
+          "samotność"
+        ],
+        "director": "Tizza Covi, Rainer Frimmel"
       }
     },
     {
@@ -356,7 +509,7 @@
         "plot": "Światło analogowych lat 80. i chwytający za serce portret dojrzewania. Paryż, lata 80. Trzynastoletni Vincent próbuje nawigować między skłóconymi rodzicami a porywami pierwszych uczuć. Chłopiec szybko odkrywa, że dorośli wcale nie znają odpowiedzi na najważniejsze pytania – po prostu sprawniej udają. Toledano i Nakache z pasją zanurzają nas w rozedrganym świecie młodości, gdzie humor miesza się ze wzruszeniem, a opowieść o szukaniu swojego miejsca w rodzinie staje się uniwersalną medytacją nad pierwszeństwem prawdy nad iluzją.\n\nW mediach: «Francuskie „Nie ma jak w rodzinie\" – śmieszne, ciekawie wpisane w realia lat 80.» — Stanisław Sobczyk, Immersja, recenzja kapsułkowa Filmweb\n\nÉric Toledano i Olivier Nakache Uwielbiany francuski duet reżyserski. Sławę przyniósł im światowy hit „Nietykalni\" (2011). Twórcy takich przebojów jak „Nadzwyczajni\" (2019), słynący z unikalnego łączenia humoru i głębokiej empatii.\n\nTagi: coming-of-age, pierwsza miłość, lata 80., nostalgia",
         "directorBio": null,
         "tags": [],
-        "director": "Éric Toledano, Olivier Nakache"
+        "director": "Olivier Nakache, Eric Toledano"
       }
     },
     {
@@ -471,25 +624,101 @@
       }
     },
     {
-      "id": "23-2000-budapeszt-1956",
+      "id": "23-1730-dobre-maniery",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "17:30",
+      "end": "19:30",
+      "title": "Dobre maniery",
+      "director": "Celia Rico Clavellino",
+      "runtime": 110,
+      "extraMinutes": 10,
+      "section": "Reżyseria dźwięku",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/dobre-maniery/",
+      "flags": [
+        "przedpremierowy",
+        "polska-premiera",
+        "bez-dystrybucji"
+      ],
+      "details": {
+        "slug": "dobre-maniery",
+        "url": "https://kameraakcja.com.pl/pokaz/dobre-maniery/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-La-Buena-Letra--1024x1024.png",
+        "originalTitle": "La Buena Letra / The Good Manners",
+        "year": 2025,
+        "country": "Hiszpania",
+        "cast": "Loreto Mauleón, Enric Auquer Sardà, Roger Casamajor, Ana Rujas",
+        "awards": "Goya 2026 &#8211; nominacja: Najlepszy scenariusz adaptowany",
+        "plot": "— intro przed filmem: Laia Casanovas (sound designerka filmu) i Jakub Popielecki (Filmweb) — pokazowi towarzyszy przyjazd Lai Casanovas i Masterclass. Sound Design wokół filmu „ Sirât \". Poświęcenie nie zawsze spotyka się z wdzięcznością. Hiszpania, kilka lat po zakończeniu wojny domowej. W niewielkiej wiosce Ana próbuje utrzymać rodzinę i zagoić rany, które konflikt pozostawił w jej bliskich. Gdy do domu powraca jej szwagier Antonio, kobieta otacza go troską, gotując, pielęgnując rodzinne tajemnice i przemilczając bolesną przeszłość. Wszystko zmienia się wraz z pojawieniem się Isabel, świeżo poślubionej żony Antonia. W atmosferze napięcia, niewypowiedzianych emocji i narastających konfliktów Ana przekonuje się, że nawet największe poświęcenie nie zawsze spotyka się z wdzięcznością.\n\nW mediach: «Subtelność jest dziś cnotą, której współczesnemu kinu wyraźnie brakuje, a „Dobre maniery\" z pewnością ją posiadają. Film zachwyca również pięknymi zdjęciami i inscenizacją o malarskim charakterze oraz umiejętnym wykorzystaniem naturalnego światła, co przywodzi na myśl „Barry'ego Lyndona\". » — Kevin Ibbotson-Wight, The wee review, czytaj całość tutaj",
+        "directorBio": "Reżyserka i scenarzystka urodzona w 1982 roku w Sewilli. Jej pełnometrażowym debiutem była „Podróż do pokoju matki\" (2018) – intymna opowieść o relacji matki i córki, nagrodzona m.in. za scenariusz podczas Premis Gaudí. W „Małych miłościach\" (2024) ponownie przygląda się skomplikowanym więziom rodzinnym. Jej najnowszy film, „La buena letra\" (2025), jest adaptacją powieści Rafaela Chirbesa.",
+        "tags": [
+          "Hiszpania",
+          "dramat",
+          "wojenna trauma"
+        ],
+        "director": "Celia Rico Clavellino"
+      }
+    },
+    {
+      "id": "23-2000-czas-ktory-nie-nadszed",
+      "day": 23,
+      "date": "2026-10-23",
+      "start": "20:00",
+      "end": "22:30",
+      "title": "Czas, który nie nadszedł",
+      "director": "Julia Rogowska",
+      "runtime": 105,
+      "extraMinutes": 45,
+      "section": "Polska Fala",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/czas-ktory-nie-nadszedl/",
+      "flags": [
+        "audiodeskrypcja"
+      ],
+      "details": {
+        "slug": "czas-ktory-nie-nadszedl",
+        "url": "https://kameraakcja.com.pl/pokaz/czas-ktory-nie-nadszedl/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Czas-ktory-nie-nadszedl-1024x1024.png",
+        "originalTitle": "The Time That Never Came",
+        "year": 2026,
+        "country": "Polska",
+        "cast": "Agata Kulesza, Dobromir Dymecki, Bartosz Bielenia, Michalina Łabacz",
+        "awards": "FPFF w Gdyni 2026 – Konkurs Główny",
+        "plot": "— Spotkanie po filmie z Julią Rogowską (reżyserka filmu) oraz Krystyną Kantor (producentka filmu). Prowadzący Jacek Cygan . Przyszłość jest teraz i nie ma w niej miejsca na starość, brzydotę i autentyczność. Pasujesz tu? W świecie, w którym starzenie się stało się największym tabu, Sara i Oskar planowali zestarzeć się razem. On jednak – jak większość – poddał się rewolucyjnej kuracji antygeriatrycznej, zapewniającej młodość i miejsce w nowym społeczeństwie. Ona odmówiła, skazując się na życie w zamkniętym ośrodku izolacji. Po latach próba ucieczki Sary sprawia, że ponownie się spotykają. Dzieli ich wygląd, łączy brak odpowiedzi na pytania spychane przez lata na drugi plan. Czy uczucia mogą przetrwać czas i nieodwracalne decyzje? Czy można być wolnym i żyć prawdziwie w świecie, który odmawia prawa do przemijania?",
+        "directorBio": "Absolwentka psychologii (SWPS) i reżyserii (Warszawska Szkoła Filmowa). Reżyserka filmów krótkometrażowych, nagradzanych m.in. na Festiwalu w Gdyni („Gorzko, gorzko!\") oraz kampanii reklamowych wyróżnionych Lwami na Cannes Lions. W kinie fabularnym łączy psychologiczną uważność z kinem gatunkowym, skupiając się na bohaterach na granicy wytrzymałości. „Czas, który nie nadszedł\" to jej pełnometrażowy debiut. Zobacz filmografię reżyserki na FilmPolski.pl",
+        "tags": [
+          "polskie sci-fi",
+          "dystopia",
+          "młodość",
+          "przemijanie",
+          "wolność"
+        ],
+        "director": "Julia Rogowska"
+      }
+    },
+    {
+      "id": "23-2000-budapeszt-1957",
       "day": 23,
       "date": "2026-10-23",
       "start": "20:00",
       "end": "22:12",
-      "title": "Budapeszt 1956",
+      "title": "Budapeszt 1957",
       "director": "László Nemes",
       "runtime": 132,
       "extraMinutes": 0,
       "section": "Krytyczne Premiery",
       "venueGroup": "szkola-filmowa",
       "venueName": "Szkoła Filmowa w Łodzi",
-      "url": "https://kameraakcja.com.pl/pokaz/budapeszt-1956/",
+      "url": "https://kameraakcja.com.pl/pokaz/budapeszt-1957/",
       "flags": [
         "przedpremierowy"
       ],
       "details": {
-        "slug": "budapeszt-1956",
-        "url": "https://kameraakcja.com.pl/pokaz/budapeszt-1956/",
+        "slug": "budapeszt-1957",
+        "url": "https://kameraakcja.com.pl/pokaz/budapeszt-1957/",
         "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Budapeszt-1956-1024x1024.png",
         "originalTitle": "Orphan / Árva",
         "year": 2025,
@@ -586,6 +815,43 @@
       }
     },
     {
+      "id": "24-1015-look-back",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "10:15",
+      "end": "11:54",
+      "title": "Look Back",
+      "director": "Hirokazu Koreeda",
+      "runtime": 99,
+      "extraMinutes": 0,
+      "section": "Hirokazu Koreeda / Krytyczne Premiery",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/look-back/",
+      "flags": [
+        "przedpremierowy"
+      ],
+      "details": {
+        "slug": "look-back",
+        "url": "https://kameraakcja.com.pl/pokaz/look-back/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Look-Back-1024x1024.png",
+        "originalTitle": "Rukku bakku",
+        "year": 2026,
+        "country": "Japonia",
+        "cast": "Natsuki Deguchi , Aju Makita , Furi Nanase , Rokka Okada , Masaki Suda , Kankurô Kudô , Kayo Noro",
+        "awards": "MFF w Wenecji 2026 – udział w Konkursie Głównym, MFF w Toronto 2026",
+        "plot": "Poruszająca adaptacja kultowej mangi Tatsukiego Fujimoto o cenie artystycznego powołania. Towarzyska czwartoklasistka Fujino jest podziwiana za komiksy, które z pasją tworzy do szkolnej gazetki. Wszystko zaczyna się zmieniać, gdy popularność zaczynają zdobywać prace jej utalentowanej nieśmiałej rówieśniczki Kyomoto, która uczy się z domu ze względu na silny lęk społeczny. Kiedy dziewczynki w końcu się poznają. W miejsce rywalizacji pojawia się przyjaźń, a bohaterki zaczynają tworzyć wspólne mangi. Na przestrzeni trzynastu lat śledzimy historię dojrzewania ich relacji i to, jak droga artystyczna zderza się z nieprzewidywalnością życia.\n\nW mediach: «Absolutnie przepiękne, głęboko emocjonalne kino.» — Mateusz Rot, Watching Closely, recenzja kapsułkowa Filmweb",
+        "directorBio": "Japoński reżyser, scenarzysta, montażysta i producent, jeden z najważniejszych współczesnych twórców kina rodzinnego. Zaczynał od filmów dokumentalnych, a międzynarodowe uznanie przyniosły mu m.in. „Nikt nie wie\", „Jak ojciec i syn\" (2013), „Złodziejaszki\" (2018) i „Monster\" (2023). „Złodziejaszki\" zdobyły Złotą Palmę w Cannes w 2018 r. Koreeda ośmiokrotnie prezentował swoje filmy w Konkursie Głównym festiwalu.",
+        "tags": [
+          "coming-of-age",
+          "przyjaźń",
+          "trauma",
+          "śmierć"
+        ],
+        "director": "Hirokazu Koreeda"
+      }
+    },
+    {
       "id": "24-1145-zycie-snem",
       "day": 24,
       "date": "2026-10-24",
@@ -620,6 +886,44 @@
           "kryminał"
         ],
         "director": "Valeska Grisebach"
+      }
+    },
+    {
+      "id": "24-1230-minotaur",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "12:30",
+      "end": "14:45",
+      "title": "Minotaur",
+      "director": "Andriej Zwiagincew",
+      "runtime": 135,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/minotaur/",
+      "flags": [
+        "przedpremierowy"
+      ],
+      "details": {
+        "slug": "minotaur",
+        "url": "https://kameraakcja.com.pl/pokaz/minotaur/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Minotaur-1024x1024.png",
+        "originalTitle": "Minotaure / Minotaur",
+        "year": 2026,
+        "country": "Francja, Niemcy, Łotwa",
+        "cast": "Dmitriy Mazurov, Iris Lebedeva, Anatolij Bieły, Juris Žagars",
+        "awards": "MFF w Cannes 2026 – Grand Prix Festiwalu (udział w Konkursie Głównym), Oscary 2027 – francuski kandydat do nominacji w kategorii najlepszy film międzynarodowy",
+        "plot": "Wojna wdziera się do życia rosyjskiego oligarchy, którego prywatny świat zaczyna rozpadać się w tym samym czasie co jego biznesowe imperium. Rosja, 2022 rok. Gleb, odnoszący sukcesy dyrektor firmy, wiedzie życie zbudowane na pozorach stabilności, kontroli i bezpieczeństwa. Jednak narastająca presja, kryzys świata wokół niego i przypadkowe spotkanie uruchamiają ciąg wydarzeń, nad którym coraz trudniej zapanować. Luźna adaptacja „Niewiernej żony\" Claude'a Chabrola zamienia kameralną historię zdrady w mroczny portret społeczeństwa pogrążonego w moralnym chaosie. W świecie, gdzie zniknęły granice między winą, przemocą i obojętnością, spirala zdarzeń prowadzi nieuchronnie do tragedii.\n\nW mediach: «To pytanie kryje w sobie najtragiczniejszą diagnozę rosyjskiego społeczeństwa, jaką stawia &#8222;Minotaur&#8221; – film, który prowadzi nas przez znajome koleiny antycznej opowieści moralnej, tylko po to, by uwypuklić fakt, że moralność już dawno z tego świata zniknęła.» — Maciej Roch Satora, Filmweb, czytaj całość tutaj «To przenikliwa opowieść o moralnym upadku putinowskiej Rosji. (…) Niektórzy, zwłaszcza elity, wykorzystują machinę wojenną do załatwiania swoich prywatnych porachunków, podczas gdy inni pozostają bierni.» — Kuba Armata, Interia, czytaj całość tutaj «Zwiagincew powraca do Rosji — państwa duchów i kształtów przypominających ludzi. Nie ma społeczeństwa, nie ma wiary i nadziei. Jest jedynie teatr, w którym iluzja szczęścia czy miłości, szybko zostanie wyrzucona za balkon. Każdy ma okno, ale nikt nie reaguje. To film, który doskonale punktuje rosyjskie społeczeństwo, ich niemoc oraz moralny upadek. To nie sam reżim stworzył potwora, a całe społeczeństwo — w tym klasa wyższa, która gra, co im inni narzucą.» — Filip Mańka, recenzja kapsułkowa Filmweb tutaj",
+        "directorBio": "Rosyjski reżyser, scenarzysta i producent, jeden z najważniejszych twórców współczesnego kina rosyjskiego. Za „Powrót\" (2003) otrzymał Złotego Lwa w Wenecji, „Lewiatan\" (2014) przyniósł mu nagrodę za scenariusz w Cannes oraz nominację do Oscara, a „Niemiłość\" (2017) Nagrodę Jury w Cannes i nominację do Oscara. „Minotaur\" jest jego pierwszym filmem fabularnym od dziewięciu lat. W swoich filmach reżyser podejmuje ważne dla rodzimego kina tematy związane z o jcostwem, funkcjonowaniem rodziny i spuścizną po ZSRR.",
+        "tags": [
+          "wojna w Ukrainie",
+          "Rosja",
+          "oligarchia",
+          "kryzys małżeński",
+          "władza"
+        ],
+        "director": "Andriej Zwiagincew"
       }
     },
     {
@@ -734,6 +1038,44 @@
       }
     },
     {
+      "id": "24-1730-daleko-od-brzegu",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "17:30",
+      "end": "19:31",
+      "title": "Daleko od brzegu",
+      "director": "Lance Hammer",
+      "runtime": 121,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/daleko-od-brzegu/",
+      "flags": [
+        "przedpremierowy"
+      ],
+      "details": {
+        "slug": "daleko-od-brzegu",
+        "url": "https://kameraakcja.com.pl/pokaz/daleko-od-brzegu/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Daleko-od-brzegu-1024x1024.png",
+        "originalTitle": "Queen at Sea",
+        "year": 2026,
+        "country": "Wielka Brytania, USA",
+        "cast": "Juliette Binoche, Anna Calder-Marshall, Tom Courtenay, Florence Hunt",
+        "awards": "MFF w Berlinie 2026 – Srebrny Niedźwiedź – Nagroda Jury oraz Srebrny Niedźwiedź za rolę drugoplanową dla Anny Calder-Marshall i Toma Courtenaya",
+        "plot": null,
+        "directorBio": null,
+        "tags": [
+          "demencja",
+          "starość",
+          "rodzina",
+          "opieka",
+          "autonomia"
+        ],
+        "director": "Lance Hammer"
+      }
+    },
+    {
       "id": "24-1730-tierra-viva",
       "day": 24,
       "date": "2026-10-24",
@@ -768,6 +1110,41 @@
           "tożsamość"
         ],
         "director": "Blaise Grisson"
+      }
+    },
+    {
+      "id": "24-2000-cudze-rzeczy",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "20:00",
+      "end": "22:30",
+      "title": "Cudze rzeczy",
+      "director": "Grzegorz Dębowski",
+      "runtime": 105,
+      "extraMinutes": 45,
+      "section": "Polska fala",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/cudze-rzeczy/",
+      "flags": [
+        "przedpremierowy"
+      ],
+      "details": {
+        "slug": "cudze-rzeczy",
+        "url": "https://kameraakcja.com.pl/pokaz/cudze-rzeczy/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Cudze-rzeczy-1024x1024.png",
+        "originalTitle": "What Belong to Others",
+        "year": 2026,
+        "country": "Polska",
+        "cast": "Monika Kwiatkowska, Robert Mania, Ewa Pająk, Martyna Rozwadowska, Jadwiga Grygierczyk, Aleksandra Kolan",
+        "awards": "MFF w Wenecji 2026 – Orizzonti Reżyser: Grzegorz Dębowski",
+        "plot": "— Spotkanie po filmie z Martyną Rozwadowską i Aleksandra Kolan (aktorkami), oraz Agnieszką Skalską (producentką filmu). Prowadzący: Łukasz Maciejewski (krytyk filmowy). Czasem, żeby zacząć od nowa, trzeba wejść w cudze życie Prezentowany w prestiżowej sekcji Orizzonti podczas MFF w Wenecji, najnowszy film Grzegorza Dębowskiego (świetnie przyjętego przez krytyków i publikę „Tyle co nic\") skupia się na nietuzinkowej bohaterce, która mimo ciężkiego losu, stara się zachować pogodę ducha. Kasia zarabia na życie okradając mieszkania. Kiedy przypadkiem trafia do domu zmarłego mężczyzny, zaczyna podszywać się pod jego partnerkę. To, co miało być jedynie sposobem na przetrwanie, przeradza się w podróż przez cudze wspomnienia i relacje. Z czasem Kasia zaczyna wyobrażać sobie, że mogłaby żyć inaczej, i znajduje siłę, by zacząć od nowa.\n\nGrzegorz Dębowski Reżyser i scenarzysta, absolwent Szkoły Filmowej w Łodzi. Doświadczenie zdobywał m.in. jako asystent Pawła Pawlikowskiego. Sławę przyniósł mu debiut fabularny „Tyle co nic\" (2023), za który otrzymał m.in. nagrodę za debiut i scenariusz na FPFF w Gdyni oraz Orła za odkrycie roku. W swojej twórczości stawia na kino zaangażowane społecznie. Zobacz filmografię reżysera na FilmPolski.pl\n\nTagi: śmierć, relacje",
+        "directorBio": null,
+        "tags": [
+          "śmierć",
+          "relacje"
+        ],
+        "director": null
       }
     },
     {
@@ -845,6 +1222,41 @@
       }
     },
     {
+      "id": "24-2015-seks-bez-ograniczen",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "20:15",
+      "end": "21:57",
+      "title": "Seks bez ograniczeń",
+      "director": "Gregg Araki",
+      "runtime": 102,
+      "extraMinutes": 0,
+      "section": "Na fali",
+      "venueGroup": "szkola-filmowa-z",
+      "venueName": "Szkoła Filmowa - Budynek Z",
+      "url": "https://kameraakcja.com.pl/pokaz/seks-bez-ograniczen/",
+      "flags": [],
+      "details": {
+        "slug": "seks-bez-ograniczen",
+        "url": "https://kameraakcja.com.pl/pokaz/seks-bez-ograniczen/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Seks-bez-ogranicznien-1024x1024.png",
+        "originalTitle": "I Want Your Sex",
+        "year": 2026,
+        "country": "Stany Zjednoczone",
+        "cast": "Olivia Wilde, Cooper Hoffman, Mason Gooding, Charli XCX, Johnny Knoxville",
+        "awards": "MFF w Cannes 2026 – Pokaz Specjalny, MFF w Toronto 2026",
+        "plot": "Drapieżny, zmysłowy i pełen neonowej energii powrót ikonoklasty amerykańskiego kina niezależnego. Młody Elliot dostaje pracę u uznanej artystki Eriki Carbon. Zwyczajne zajęcie szybko przeradza się w niebezpieczną podróż w głąb zmysłowych obsesji i układów władzy. Gdy na horyzoncie pojawia się tajemnicza muza, chłopak zostaje wciągnięty w gęstą sieć miłosnego trójkąta. Araki tworzy stylowy, wrażeniowy komediodramat pulsujący muzyką, zadając pytanie o cenę, jaką płacimy za oddanie się namiętnościom. Serwuje prowokacyjny thriller o grze pożądania i manipulacji.\n\nW mediach: «Gregg Araki wraca do najwyższej formy. To zmysłowy, bezczelny i niezwykle stylowy komediodramat. » — Peter Debruge, Variety, czytaj całość tutaj «Duszny, neonowy i pełen queerowej energii – film, który hipnotyzuje klimatem.» — David Rooney, The Hollywood Reporter, czytaj całość tutaj «Film o tym, czy oddanie się komuś bez reszty jest zniewoleniem, czy wyzwoleniem, i o tym, że odpowiedź zależy od rocznika pytanego.» — Grzegorz Narożny, Pełna Sala, recenzja kapsułkowa Filmweb",
+        "directorBio": "Amerykański reżyser i pionier ruchu New Queer Cinema. Zasłynął kultową „Trylogią Apokaliptycznej Młodzieży\" (2019) oraz dramatem „Zły dotyk\" (2004). W swojej twórczości przełamuje tabu, łącząc tematykę tożsamości z odważną estetyką.",
+        "tags": [
+          "erotyk",
+          "LGBTQ+",
+          "obsesja",
+          "manipulacja"
+        ],
+        "director": "Gregg Araki"
+      }
+    },
+    {
       "id": "24-2030-zeby-mleczne",
       "day": 24,
       "date": "2026-10-24",
@@ -880,6 +1292,83 @@
           "Rumunia"
         ],
         "director": "Mihai Mincan"
+      }
+    },
+    {
+      "id": "24-2230-dr-alien",
+      "day": 24,
+      "date": "2026-10-24",
+      "start": "22:30",
+      "end": "00:00",
+      "title": "Dr. Alien",
+      "director": "David DeCoteau",
+      "runtime": 90,
+      "extraMinutes": 0,
+      "section": "VHS Hell Live",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/dr-alien/",
+      "flags": [],
+      "details": {
+        "slug": "dr-alien",
+        "url": "https://kameraakcja.com.pl/pokaz/dr-alien/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Dr-Alien-1024x1024.png",
+        "originalTitle": null,
+        "year": 1989,
+        "country": "USA",
+        "cast": "Billy Jacoby, Judy Landers, Olivia Barash, Troy Donahue",
+        "awards": null,
+        "plot": "Nieśmiały licealista staje się obiektem eksperymentu nowej nauczycielki biologii, która okazuje się przybyszką z kosmosu. Nieśmiały i niepopularny w szkole Wesley Littlejohn ma spore problemy z nauką i kontaktami z dziewczynami. Wszystko zmienia się, gdy w liceum pojawia się nowa, niezwykle atrakcyjna nauczycielka biologii, dr Ackerman. Kobieta wyznacza Wesleya do specjalnego projektu naukowego i podaje mu tajemnicze wyciągi i witaminy. Wkrótce chłopak przechodzi szokującą metamorfozę – z niezdarnego nastolatka zmienia się w magnetycznego boga seksu, któremu nie potrafi oprzeć się żadna kobieta. Wesley nie ma jednak pojęcia, że jego nowa nauczycielka w rzeczywistości jest kosmitką badającą ludzką seksualność.",
+        "directorBio": "Amerykański reżyser i producent filmowy. Jeden z najbardziej płodnych twórców amerykańskiego kina niezależnego i klasy B, mający na koncie ponad 100 produkcji. Karierę zaczynał jako asystent u kultowego producenta Rogera Cormana. Znany z szybkiego tempa pracy i tworzenia filmów gatunkowych – od horrorów, przez sci-fi, aż po produkcje młodzieżowe. Do jego najbardziej znanych dzieł należą „Creepozoids\", „Sorority Babes in the Slimeball Bowl-O-Rama\" oraz seria „Brotherhood\".",
+        "tags": [
+          "lata 80",
+          "kino klasy B",
+          "kosmici",
+          "szkoła",
+          "camp",
+          "erotyka",
+          "VHS"
+        ],
+        "director": "David DeCoteau"
+      }
+    },
+    {
+      "id": "25-1000-zo-te-listy",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "10:00",
+      "end": "12:08",
+      "title": "Żółte listy",
+      "director": "İlker Çatak",
+      "runtime": 128,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/zolte-listy/",
+      "flags": [
+        "przedpremierowy",
+        "audiodeskrypcja"
+      ],
+      "details": {
+        "slug": "zolte-listy",
+        "url": "https://kameraakcja.com.pl/pokaz/zolte-listy/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/06/FKA2026-Zolte-listy-1024x1024.png",
+        "originalTitle": "Gelbe Briefe / Yellow Letters",
+        "year": 2026,
+        "country": "Niemcy, Francja, Turcja",
+        "cast": "Özgü Namal, Tansu Biçer, Leyla Smyrna Cabas",
+        "awards": "MFF w Berlinie 2026 – Złoty Niedźwiedź (Najlepszy film), Oscary 2027 – kandydat do nominacji w kategorii najlepszy film międzynarodowy",
+        "plot": "Kiedy władza odbiera artystom głos, stawką staje się nie tylko wolność, ale i rodzina Derya i Aziz, ceniona para artystów z Ankary, prowadzą spełnione życie z 13-letnią córką Ezgi aż do incydentu podczas premiery ich nowej sztuki, który zmienia wszystko. Z dnia na dzień stają się celem władz, tracą pracę i dom. Przenoszą się do Stambułu, by tymczasowo zamieszkać u matki Aziza. Aziz utrzymuje się z dorywczych prac i trwa przy swoich przekonaniach, podczas gdy Derya szuka sposobu na finansową niezależność. Między nimi a córką narasta dystans, aż w końcu stają przed wyborem między własnymi wartościami a wspólną przyszłością jako rodzina.\n\nW mediach: «Çatakowi zgrabnie udaje się ukazać dylematy, przed którymi staje się w obliczu sytuacji zagrażającej naszemu moralnemu kręgosłupowi – zgiąć go czy wyprostować, nawet jeśli cena za to będzie bardzo wysoka?» — Adam Kruk, Filmweb, czytaj całość tutaj «Produkcja ta stanowi kwintesencję tego, czym jest dzisiejsze kino autorskie – odważną, formalnie dopracowaną wypowiedzią, która nie boi się dotykać bolesnych punktów współczesności» — Elżbieta Nowak, Liberatura, całość czytaj tutaj «Aktorski masterclass i kino, które cię chwyta za gardło.» — Jan Tracz, recenzja kapsułkowa Filmweb",
+        "directorBio": "Niemiecki reżyser i scenarzysta tureckiego pochodzenia. Jest absolwentem szkoły filmowej w Hamburgu. Rozgłos przyniósł mu film „Pokój nauczycielski\", który otrzymał nominację do Oscara dla najlepszego filmu międzynarodowego (2023). „Żółte listy\" przyniosły mu Złotego Niedźwiedzia na Berlinale 2026.",
+        "tags": [
+          "cenzura",
+          "artyści",
+          "rodzina",
+          "autorytaryzm",
+          "Turcja"
+        ],
+        "director": "İlker Çatak"
       }
     },
     {
@@ -993,6 +1482,43 @@
           "kryzys"
         ],
         "director": "Claude Chabrol"
+      }
+    },
+    {
+      "id": "25-1230-natura-mi-osci",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "12:30",
+      "end": "14:45",
+      "title": "Natura miłości",
+      "director": "Rodrigo Sorogoyen",
+      "runtime": 135,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery / Nieobecność",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/natura-milosci/",
+      "flags": [
+        "przedpremierowy"
+      ],
+      "details": {
+        "slug": "natura-milosci",
+        "url": "https://kameraakcja.com.pl/pokaz/natura-milosci/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Natura-milosci-1024x1024.png",
+        "originalTitle": "El ser querido / The Beloved",
+        "year": 2026,
+        "country": "Hiszpania, Francja",
+        "cast": "Javier Bardem, Victoria Luengo, Raúl Arévalo, Marina Foïs, Melina Matthews, Raúl Prieto",
+        "awards": "MFF w Cannes 2026 – Konkurs Główny, MFF w Toronto 2026 – pokaz specjalny",
+        "plot": "Fascynujący aktorski pojedynek Javiera Bardema i Victorii Luengo w opowieści o wyzysku, próbie zadośćuczynienia i toksycznych więzach krwi. Wybitny, uznany reżyser Esteban postanawia nakręcić film ze swoją zdystansowaną córką Emilią – utalentowaną, lecz wciąż niepotrafiącą przebić się aktorką. Ich wspólny projekt na malowniczej Fuerteventurze szybko przestaje być zwykłą pracą na planie, a staje się polem walki o odzyskanie utraconego zaufania. Charyzmatyczny i apodyktyczny ojciec bezlitośnie żeruje na prywatnym bólu córki, przeobrażając emocjonalny drenaż w artystyczną tkankę własnego dzieła. W miarę jak granice między fikcją a rzeczywistością zaczynają się zacierać, oboje muszą zmierzyć się z nierozliczoną przeszłością i własną dumą.\n\nW mediach: «Kiedy Sorogoyen zaczyna film 20-minutową sekwencją rozmowy, od razu wiesz, że na ekranie dzieje się magia. Bardem i Luengo tworzą nieprawdopodobny, wyśmienity duet.» — Jan Tracz, Filmweb, recenzja kapsułkowa Filmweb «Javier Bardem daje najbardziej przerażającą kreację w swojej karierze&#8230; To bezpardonowe odrzucenie wszelkiej naiwności i idealizowania procesu tworzenia filmów.» — Peter Bradshaw, The Guardian, czytaj całość tutaj «Film monumentalnie spoczywa na barkach Javiera Bardema&#8230; Jak dotąd to najlepszy film tegorocznego Cannes oraz porywające, wielowarstwowe emocjonalnie zwycięstwo.» — Jack Salvadori, UK Film Review. czytaj całość tutaj",
+        "directorBio": "Jeden z najważniejszych i najbardziej cenionych współczesnych reżyserów hiszpańskich. Zasłynął mrocznymi, trzymającymi w napięciu dramatami i thrillerami psychologicznymi, takimi jak „Królestwo\" (2018), „Niech Bóg nam wybaczy\" (2016) czy nagrodzone licznymi Goya i Cezarem „Bestie\" (2022). Nominowany do Oscara za krótkometrażowy film „Matka\" (2019). W „Naturze miłości\" po raz kolejny łączy wybitne wyczucie formy z bezkompromisową obserwacją ludzkich słabości.",
+        "tags": [
+          "relacja ojciec-córka",
+          "sztuka",
+          "plan filmowy",
+          "toksyczna relacja"
+        ],
+        "director": "Rodrigo Sorogoyen"
       }
     },
     {
@@ -1124,6 +1650,44 @@
           "demencja"
         ],
         "director": "Ryûsuke Hamaguchi"
+      }
+    },
+    {
+      "id": "25-1830-kobieta-nieznana",
+      "day": 25,
+      "date": "2026-10-25",
+      "start": "18:30",
+      "end": "20:34",
+      "title": "Kobieta nieznana",
+      "director": "May el-Toukhy",
+      "runtime": 124,
+      "extraMinutes": 0,
+      "section": "Krytyczne Premiery",
+      "venueGroup": "monopolis",
+      "venueName": "Monopolis",
+      "url": "https://kameraakcja.com.pl/pokaz/kobieta-nieznana/",
+      "flags": [
+        "przedpremierowy",
+        "polska-premiera"
+      ],
+      "details": {
+        "slug": "kobieta-nieznana",
+        "url": "https://kameraakcja.com.pl/pokaz/kobieta-nieznana/",
+        "poster": "https://kameraakcja.com.pl/wp-content/uploads/2024/07/FKA2026-Kobieta-nieznana-1024x1024.png",
+        "originalTitle": "Kvinde ukendt / Woman Unknown",
+        "year": 2026,
+        "country": "Dania, Szwecja, Łotwa",
+        "cast": "Mathilde Arcel, Carsten Bjørnlund, Marina Bouras, Flora Yde Sander, Anders Brink Madsen",
+        "awards": "MFF w Wenecji 2026 – Złoty Lew dla Najlepszego Filmu i Coppa Volpi dla Najlepszej Aktorki (Mathilde Arcel) , Oscary 2027 – duński kandydat do nominacji w kategorii najlepszy film międzynarodowy",
+        "plot": "— film Zamknięcia Festiwalu Kamera Akcja Pełen napięcia, bezkompromisowy thriller historyczny o winie, wstydzie, społecznej hipokryzji i cenie, jaką trzeba zapłacić za możliwość rozpoczęcia życia od nowa. Kopenhaga, tuż po wyzwoleniu spod okupacji. Marie, młoda pomoc domowa, ma wkrótce poślubić zamożnego wdowca i zyskać upragnioną pozycję społeczną. Gdy na ulicach miasta rusza fala brutalnych samosądów na osobach podejrzewanych o kolaborację, przeszłość bezlitośnie upomina się o swoje. Przypadkowe spotkanie z dawnym znajomym zmusza Marie do desperackiej walki o przetrwanie i ukrycia sekretu, który zniszczyłby wszystko.\n\nW mediach «Kiedy śledzimy wybory Marie i próbujemy dokonywać prostych sądów, wracają do nas grzechy, które sami popełniliśmy. Tylko sprawność, z jaką prowadzi nas i swoją aktorkę May el-Toukhy powoduje, że wychodzimy z kina niejako rozgrzeszeni. I to jest chyba największa siła i największy sukces tej minimalistycznej w formie opowieści.» — Artur Burchacki, Vogue Polska, czytaj całość tutaj «„Kobieta nieznana\" jest empatycznie skonstruowaną opowieścią, która tylko czasami staje się zbyt dosłowna. (&#8230;) Samozwańczy jeźdźcy sprawiedliwości postrzegają świat zero-jedynkowo. Dla Marie rzeczywistość maluje się w wielu odcieniach szarości.» — Małgorzata Czop, Movieway.pl , czytaj całość tutaj «Świetnie poprowadzony film o powojennych rozliczeniach i podwójnych standardach, w którym czuć narastające napięcie i pętlę, która coraz ciaśniej zaciska się na szyi bohaterki. Proste, acz angażujące kino, świetne od strony aktorskiej. Nagrodzona w Wenecji Mathilde Arcel zwyczajnie przykuwa do ekranu, a jej reakcje mają wielką siłę rażenia. Świetne kino.» — Michał Kaczoń, Film.org.pl , czytaj całość tutaj",
+        "directorBio": "Duńsko-egipska reżyserka i scenarzystka. Absolwentka National Film School of Denmark. Sławę przyniósł jej nagrodzony na Sundance dramat „Królowa kier\" (2019). W swoich filmach mistrzowsko analizuje skomplikowane moralnie relacje, tajemnice i opór jednostki wobec społecznych konwenansów.",
+        "tags": [
+          "II wojna światowa",
+          "powojenna Europa",
+          "tajemnica",
+          "przemoc"
+        ],
+        "director": "May el-Toukhy"
       }
     },
     {

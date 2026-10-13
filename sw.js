@@ -1,5 +1,5 @@
 /* Service worker — Kamera Akcja 2026 */
-const VERSION = 'fka2026-v5';
+const VERSION = 'fka2026-v6';
 const PRECACHE = [
   './',
   './index.html',

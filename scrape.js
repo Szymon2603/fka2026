@@ -78,13 +78,16 @@ function extractParagraphs(html) {
 }
 
 // ============ Mapa lokacji -> venueGroup ============
+// Kolejność ma znaczenie — najpierw warianty szczegółowe (Budynek H/Z/CNM),
+// potem bazowy "Szkoła Filmowa w Łodzi". Matchujemy tekst BEZ znaku "]" bo
+// detectVenue przegląda zawartość nawiasów [..] (bez samego nawiasu).
 const VENUE_RULES = [
-  { re: /Scena Monopolis|Galeria Monopolis|\bMonopolis\]/i, group: 'monopolis', name: 'Monopolis' },
+  { re: /\bMonopolis\b/i, group: 'monopolis', name: 'Monopolis' },
   { re: /Muzeum Kinematografii/i, group: 'muzeum-kinematografii', name: 'Muzeum Kinematografii' },
   { re: /Niebostan|Piotrkowska 17/i, group: 'niebostan', name: 'Niebostan / Piotrkowska 17' },
   { re: /TOYA Studios|Łąkowa 29a/i, group: 'toya-studios', name: 'TOYA Studios' },
   { re: /Boutique Hotel/i, group: 'boutique-hotel', name: 'Boutique Hotel' },
-  // Szkoła Filmowa — kolejność ma znaczenie (najpierw CNM, potem H, Z, bazowy)
+  // Szkoła Filmowa — najpierw warianty szczegółowe, potem bazowy
   { re: /Szkoła Filmowa w Łodzi \(Budynek CNM\)/i, group: 'szkola-filmowa-cnm', name: 'Szkoła Filmowa - Budynek CNM' },
   { re: /Szkoła Filmowa w Łodzi \(Wydział Aktorski, Budynek H\)/i, group: 'szkola-filmowa-h', name: 'Szkoła Filmowa - Wydział Aktorski, Budynek H' },
   { re: /Szkoła Filmowa w Łodzi,?\s*Budynek Z|Szkoła Filmowa w Łodzi\s*\(Budynek Z\)/i, group: 'szkola-filmowa-z', name: 'Szkoła Filmowa - Budynek Z' },
@@ -123,10 +126,15 @@ function extractShowTitle(paragraphHtml) {
 }
 
 // ============ Kategoryzacja: film vs wydarzenie ============
+// "Otwarcie Festiwalu, [TYTUŁ FILMU], reż. ..." — tytuł poprzedzony słowem kluczowym,
+// ale to nadal film. Wcześniejszy regex odrzucał "Otwarcie Festiwalu" bezwarunkowo,
+// co eliminowało film taki jak "Dziki Dziki Wschód". Teraz: odrzucamy tylko jeśli w tekście
+// nie ma "reż." (bo wtedy to nie film).
 function isFilmEvent(text) {
-  if (/(otwarcie recepcji|otwarcie festiwalu|klub festiwalowy|afterparty)/i.test(text)) return false;
+  if (/otwarcie recepcji/i.test(text)) return false;
+  if (/^od \d{1,2}:\d{2}\s/i.test(text) && /klubu|afterparty/i.test(text)) return false;
   if (/FILM DOSTĘPNY Z AUDIODESKRYPCJ/i.test(text)) return true;
-  if (/reż\.?\s/i.test(text)) return true;
+  if (/re\.?[żz]\.?\s/i.test(text)) return true;
   if (/pokaz przedpremierowy|polska premiera/i.test(text)) return true;
   return false;
 }
@@ -138,10 +146,10 @@ function isFilmEvent(text) {
 // traktujemy pierwsze jako runtime i kolejne jako część tego samego wydarzenia.
 function parseRuntime(text) {
   // Najpierw szukamy "(XX')" tuż przed "+ Q&A" / "+ INTRO" / "+ dyskusja" — jeśli jest, to runtime filmu
-  const explicit = text.match(/\((\d{1,3})\s*['′]\)\s*(?:\+\s*(?:Q&A|INTRO|INTRO Nauka|dyskusja))/i);
+  const explicit = text.match(/\((\d{1,3})\s*['′]?\)\s*(?:\+\s*(?:Q&A|INTRO|INTRO Nauka|dyskusja))/i);
   if (explicit) return parseInt(explicit[1], 10);
-  // W przeciwnym razie bierzemy pierwsze wystąpienie
-  const m = text.match(/\((\d{1,3})\s*['′]\)/);
+  // W przeciwnym razie bierzemy pierwsze wystąpienie (z lub bez ′ — strona festiwalu czasem pomija)
+  const m = text.match(/\((\d{1,3})\s*['′]?\)/);
   return m ? parseInt(m[1], 10) : null;
 }
 
@@ -182,8 +190,10 @@ function parseFlags(text) {
 
 function parseDirector(text) {
   // "reż. Jan Holoubek" / "reż. Claude Chabrol" — kończy się przed nawiasem z runtime
-  // Akceptujemy też oryginalną pisownię "re. Imię Nazwisko"
-  const m = text.match(/re\.?[żz]\.?\s+([A-ZŁŚŻŹĆĄĘŃÓ][^()]+?)\s*\(\d{1,3}\s*['′]\)/i);
+  // Akceptujemy też oryginalną pisownię "re. Imię Nazwisko" oraz brak ′ przed ) (strona ma literówki).
+  // Dopuszczamy też wielu reżyserów oddzielonych przecinkiem: "Tizza Covi, Rainer Frimmel".
+  // \p{Lu} = unicode uppercase (łapie İ dla tureckiego, Ł dla polskiego itp.).
+  const m = text.match(/re\.?[żz]\.?\s+((?:\p{Lu}[\p{L}\p{M}\s.',’\-]+?,\s*)*\p{Lu}[\p{L}\p{M}\s.'’\-]+?)\s*\(\d{1,3}\s*['′]?\)/u);
   return m ? m[1].trim().replace(/\s+/g, ' ') : null;
 }
 
