@@ -254,6 +254,7 @@
       border-radius: 10px;
     }
     .pin { background: var(--pin); color: #000; font-size: .65rem; padding: 0 .35rem; border-radius: 4px; margin-left: .35rem; vertical-align: middle; }
+    .rejected-header { color: var(--text-3); border-top: 1px dashed var(--border); padding-top: 1rem; }
     .preshow-badge {
       display: inline-block;
       background: var(--surface-2);
@@ -264,6 +265,42 @@
       border-radius: 4px;
       margin-top: .25rem;
       font-weight: 500;
+    }
+    /* Rejected film — when shown via "Pokaż odrzucone" toggle */
+    .screening.rejected { background: var(--surface-2); border-style: dashed; }
+    .screening.rejected .title {
+      text-decoration: line-through;
+      color: var(--text-3);
+      font-weight: 500;
+    }
+    .screening.rejected .meta { color: var(--text-3); }
+    .screening-actions {
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+      align-items: flex-end;
+      margin-top: 2px;
+    }
+    .toggle-reject {
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text-3);
+      cursor: pointer;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      font-size: .9rem;
+      line-height: 1;
+    }
+    .toggle-reject:hover { border-color: var(--conflict-border); color: var(--conflict-text); }
+    .toggle-reject.checked {
+      background: var(--conflict-border);
+      border-color: var(--conflict-border);
+      color: #fff;
     }
     .legend {
       display: flex;
@@ -291,6 +328,7 @@
       font-size: .85rem;
       color: var(--text-2);
     }
+    .toolbar.toolbar-filter { margin-top: -.25rem; margin-bottom: .75rem; }
     .transitions-filter-toggle small { color: var(--text-3); font-size: .75rem; }
     .transitions-filter-toggle input { width: 1rem; height: 1rem; cursor: pointer; }
     .transition-row {
@@ -572,6 +610,12 @@
         <div class="summary" id="daySummary"></div>
         <button class="btn" id="clearDayBtn" type="button">Wyczyść dzień</button>
       </div>
+      <div class="toolbar toolbar-filter">
+        <label class="transitions-filter-toggle">
+          <input type="checkbox" id="dayShowUnwanted" />
+          <span>Pokaż odrzucone (<span id="dayUnwantedCount">0</span>)</span>
+        </label>
+      </div>
       <ul class="screenings" id="screeningsList"></ul>
     </section>
 
@@ -579,6 +623,12 @@
       <div class="toolbar">
         <div class="summary" id="planSummary"></div>
         <button class="btn" id="clearAllBtn" type="button">Wyczyść wszystko</button>
+      </div>
+      <div class="toolbar toolbar-filter">
+        <label class="transitions-filter-toggle">
+          <input type="checkbox" id="planShowUnwanted" />
+          <span>Pokaż odrzucone (<span id="planUnwantedCount">0</span>)</span>
+        </label>
       </div>
       <div class="share-bar">
         <div class="share-buttons">
@@ -669,6 +719,7 @@
     const STORAGE_KEY = 'fka2026.selected.v1';
     const TRANSITIONS_KEY = 'fka2026.transitions.v1';
     const SETTINGS_KEY = 'fka2026.settings.v1';
+    const UNWANTED_KEY = 'fka2026.unwanted.v1';
     const DEFAULT_TRANSITION_MIN = 15; // default walking time between different venueGroups
     const DEFAULT_PRE_SHOW_MIN = 10; // minutes of pre-show (ads/trailers) before each film
 
@@ -790,6 +841,7 @@
         v: 1, // schema version
         app: 'fka2026',
         selected: [...selected],
+        unwanted: [...unwanted],
         transitions: [...transitions.entries()],
         settings: { ...settings },
       };
@@ -804,6 +856,19 @@
           data && data.screenings.some(s => s.id === id)
         ));
         saveSelected();
+      }
+      // unwanted is optional for backward compatibility with old snapshots —
+      // missing field leaves the current set untouched.
+      if (Array.isArray(snap.unwanted)) {
+        unwanted = new Set(snap.unwanted.filter(id =>
+          typeof id === 'string' && data && data.screenings.some(s => s.id === id)
+        ));
+        // Maintain invariant: import cannot leave selected ∩ unwanted non-empty.
+        if (unwanted.size) {
+          for (const id of unwanted) if (selected.has(id)) selected.delete(id);
+          saveSelected();
+        }
+        saveUnwanted();
       }
       if (Array.isArray(snap.transitions)) {
         transitions = new Map(
@@ -874,12 +939,14 @@
       if (!banner || !meta) return;
 
       const nSelected = Array.isArray(snap.selected) ? snap.selected.length : 0;
+      const nUnwanted = Array.isArray(snap.unwanted) ? snap.unwanted.length : 0;
       const nTransitions = Array.isArray(snap.transitions) ? snap.transitions.length : 0;
       const preShowMin = snap.settings?.preShowMinutes;
       const preShowEn = snap.settings?.preShowEnabled;
 
       const parts = [];
       parts.push(`${nSelected} seansów`);
+      if (nUnwanted > 0) parts.push(`${nUnwanted} odrzuconych`);
       parts.push(`${nTransitions} własnych przejść`);
       if (preShowMin !== undefined) {
         parts.push(`reklamy: ${preShowEn === false ? 'wyłączone' : preShowMin + ' min'}`);
@@ -918,6 +985,10 @@
     let data = null;
     /** @type {Set<string>} */
     let selected = new Set();
+    /** @type {Set<string>} films the user does NOT want to watch. */
+    let unwanted = new Set();
+    /** @type {boolean} ephemeral UI state — show rejected films in day/plan views. */
+    let showUnwanted = false;
 
     /** Snapshot from ?import= awaiting user accept/reject. */
     let pendingSnap = null;
@@ -937,8 +1008,10 @@
       }
 
       loadSelected();
+      loadUnwanted();
       loadTransitions();
       loadSettings();
+      reconcileUnwanted();
       renderTabs();
       renderActiveView();
 
@@ -1025,6 +1098,10 @@
         if (e.key === STORAGE_KEY) {
           loadSelected();
           renderActiveView();
+        } else if (e.key === UNWANTED_KEY) {
+          loadUnwanted();
+          reconcileUnwanted();
+          renderActiveView();
         }
       });
 
@@ -1039,6 +1116,17 @@
         if (s && s.details) {
           openDetailsModal(s);
         }
+      });
+
+      // Reject button (✕) — wired once, survives re-renders.
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-reject]');
+        if (!btn) return;
+        e.preventDefault();
+        e.stopPropagation();
+        const id = btn.dataset.reject;
+        setRejected(id, !unwanted.has(id));
+        renderActiveView();
       });
     }
 
@@ -1057,6 +1145,52 @@
       } catch (e) {
         console.warn('localStorage save failed', e);
       }
+    }
+
+    function loadUnwanted() {
+      try {
+        const raw = localStorage.getItem(UNWANTED_KEY);
+        const arr = raw ? JSON.parse(raw) : [];
+        unwanted = new Set(Array.isArray(arr) ? arr.filter(x => typeof x === 'string') : []);
+      } catch {
+        unwanted = new Set();
+      }
+    }
+    function saveUnwanted() {
+      try {
+        localStorage.setItem(UNWANTED_KEY, JSON.stringify([...unwanted]));
+      } catch (e) {
+        console.warn('localStorage save (unwanted) failed', e);
+      }
+    }
+
+    /**
+     * Single mutator for the unwanted set. Enforces the invariant
+     * selected ∩ unwanted = ∅ by removing the id from selected first
+     * when marking unwanted, and persisting both sets.
+     */
+    function setRejected(id, rejected) {
+      if (rejected) {
+        if (selected.has(id)) {
+          selected.delete(id);
+          saveSelected();
+        }
+        unwanted.add(id);
+      } else {
+        unwanted.delete(id);
+      }
+      saveUnwanted();
+    }
+
+    /** Drop IDs that no longer exist in the program (e.g. after a data refresh). */
+    function reconcileUnwanted() {
+      if (!data) return;
+      const valid = new Set(data.screenings.map(s => s.id));
+      let changed = false;
+      for (const id of unwanted) {
+        if (!valid.has(id)) { unwanted.delete(id); changed = true; }
+      }
+      if (changed) saveUnwanted();
     }
 
     // ============ Tabs ============
@@ -1133,11 +1267,14 @@
         ? [...data.screenings].sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start))
         : data.screenings.filter(s => s.day === day).sort((a, b) => a.start.localeCompare(b.start));
 
+      // Filter unwanted unless toggle is on
+      const filtered = showUnwanted ? list : list.filter(s => !unwanted.has(s.id));
+
       // Group by day for "all" view
       const ul = document.getElementById('screeningsList');
       if (day === 'all') {
         const byDay = {};
-        for (const s of list) (byDay[s.day] ||= []).push(s);
+        for (const s of filtered) (byDay[s.day] ||= []).push(s);
         const dayNames = { 22: 'czwartek', 23: 'piątek', 24: 'sobota', 25: 'niedziela' };
         const parts = [];
         for (const d of Object.keys(byDay).map(Number).sort((a,b)=>a-b)) {
@@ -1146,8 +1283,24 @@
         }
         ul.innerHTML = parts.join('');
       } else {
-        ul.innerHTML = list.map(screeningToListItem).join('');
+        ul.innerHTML = filtered.map(screeningToListItem).join('');
       }
+
+      // Update filter counter (count in scope, even if hidden)
+      const dayUnwantedCount = list.filter(s => unwanted.has(s.id)).length;
+      const dayCountEl = document.getElementById('dayUnwantedCount');
+      if (dayCountEl) dayCountEl.textContent = String(dayUnwantedCount);
+
+      // Wire the toggle (once)
+      const dayToggle = document.getElementById('dayShowUnwanted');
+      if (dayToggle && !dayToggle.dataset.wired) {
+        dayToggle.dataset.wired = '1';
+        dayToggle.addEventListener('change', () => {
+          showUnwanted = dayToggle.checked;
+          renderDay();
+        });
+      }
+      if (dayToggle) dayToggle.checked = showUnwanted;
 
       // Compute conflicts against the selection
       const conflictsById = computeConflicts();
@@ -1174,8 +1327,13 @@
         btn.setAttribute('aria-pressed', String(isSel));
         btn.textContent = isSel ? '✓' : '+';
         btn.onclick = () => {
-          if (selected.has(id)) selected.delete(id);
-          else selected.add(id);
+          if (selected.has(id)) {
+            selected.delete(id);
+          } else {
+            // Maintain invariant: cannot be in both sets.
+            if (unwanted.has(id)) { unwanted.delete(id); saveUnwanted(); }
+            selected.add(id);
+          }
           saveSelected();
           // Re-render whole view so plan tab counter updates too
           renderTabs();
@@ -1214,8 +1372,11 @@
       const runtimeLabel = s.runtime
         ? `${s.runtime} min${s.extraMinutes ? ` + ${s.extraMinutes} min` : ''}${settings.preShowEnabled && ft.preShow > 0 ? ` + ${ft.preShow} min reklam` : ''}`
         : '';
+      const isRejected = unwanted.has(s.id);
+      const klass = `screening${isRejected ? ' rejected' : ''}`;
+      const rejectBtnClass = `toggle-reject${isRejected ? ' checked' : ''}`;
       return `
-        <li class="screening" data-id="${escapeHtml(s.id)}">
+        <li class="${klass}" data-id="${escapeHtml(s.id)}">
           <div class="time">${timeLabel}</div>
           <div class="body">
             <p class="title">${titleEsc}</p>
@@ -1229,7 +1390,10 @@
             <ul class="conflict-list hidden"></ul>
             ${s.details ? `<button type="button" class="details-btn" data-details="${escapeHtml(s.id)}">Szczegóły filmu →</button>` : ''}
           </div>
-          <button type="button" class="toggle" aria-pressed="false" aria-label="Zaznacz seans"></button>
+          <div class="screening-actions">
+            <button type="button" class="${rejectBtnClass}" data-reject="${escapeHtml(s.id)}" aria-pressed="${isRejected}" aria-label="${isRejected ? 'Przywróć z odrzuconych' : 'Odrzuć — nie chcę oglądać'}">✕</button>
+            <button type="button" class="toggle" aria-pressed="false" aria-label="Zaznacz seans"></button>
+          </div>
         </li>
       `;
     }
@@ -1252,7 +1416,10 @@
      * Only considers pairs of selected screenings.
      */
     function computeConflicts() {
-      const ids = [...selected];
+      // Unwanted films are excluded entirely — they don't constrain the
+      // user's real plan. The invariant selected ∩ unwanted = ∅ is enforced
+      // by setRejected(), so this filter is a defence-in-depth.
+      const ids = [...selected].filter(id => !unwanted.has(id));
       const map = {};
       const sel = ids.map(id => data.screenings.find(s => s.id === id)).filter(Boolean);
       for (const s of sel) map[s.id] ||= { overlap: false, travel: false, items: [] };
@@ -1313,7 +1480,23 @@
         .filter(s => selected.has(s.id))
         .sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start));
 
-      if (items.length === 0) {
+      // Wire the unwanted toggle (once) and update counter
+      const planToggle = document.getElementById('planShowUnwanted');
+      if (planToggle && !planToggle.dataset.wired) {
+        planToggle.dataset.wired = '1';
+        planToggle.addEventListener('change', () => {
+          showUnwanted = planToggle.checked;
+          renderPlan();
+        });
+      }
+      if (planToggle) planToggle.checked = showUnwanted;
+      const unwantedCount = data.screenings.filter(s => unwanted.has(s.id)).length;
+      const planCountEl = document.getElementById('planUnwantedCount');
+      if (planCountEl) planCountEl.textContent = String(unwantedCount);
+
+      // Plan always shows selected. When toggle is on, append rejected list
+      // under a separate header for transparency.
+      if (items.length === 0 && !showUnwanted) {
         ul.innerHTML = `<li class="selected-empty">Nic nie wybrałeś. Przejdź do dnia i klikaj +, żeby dodać filmy do planu.</li>`;
         document.getElementById('planSummary').innerHTML = '';
         return;
@@ -1325,53 +1508,93 @@
 
       const dayNames = { 22: 'czw', 23: 'pt', 24: 'sob', 25: 'niedz' };
       let prevDay = null;
-      ul.innerHTML = items.map(s => {
-        const showDay = s.day !== prevDay;
-        prevDay = s.day;
-        const dayHeader = showDay
-          ? `<li class="day-header">${s.day} października <small>(${dayNames[s.day]})</small></li>`
-          : '';
-        const klass = conflictsById[s.id]?.overlap ? 'has-conflict'
-          : conflictsById[s.id]?.travel ? 'has-warn' : '';
-        const conflictList = conflictsById[s.id]?.items?.length
-          ? `<ul class="conflict-list">${conflictsById[s.id].items.map(formatConflict).join('')}</ul>`
-          : '';
-        const ft = filmTimes(s);
-        const timeLabel = settings.preShowEnabled && ft.preShow > 0
-          ? `${ft.filmStart}<span class="end">→ ${ft.filmEnd}</span><span class="preshow-badge">+${ft.preShow} min</span>`
-          : `${ft.filmStart}<span class="end">→ ${ft.filmEnd}</span>`;
-        return `${dayHeader}<li class="screening ${klass}" data-id="${escapeHtml(s.id)}">
-          <div class="time">${timeLabel}</div>
-          <div class="body">
-            <p class="title">${escapeHtml(s.title)}${s.flags.includes('przedpremierowy') ? '<span class="pin">przedpremiera</span>' : ''}</p>
-            <div class="meta">
-              ${s.director ? `<span>${escapeHtml(s.director)}</span>` : ''}
-              <span class="venue">${escapeHtml(s.venueName)}</span>
-              ${s.section ? `<span>· ${escapeHtml(s.section)}</span>` : ''}
+      const parts = [];
+      if (items.length > 0) {
+        for (const s of items) {
+          const showDay = s.day !== prevDay;
+          prevDay = s.day;
+          const dayHeader = showDay
+            ? `<li class="day-header">${s.day} października <small>(${dayNames[s.day]})</small></li>`
+            : '';
+          const klass = conflictsById[s.id]?.overlap ? 'has-conflict'
+            : conflictsById[s.id]?.travel ? 'has-warn' : '';
+          const conflictList = conflictsById[s.id]?.items?.length
+            ? `<ul class="conflict-list">${conflictsById[s.id].items.map(formatConflict).join('')}</ul>`
+            : '';
+          const ft = filmTimes(s);
+          const timeLabel = settings.preShowEnabled && ft.preShow > 0
+            ? `${ft.filmStart}<span class="end">→ ${ft.filmEnd}</span><span class="preshow-badge">+${ft.preShow} min</span>`
+            : `${ft.filmStart}<span class="end">→ ${ft.filmEnd}</span>`;
+          parts.push(`${dayHeader}<li class="screening ${klass}" data-id="${escapeHtml(s.id)}">
+            <div class="time">${timeLabel}</div>
+            <div class="body">
+              <p class="title">${escapeHtml(s.title)}${s.flags.includes('przedpremierowy') ? '<span class="pin">przedpremiera</span>' : ''}</p>
+              <div class="meta">
+                ${s.director ? `<span>${escapeHtml(s.director)}</span>` : ''}
+                <span class="venue">${escapeHtml(s.venueName)}</span>
+                ${s.section ? `<span>· ${escapeHtml(s.section)}</span>` : ''}
+              </div>
+              ${conflictList}
+              ${s.details ? `<button type="button" class="details-btn" data-details="${escapeHtml(s.id)}">Szczegóły filmu →</button>` : ''}
             </div>
-            ${conflictList}
-            ${s.details ? `<button type="button" class="details-btn" data-details="${escapeHtml(s.id)}">Szczegóły filmu →</button>` : ''}
-          </div>
-          <button type="button" class="toggle checked" aria-pressed="true">✓</button>
-        </li>`;
-      }).join('');
+            <div class="screening-actions">
+              <button type="button" class="toggle-reject${unwanted.has(s.id) ? ' checked' : ''}" data-reject="${escapeHtml(s.id)}" aria-pressed="${unwanted.has(s.id)}" aria-label="${unwanted.has(s.id) ? 'Przywróć z odrzuconych' : 'Odrzuć — nie chcę oglądać'}">✕</button>
+              <button type="button" class="toggle checked" aria-pressed="true">✓</button>
+            </div>
+          </li>`);
+        }
+      }
+      // Rejected (when toggle on)
+      if (showUnwanted && unwantedCount > 0) {
+        if (items.length > 0) {
+          parts.push(`<li class="day-header rejected-header">Odrzucone</li>`);
+        }
+        const rejItems = data.screenings
+          .filter(s => unwanted.has(s.id))
+          .sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start));
+        for (const s of rejItems) {
+          const ft = filmTimes(s);
+          const timeLabel = settings.preShowEnabled && ft.preShow > 0
+            ? `${ft.filmStart}<span class="end">→ ${ft.filmEnd}</span><span class="preshow-badge">+${ft.preShow} min</span>`
+            : `${ft.filmStart}<span class="end">→ ${ft.filmEnd}</span>`;
+          parts.push(`<li class="screening rejected" data-id="${escapeHtml(s.id)}">
+            <div class="time">${timeLabel}</div>
+            <div class="body">
+              <p class="title">${escapeHtml(s.title)}</p>
+              <div class="meta">
+                <span>${s.day} października</span>
+                <span class="venue">${escapeHtml(s.venueName)}</span>
+              </div>
+            </div>
+            <div class="screening-actions">
+              <button type="button" class="toggle-reject checked" data-reject="${escapeHtml(s.id)}" aria-pressed="true" aria-label="Przywróć z odrzuconych">✕</button>
+            </div>
+          </li>`);
+        }
+      }
+      ul.innerHTML = parts.join('') ||
+        `<li class="selected-empty">Nic nie wybrałeś. Przejdź do dnia i klikaj +, żeby dodać filmy do planu.</li>`;
 
-      // Wire toggles
+      // Wire toggles (only for selected-list rows; reject button is event-delegated)
       ul.querySelectorAll('.screening').forEach(el => {
         const id = el.dataset.id;
-        el.querySelector('.toggle').onclick = () => {
-          selected.delete(id);
-          saveSelected();
-          renderTabs();
-          renderActiveView();
-        };
-        // details-btn: event delegated, wired once in init()
+        const t = el.querySelector('.toggle');
+        if (t) {
+          t.onclick = () => {
+            selected.delete(id);
+            saveSelected();
+            renderTabs();
+            renderActiveView();
+          };
+        }
       });
 
-      document.getElementById('planSummary').innerHTML =
-        `<strong>${items.length}</strong> wybranych` +
-        (overlaps ? ` · <span class="bad">${overlaps} kolizji</span>` : '') +
-        (travel ? ` · <span class="warn">${travel} zbyt ciasno</span>` : '');
+      const summaryParts = [];
+      summaryParts.push(`<strong>${items.length}</strong> wybranych`);
+      if (unwantedCount > 0) summaryParts.push(`${unwantedCount} odrzuconych`);
+      if (overlaps) summaryParts.push(`<span class="bad">${overlaps} kolizji</span>`);
+      if (travel) summaryParts.push(`<span class="warn">${travel} zbyt ciasno</span>`);
+      document.getElementById('planSummary').innerHTML = summaryParts.join(' · ');
     }
 
     // ============ Details modal ============

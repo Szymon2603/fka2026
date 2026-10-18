@@ -199,6 +199,15 @@ W zakładce **Czasy przejść** możesz nadpisać domyślne 15 min dla każdej p
 
 W zakładce **Ustawienia** możesz włączyć/wyłączyć blok reklam przed filmami oraz zmienić jego długość (0–60 min, domyślnie 10). Godziny na stronie festiwalu to początek seansu (reklamy + film), więc apka odejmuje ten czas przy wyświetlaniu godziny startu samego filmu. Algorytm kolizji też operuje na rzeczywistym czasie filmu — np. `Niewierna żona` (rekl. 10 + film 98 = 108 min) kończy się o `20:18`, nie `20:08`.
 
+## Oznaczanie odrzuconych filmów
+
+Trzy niezależne stany: neutralny, **wybrany** (✓), **odrzucony** (✕). Filmu nie można mieć jednocześnie w planie i na liście odrzuconych — kliknięcie ✕ na wybranym filmie automatycznie usuwa go z planu.
+
+- Przycisk **✕** obok ✓ przy każdym filmie (day-view i plan-view).
+- **Pokaż odrzucone (N)** — toolbar w day-view i plan-view. Domyślnie wyłączony, nie zapisywany w `localStorage`. Po włączeniu odrzucone filmy pojawiają się z przekreślonym tytułem i szarym tłem.
+- Odrzucony film **nie wchodzi w kolizje** — skoro go nie obejrzę, nie koliduje z innymi.
+- Eksport/import: w snapsecie (`?import=` i JSON) jest pole `unwanted: [...]`. Stare snapshoty bez tego pola nadal importują się poprawnie (pole opcjonalne).
+
 ## Udostępnianie planu
 
 Zakładka **Plan** (trzecia zakładka, obok dat) ma trzy przyciski:
